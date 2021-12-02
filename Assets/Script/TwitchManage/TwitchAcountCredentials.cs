@@ -10,8 +10,8 @@ public class TwitchAcountCredentials : MonoBehaviour
 
     public TwitchAcountCredentials()
     {
-        BotUsername = "Bigrouille";
-        TwitchAcountName = "Bigrouille";
+        BotUsername = "bigrouille";
+        TwitchAcountName = "bigrouille";
         OauthPassword = "oauth:l0nz41jlsxigahtg4p4yom4s3twfcq";
     }
 }
