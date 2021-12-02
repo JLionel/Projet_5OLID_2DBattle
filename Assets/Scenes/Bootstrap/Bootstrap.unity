@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenesToLoad:
   - Managers
-  - UI
+  - MainMenu
   - Audio
   - Camera
 --- !u!4 &222584657
