@@ -86,7 +86,7 @@ public class TwitchChatConnected : MonoBehaviour
                 splitPoint = chatMessage.IndexOf(":", 1, StringComparison.Ordinal);
                 chatMessage = chatMessage.Substring(splitPoint + 1);
 
-                if (chatMessage.StartsWith(TwitchCommands.CommandPrefix))
+                if (chatMessage.StartsWith(CommandsPrefix.Prefix))
                 {
                     Debug.Log("It's a command !");
                     int index = chatMessage.IndexOf(" ");
