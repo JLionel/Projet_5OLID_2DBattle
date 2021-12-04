@@ -9,7 +9,7 @@ public class TwitchChatConnected : MonoBehaviour
 {
     private static TwitchChatConnected _tccInstance;
 
-    public TwitchChatConnected Instance()
+    public static TwitchChatConnected Instance()
     {
         if(!_tccInstance)
             _tccInstance = new TwitchChatConnected();
@@ -29,6 +29,9 @@ public class TwitchChatConnected : MonoBehaviour
         _tccInstance = this;
         
         _commandsCollection.Init();
+
+        //TODO put this on another script, here just for test
+        Application.runInBackground = true;
     }
 
     private void Start()
@@ -53,8 +56,8 @@ public class TwitchChatConnected : MonoBehaviour
         _writer = new StreamWriter(_twitchClient.GetStream());
         
         _writer.WriteLine($"PASS {twitchAcountCredentials.OauthPassword}");
-        _writer.WriteLine($"NICK {twitchAcountCredentials.BotUsername}");
-        _writer.WriteLine($"USER {twitchAcountCredentials.BotUsername} 8 * {twitchAcountCredentials.BotUsername}");
+        _writer.WriteLine($"NICK {twitchAcountCredentials.Username}");
+        _writer.WriteLine($"USER {twitchAcountCredentials.Username} 8 * {twitchAcountCredentials.Username}");
         _writer.WriteLine($"JOIN #{twitchAcountCredentials.TwitchAcountName}");
         _writer.Flush();
     }
