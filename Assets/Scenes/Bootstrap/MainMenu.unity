@@ -1166,6 +1166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1871344666}
+  - component: {fileID: 1871344667}
   m_Layer: 0
   m_Name: EventListener
   m_TagString: Untagged
@@ -1187,6 +1188,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1871344667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871344665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22436fecc43b48c49b5218bc25a9dcce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 0}
+  onEventRaised:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1991714950
 GameObject:
   m_ObjectHideFlags: 0
