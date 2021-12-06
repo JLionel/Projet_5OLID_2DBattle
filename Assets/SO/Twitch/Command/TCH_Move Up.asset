@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6440495147e75244387ad9a4d9c20366, type: 3}
   m_Name: TCH_Move Up
   m_EditorClassIdentifier: 
-  direction: 1
+  direction: 0

@@ -14,5 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _keys:
   - message
+  - join
+  - z
+  - s
+  - q
+  - d
   _values:
   - {fileID: 11400000, guid: 60228c46f3a8975418a86368ca76449b, type: 2}
+  - {fileID: 11400000, guid: b8b40a0afbb7c3745b61836888e2e537, type: 2}
+  - {fileID: 11400000, guid: 2af44d82f51097b4ab96e5a2f5f0c32d, type: 2}
+  - {fileID: 11400000, guid: 05a57f3cb1c353046bb3a29ec86d01ef, type: 2}
+  - {fileID: 11400000, guid: 5f91d1607dee3fa48bafc848c6d732d6, type: 2}
+  - {fileID: 11400000, guid: 3b7e2507a62d17e4fbdf89080371a294, type: 2}
