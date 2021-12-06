@@ -23,6 +23,8 @@ public class TwitchChatConnected : MonoBehaviour
     private StreamReader _reader;
     private StreamWriter _writer;
 
+    [SerializeField] private TwitchAcountCredentials twitchAcountCredentials;
+
 
     private void Awake()
     {
@@ -36,7 +38,7 @@ public class TwitchChatConnected : MonoBehaviour
 
     private void Start()
     {
-        ConnectClient(new TwitchAcountCredentials());
+        ConnectClient();
     }
 
     private void Update()
@@ -49,7 +51,7 @@ public class TwitchChatConnected : MonoBehaviour
     }
 
 
-    public void ConnectClient(TwitchAcountCredentials twitchAcountCredentials)
+    public void ConnectClient()
     {
         _twitchClient = new TcpClient("irc.chat.twitch.tv", 6667);
         _reader = new StreamReader(_twitchClient.GetStream());
@@ -104,6 +106,16 @@ public class TwitchChatConnected : MonoBehaviour
         else
         {
             Debug.Log("not Available");
+        }
+    }
+
+
+    public void WriteMessage(string Message)
+    {
+        if (_twitchClient.Connected)
+        {
+            _writer.WriteLine($"PRIVMSG #{twitchAcountCredentials.TwitchAcountName} :{Message}");
+            _writer.Flush();
         }
     }
     

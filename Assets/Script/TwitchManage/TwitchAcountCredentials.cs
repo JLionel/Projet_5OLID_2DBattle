@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TwitchAcountCredentials : MonoBehaviour
+[CreateAssetMenu (menuName = "Twitch/Credentials")]
+public class TwitchAcountCredentials : ScriptableObject
 {
-    public string Username;
-    public string TwitchAcountName;
-    public string OauthPassword;
+    public string Username { get; set; }
+    public string TwitchAcountName{ get; set; }
+    public string OauthPassword{ get; set; }
 
     public TwitchAcountCredentials()
     {
