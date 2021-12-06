@@ -8,6 +8,6 @@ public class TCH_JoinGame : TwitchCommandHandler
     //TODO implement the join command
     public override void HandleCommand(MessageData data)
     {
-        throw new System.NotImplementedException();
+        //Test if player already joined
     }
 }
