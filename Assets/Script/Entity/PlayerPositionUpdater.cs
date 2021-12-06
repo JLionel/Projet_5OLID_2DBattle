@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class PlayerPositionUpdater : MonoBehaviour
 {
-    public PlayerPosition PlayerPosition;
+    public PlayerPositions PlayerPositions;
+    public PlayerIndexManager PlayerIndexManager;
 
     public void OnPlayerPositionChanged()
     {
-        if (!PlayerPosition) return;
-        Vector2 PlayerPositionVector = PlayerPosition.GetValue();
+        if (!PlayerPositions) return;
+        if (!PlayerIndexManager) return;
+        if (PlayerIndexManager.PlayerIndex == 0) return;
+
+        Vector2 PlayerPositionVector = PlayerPositions.GetPosition(PlayerIndexManager.PlayerIndex);
         transform.position = new Vector3(PlayerPositionVector.x, PlayerPositionVector.y, 0);
     }
 }

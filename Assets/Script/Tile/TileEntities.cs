@@ -7,10 +7,10 @@ public class TileEntities : ScriptableObject
 {
     public Dictionary<Vector2, GameObject> TileEntitiesList = new Dictionary<Vector2, GameObject>();
 
-    public bool IsTileOccupied(Vector2 Position)
+    public bool IsTileFree(Vector2 Position)
     {
         if (!TileEntitiesList.ContainsKey(Position)) return false;
-        if (TileEntitiesList[Position]) { return true; }
+        if (!TileEntitiesList[Position]) { return true; }
         return false;
     }
 }

@@ -420,5 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 24280859430499016, guid: 69372375768a27440800353622d0f232, type: 3}
   Tiles: {fileID: 11400000, guid: c4ca55658cb4f864989892f7676d3dae, type: 2}
-  SpawnPosition: {fileID: 11400000, guid: 9115151ed2c1f7247b46f1a900568d6f, type: 2}
-  PlayerPosition: {fileID: 11400000, guid: cabc856465b583e49835ef8d23795ca8, type: 2}
+  TileEntities: {fileID: 11400000, guid: c7ab012b5d2fe014da5508e7f4265bc6, type: 2}
+  SpawnPositions: {fileID: 11400000, guid: c72849fe80ff3ac4686724cce9f232f0, type: 2}
+  PlayerPositions: {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
+  PlayerNames: {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}

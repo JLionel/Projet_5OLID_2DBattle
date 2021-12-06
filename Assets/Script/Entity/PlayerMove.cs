@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerMove : MyMonoBehaviour
 {
-    public PlayerPosition PlayerPosition;
+    public PlayerPositions PlayerPositions;
     public Tiles Tiles;
-    public TileEntities TileEntities; 
+    public TileEntities TileEntities;
+    public PlayerIndexManager PlayerIndexManager;
     public override void DoStart()
     {
 
@@ -33,16 +34,19 @@ public class PlayerMove : MyMonoBehaviour
 
     private void Move(Vector2 Direction)
     {
-        if (Direction.magnitude != 1 || !(Direction.x == -1 || Direction.x == 0 || Direction.x == 1) || !(Direction.y == -1 || Direction.y == 0 || Direction.y == 1)) return;
-        Vector2 Position = PlayerPosition.GetValue();
+        if (!(Direction.magnitude == 1 && (Direction.x == 0 || Direction.y == 0))) return;
+        if (!PlayerIndexManager) return;
+        if (PlayerIndexManager.PlayerIndex == 0) return;
+
+        Vector2 Position = PlayerPositions.GetPosition(PlayerIndexManager.PlayerIndex);
         Vector2 NewPosition = Position + Direction;
 
         if (!Tiles.Exists(NewPosition)) return;
-        if (TileEntities.IsTileOccupied(NewPosition)) return;
+        if (!TileEntities.IsTileFree(NewPosition)) return;
 
         LeaveTile(Position);
         JoinTile(NewPosition);
-        PlayerPosition.SetValue(NewPosition);
+        PlayerPositions.SetPosition(PlayerIndexManager.PlayerIndex, NewPosition);
     }
 
     private void LeaveTile(Vector2 Position)
