@@ -8,10 +8,8 @@ public class PlayerMove : MyMonoBehaviour
     public Tiles Tiles;
     public TileEntities TileEntities;
     public PlayerIndexManager PlayerIndexManager;
-    public override void DoStart()
-    {
+    public Entity Entity;
 
-    }
     public override void DoUpdate()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -36,9 +34,9 @@ public class PlayerMove : MyMonoBehaviour
     {
         if (!(Direction.magnitude == 1 && (Direction.x == 0 || Direction.y == 0))) return;
         if (!PlayerIndexManager) return;
-        if (PlayerIndexManager.PlayerIndex == 0) return;
+        if (PlayerIndexManager.Index == 0) return;
 
-        Vector2 Position = PlayerPositions.GetPosition(PlayerIndexManager.PlayerIndex);
+        Vector2 Position = PlayerPositions.GetPosition(PlayerIndexManager.Index);
         Vector2 NewPosition = Position + Direction;
 
         if (!Tiles.Exists(NewPosition)) return;
@@ -46,15 +44,15 @@ public class PlayerMove : MyMonoBehaviour
 
         LeaveTile(Position);
         JoinTile(NewPosition);
-        PlayerPositions.SetPosition(PlayerIndexManager.PlayerIndex, NewPosition);
+        PlayerPositions.SetPosition(PlayerIndexManager.Index, NewPosition);
     }
 
     private void LeaveTile(Vector2 Position)
     {
-        TileEntities.TileEntitiesList[Position] = null;
+        TileEntities.SetEntity(Position, null);
     }
     private void JoinTile(Vector2 Position)
     {
-        TileEntities.TileEntitiesList[Position] = gameObject;
+        TileEntities.SetEntity(Position, Entity);
     }
 }

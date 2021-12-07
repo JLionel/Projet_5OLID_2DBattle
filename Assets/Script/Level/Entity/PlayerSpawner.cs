@@ -9,8 +9,9 @@ public class PlayerSpawner : MyMonoBehaviour
     public TileEntities TileEntities;
     public Vector2ListVariable SpawnPositions;
     public PlayerPositions PlayerPositions;
-    public StringListVariable PlayerNames;
-    public override void DoStart()
+    public PlayerNames PlayerNames;
+
+    void Start()
     {
         for(int i = 0; i < 2; i++)
         {
@@ -24,31 +25,34 @@ public class PlayerSpawner : MyMonoBehaviour
 
     private void SpawnPlayer(string PlayerName)
     {
+        print(Tiles.TileList.Count);
+        print("yolo1");
         if (!SpawnPositions) { return; }
         if (!Tiles) { return; }
         if (!TileEntities) { return; }
         if (!PlayerPrefab) { return; }
+        print("yolo2");
         bool CanSpawn = false;
         Vector2 SpawnPosition = Vector2.zero;
         for (int i = 0; i < SpawnPositions.Value.Count; i++)
         {
-            print(TileEntities.IsTileFree(SpawnPositions.Value[i]));
-            if (Tiles.Exists(SpawnPositions.Value[i]) && TileEntities.IsTileFree(SpawnPositions.Value[i]))
+            SpawnPosition = SpawnPositions.Value[i];
+            print(Tiles.Exists(SpawnPosition) + "    " + TileEntities.IsTileFree(SpawnPosition));
+
+            if (Tiles.Exists(SpawnPosition) && TileEntities.IsTileFree(SpawnPosition))
             {
-                SpawnPosition = SpawnPositions.Value[i];
+                print("yolo");
                 CanSpawn = true;
                 break;
             }
         }
 
+        print("yolo3");
         if (!CanSpawn) { return; }
+        print("yolo4");
         GameObject Player = Instantiate(PlayerPrefab, new Vector3(SpawnPosition.x, SpawnPosition.y, 0), Quaternion.identity);
-        PlayerIndexManager PlayerIndexManager = Player.GetComponent(typeof(PlayerIndexManager)) as PlayerIndexManager;
-
-        if (!PlayerIndexManager) { return; }
-
-        PlayerIndexManager.PlayerIndex = PlayerNames.Value.Count;
-        PlayerNames.Value.Add(PlayerName);
-        PlayerPositions.AddNewPosition(SpawnPositions.Value[PlayerIndexManager.PlayerIndex]);
+        PlayerNames.NamesList.Add(PlayerName);
+        PlayerPositions.AddNewPosition(SpawnPositions.Value[PlayerNames.NamesList.Count]);
+        print("yolo7");
     }
 }

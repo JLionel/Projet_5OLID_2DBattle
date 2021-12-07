@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 24280859430499013}
-  - component: {fileID: -4559606060720485698}
+  - component: {fileID: -35052442067272799}
+  - component: {fileID: 9206942148212492061}
   - component: {fileID: 24280859430499014}
   - component: {fileID: -2776120674132748298}
   - component: {fileID: 7325286290080102478}
@@ -36,7 +37,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4559606060720485698
+--- !u!114 &-35052442067272799
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,10 +46,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 24280859430499016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd44df662302f1743a9e00abb09d449c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3919d5c9649bc4242aa37215a20a7465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerIndex: 0
+--- !u!114 &9206942148212492061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24280859430499016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50cd2d17c1829aa478fd12366eb9b227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Index: 0
+  PlayerNames: {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
 --- !u!114 &24280859430499014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +78,8 @@ MonoBehaviour:
   PlayerPositions: {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
   Tiles: {fileID: 11400000, guid: c4ca55658cb4f864989892f7676d3dae, type: 2}
   TileEntities: {fileID: 11400000, guid: c7ab012b5d2fe014da5508e7f4265bc6, type: 2}
-  PlayerIndexManager: {fileID: -4559606060720485698}
+  PlayerIndexManager: {fileID: 9206942148212492061}
+  Entity: {fileID: -35052442067272799}
 --- !u!114 &-2776120674132748298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPositions: {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
-  PlayerIndexManager: {fileID: -4559606060720485698}
+  PlayerIndexManager: {fileID: 9206942148212492061}
 --- !u!114 &7325286290080102478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _components:
-  - {fileID: -4559606060720485698}
+  - {fileID: 9206942148212492061}
   - {fileID: 24280859430499014}
 --- !u!1 &24280859958508795
 GameObject:

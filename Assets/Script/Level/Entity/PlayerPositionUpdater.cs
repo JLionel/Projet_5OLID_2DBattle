@@ -11,9 +11,8 @@ public class PlayerPositionUpdater : MonoBehaviour
     {
         if (!PlayerPositions) return;
         if (!PlayerIndexManager) return;
-        if (PlayerIndexManager.PlayerIndex == 0) return;
 
-        Vector2 PlayerPositionVector = PlayerPositions.GetPosition(PlayerIndexManager.PlayerIndex);
+        Vector2 PlayerPositionVector = PlayerPositions.GetPosition(PlayerIndexManager.Index);
         transform.position = new Vector3(PlayerPositionVector.x, PlayerPositionVector.y, 0);
     }
 }

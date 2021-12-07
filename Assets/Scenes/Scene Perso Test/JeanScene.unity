@@ -352,6 +352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1664425450}
+  - component: {fileID: 1664425452}
   - component: {fileID: 1664425448}
   - component: {fileID: 1664425451}
   - component: {fileID: 1664425449}
@@ -390,6 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _components:
+  - {fileID: 1664425452}
   - {fileID: 1664425448}
   - {fileID: 1664425451}
 --- !u!4 &1664425450
@@ -424,3 +426,20 @@ MonoBehaviour:
   SpawnPositions: {fileID: 11400000, guid: c72849fe80ff3ac4686724cce9f232f0, type: 2}
   PlayerPositions: {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
   PlayerNames: {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
+--- !u!114 &1664425452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664425447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c8af08f2e89ac48b541a88d0e4162c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelDatas:
+  - {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
+  - {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
+  - {fileID: 11400000, guid: c4ca55658cb4f864989892f7676d3dae, type: 2}
+  - {fileID: 11400000, guid: c7ab012b5d2fe014da5508e7f4265bc6, type: 2}

@@ -7,7 +7,7 @@ public class TileSpawner : MyMonoBehaviour
     public GameObject TilePrefab;
     public Tiles Tiles;
     public MapConfiguration MapConfiguration;
-    public override void DoStart()
+    void Start()
     {
         if (MapConfiguration)
         {
@@ -26,6 +26,5 @@ public class TileSpawner : MyMonoBehaviour
     {
         if (!TilePrefab) return;
         GameObject Tile = Instantiate(TilePrefab, new Vector3(Position.x, Position.y, 0), Quaternion.identity);
-        if (Tiles && Tile) { Tiles.TileList.Add(Position, Tile); }
     }
 }

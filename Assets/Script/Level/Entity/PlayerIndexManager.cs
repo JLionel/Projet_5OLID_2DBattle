@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerIndexManager : MyMonoBehaviour
 {
-    public int PlayerIndex;
+    public int Index;
+    public StringListVariable PlayerNames;
 
-    public override void DoStart()
+    void Start()
     {
-        
+        Index = PlayerNames.Value.Count - 1;
     }
-
     public override void DoUpdate()
     {
-        
+
     }
 }
