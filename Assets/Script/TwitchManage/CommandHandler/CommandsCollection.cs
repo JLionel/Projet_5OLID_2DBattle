@@ -7,28 +7,54 @@ using UnityEngine;
 [Serializable]
 public class CommandsCollection : ScriptableObject
 {
-    public List<string> _keys = new List<string>();
-    public List<TwitchCommandHandler> _values = new List<TwitchCommandHandler>();
+    public List<TwitchCommandHandler> _availableCommands = new List<TwitchCommandHandler>();
     
-    
-    public Dictionary<string, TwitchCommandHandler> _availableComands;
-
-    public void Init()
-    {
-        _availableComands = new Dictionary<string, TwitchCommandHandler>();
-        for (int i = 0; i < Mathf.Min(_keys.Count, _values.Count); i++)
-        {
-            _availableComands.Add(_keys[i], _values[i]);
-        }
-    }
-
     public void ExecuteCommands(string command, MessageData data)
     {
         //remove "!"
         command = command.Substring(1);
-        if (_availableComands.ContainsKey(command))
+        bool multiAction;
+        if (IsCommandValid(command,out multiAction))
         {
-            _availableComands[command].HandleCommand(data);
+            if (multiAction)
+            {
+                foreach (var letter in command)
+                {
+                    SearchCommand(letter.ToString())?.HandleCommand(data);
+                }
+            }
+            else
+                SearchCommand(command)?.HandleCommand(data);
         }
+    }
+
+    private bool IsCommandValid(string command, out bool multiAction)
+    {
+        multiAction = false;
+        if (SearchCommand(command))
+            return true;
+
+        if (command.Length > 3)
+            return false;
+
+        foreach (var letter in command)
+        {
+            if (!SearchCommand(letter.ToString()))
+                return false;
+        }
+
+        multiAction = true;
+        return true;
+    }
+    
+
+    private TwitchCommandHandler SearchCommand(string commandName)
+    {
+        foreach (var command in _availableCommands)
+        {
+            if (command.Find(commandName))
+                return command;
+        }
+        return null;
     }
 }

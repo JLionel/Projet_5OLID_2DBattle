@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40118df09b4cda4418a138c5264736e8, type: 3}
   m_Name: DisplaySimpleMessage
   m_EditorClassIdentifier: 
+  commandName:
+  - message
+  - m
+  needParams: 1

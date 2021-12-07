@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using Script.CommandPattern;
 using UnityEngine;
 
 [CreateAssetMenu (menuName = "Twitch/Command/Move")]
@@ -10,7 +11,7 @@ public class TCH_MoveDirection : TwitchCommandHandler
     
     public override void HandleCommand(MessageData data)
     {
-        Vector2 movement;
+        Vector2 movement = Vector2.zero;
         switch (direction)
         {
             case DirectionMove.Up:
@@ -26,5 +27,13 @@ public class TCH_MoveDirection : TwitchCommandHandler
                 movement = Vector2.right;
                 break;
         }
+
+        Command command = new MoveCommand(GetPlayer(data.Author), movement);
+    }
+
+    private PlayerMove GetPlayer(string pseudo)
+    {
+        //TODO temporaire
+        return new PlayerMove();
     }
 }
