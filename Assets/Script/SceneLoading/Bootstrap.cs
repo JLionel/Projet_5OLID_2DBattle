@@ -4,12 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class Bootstrap : MonoBehaviour
 {
-    [SerializeField] protected List<string> scenesToLoad;
+    [SerializeField] protected List<StringVariable> scenesToLoad;
     private void Awake()
     {
         foreach (var scene in scenesToLoad)
         {
-            SceneManager.LoadScene(scene, LoadSceneMode.Additive);
+            SceneManager.LoadScene(scene.Value, LoadSceneMode.Additive);
         }
     }
 }

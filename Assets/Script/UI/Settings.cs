@@ -8,19 +8,8 @@ using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
-    [SerializeField] private StringVariable menuScene;
     [SerializeField] private Slider slider;
     [SerializeField] private TextMeshProUGUI volumeText;
-    public void OnClickBack()
-    {
-        SceneManager.LoadScene(menuScene.Value);
-    }
-
-    public void OnClickQuit()
-    {
-        Application.Quit();
-    }
-
     private void Update()
     {
         var value = slider.value * 100;

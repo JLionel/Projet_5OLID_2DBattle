@@ -207,8 +207,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1664244119}
-        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: OnClickBack
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7d718cd905c310e47857d604f2bb107d, type: 2}
+          m_ObjectArgumentAssemblyTypeName: StringVariable, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 5c333b914cc4f0f4fb290b93161c63ea, type: 2}
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: Raise
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -640,8 +652,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1664244119}
-        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: OnClickQuit
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1653,6 +1665,7 @@ GameObject:
   - component: {fileID: 1664244116}
   - component: {fileID: 1664244115}
   - component: {fileID: 1664244119}
+  - component: {fileID: 1664244120}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1753,10 +1766,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1664244114}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921f449a4da286d4fa49e3aa8e9fbc75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1664244120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664244114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1ac32f5557e4e14a93a319c78d322ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuScene: {fileID: 11400000, guid: 7d718cd905c310e47857d604f2bb107d, type: 2}
   slider: {fileID: 977077557}
   volumeText: {fileID: 1258267680}
 --- !u!1 &1697589846
