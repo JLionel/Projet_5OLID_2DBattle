@@ -3,41 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Player/PlayerPositions")]
-public class PlayerPositions : LevelData
+public class PlayerPositions : PlayerData
 {
     public GameEvent PlayerPositionChanged;
     [SerializeField]
-    private List<Vector2> _positions = new List<Vector2>();
+    private List<Vector2Int> _positions = new List<Vector2Int>();
 
     public override void Init()
     {
-        _positions = new List<Vector2>();
+        _positions = new List<Vector2Int>();
     }
 
-    public void SetPosition(int PlayerIndex, Vector2 Position)
+    public override void AddNew()
+    {
+        _positions.Add(Vector2Int.zero);
+    }
+
+    public void SetPosition(int PlayerIndex, Vector2Int Position)
     {
         if (!PlayerPositionChanged) { return; }
         _positions[PlayerIndex] = Position;
         PlayerPositionChanged.Raise();
     }
 
-    public void AddPosition(int PlayerIndex, Vector2 Position)
+    public void AddPosition(int PlayerIndex, Vector2Int Position)
     {
         if (!PlayerPositionChanged) { return; }
         _positions[PlayerIndex] += Position;
         PlayerPositionChanged.Raise();
     }
 
-    public void AddNewPosition(Vector2 Position)
+    public Vector2Int GetPosition(int PlayerIndex)
     {
-        if (!PlayerPositionChanged) { return; }
-        _positions.Add(Position);
-        PlayerPositionChanged.Raise();
-    }
-
-    public Vector2 GetPosition(int PlayerIndex)
-    {
-        if (_positions.Count <= PlayerIndex) { return Vector2.zero; }
+        if (_positions.Count <= PlayerIndex) { return Vector2Int.zero; }
         return _positions[PlayerIndex];
     }
 }

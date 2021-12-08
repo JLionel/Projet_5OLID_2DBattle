@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Variables/Vector2List")]
-public class Vector2ListVariable : ScriptableObject
+public class Vector2IntListVariable : ScriptableObject
 {
-    public List<Vector2> Value;
+    public List<Vector2Int> Value;
 }

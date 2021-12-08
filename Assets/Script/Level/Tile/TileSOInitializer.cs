@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileSOInitializer : MyMonoBehaviour
+public class TileSOInitializer : OrdonedMonoBehaviour
 {
-    [SerializeField] private List<TilesData> _tilesDatas;
+    [SerializeField] private List<TileData> _tileDatas;
 
-    void Start()
+    public override void DoAwake()
     {
-        foreach (var TilesData in _tilesDatas)
+        foreach (var TilesData in _tileDatas)
         {
-            TilesData.AddNew(new Vector2(transform.position.x, transform.position.y));
+            TilesData.AddNew(new Vector2Int((int)transform.position.x, (int)transform.position.y));
         }
     }
     public override void DoUpdate()
     {
-
+        
     }
 }

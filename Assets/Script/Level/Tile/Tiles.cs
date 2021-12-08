@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Level/Tiles")]
-public class Tiles : TilesData
+public class Tiles : TileData
 {
-    public List<Vector2> TileList = new List<Vector2>();
+    public List<Vector2Int> TileList = new List<Vector2Int>();
 
     public override void Init()
     {
-        TileList = new List<Vector2>();
+        TileList = new List<Vector2Int>();
     }
 
-    public override void AddNew(Vector2 Position)
+    public override void AddNew(Vector2Int Position)
     {
         TileList.Add(Position);
     }
 
-    public bool Exists(Vector2 Position)
+    public bool Exists(Vector2Int Position)
     {
         return TileList.Contains(Position);
     }

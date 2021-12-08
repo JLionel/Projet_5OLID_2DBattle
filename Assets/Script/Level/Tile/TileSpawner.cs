@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileSpawner : MyMonoBehaviour
+public class TileSpawner : OrdonedMonoBehaviour
 {
     public GameObject TilePrefab;
     public Tiles Tiles;
     public MapConfiguration MapConfiguration;
-    void Start()
+    public override void DoAwake()
     {
         if (MapConfiguration)
         {
@@ -22,7 +22,7 @@ public class TileSpawner : MyMonoBehaviour
 
     }
 
-    public void SpawnTile(Vector2 Position)
+    public void SpawnTile(Vector2Int Position)
     {
         if (!TilePrefab) return;
         GameObject Tile = Instantiate(TilePrefab, new Vector3(Position.x, Position.y, 0), Quaternion.identity);

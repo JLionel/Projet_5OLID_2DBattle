@@ -390,10 +390,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155ceb26dbeba9343bb1cdedf745e0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _components:
+  _awakeComponents:
   - {fileID: 1664425452}
   - {fileID: 1664425448}
   - {fileID: 1664425451}
+  _updateComponents: []
 --- !u!4 &1664425450
 Transform:
   m_ObjectHideFlags: 0
@@ -422,7 +423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 24280859430499016, guid: 69372375768a27440800353622d0f232, type: 3}
   Tiles: {fileID: 11400000, guid: c4ca55658cb4f864989892f7676d3dae, type: 2}
-  TileEntities: {fileID: 11400000, guid: c7ab012b5d2fe014da5508e7f4265bc6, type: 2}
+  TileEntities: {fileID: 11400000, guid: d39e3292b33294e47b6f76bcbdbd9c0d, type: 2}
   SpawnPositions: {fileID: 11400000, guid: c72849fe80ff3ac4686724cce9f232f0, type: 2}
   PlayerPositions: {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
   PlayerNames: {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
@@ -442,4 +443,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
   - {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
   - {fileID: 11400000, guid: c4ca55658cb4f864989892f7676d3dae, type: 2}
-  - {fileID: 11400000, guid: c7ab012b5d2fe014da5508e7f4265bc6, type: 2}
+  - {fileID: 11400000, guid: d39e3292b33294e47b6f76bcbdbd9c0d, type: 2}

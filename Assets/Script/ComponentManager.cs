@@ -3,12 +3,21 @@ using UnityEngine;
 
 public class ComponentManager : MonoBehaviour
 {
-    [SerializeField] private List<MyMonoBehaviour> _components;
+    [SerializeField] private List<OrdonedMonoBehaviour> _awakeComponents;
+    [SerializeField] private List<OrdonedMonoBehaviour> _updateComponents;
+    private void Awake()
+    {
+        for (int i = 0; i < _awakeComponents.Count; i++)
+        {
+            _awakeComponents[i].DoAwake();
+            print(_awakeComponents[i].ToString());
+        }
+    }
     private void Update()
     {
-        for (int i = 0; i < _components.Count; i++)
+        for (int i = 0; i < _updateComponents.Count; i++)
         {
-            _components[i].DoUpdate();
+            _updateComponents[i].DoUpdate();
         }
     }
 }

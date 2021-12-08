@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelSOInitializer : OrdonedMonoBehaviour
+public class PlayerSOInitializer : OrdonedMonoBehaviour
 {
-    [SerializeField] private List<LevelData> _levelDatas;
+    [SerializeField] private List<PlayerData> _playerDatas;
+
     public override void DoAwake()
     {
-        foreach (var LevelData in _levelDatas)
+        foreach (var PlayerData in _playerDatas)
         {
-            LevelData.Init();
+            PlayerData.AddNew();
         }
     }
     public override void DoUpdate()

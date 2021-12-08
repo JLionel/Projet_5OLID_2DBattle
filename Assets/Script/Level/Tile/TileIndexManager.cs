@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileIndexManager : MyMonoBehaviour
+public class TileIndexManager : OrdonedMonoBehaviour
 {
     public int Index;
     public Tiles Tiles;
 
-    void Start()
+    public override void DoAwake()
     {
+        if (!Tiles) { return; }
         Index = Tiles.TileList.Count;
     }
-
     public override void DoUpdate()
     {
-
+        
     }
 }

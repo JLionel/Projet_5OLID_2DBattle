@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIndexManager : MyMonoBehaviour
+public class PlayerIndexManager : OrdonedMonoBehaviour
 {
     public int Index;
-    public StringListVariable PlayerNames;
+    public PlayerNames PlayerNames;
 
-    void Start()
+    public override void DoAwake()
     {
-        Index = PlayerNames.Value.Count - 1;
+        Index = PlayerNames.NamesList.Count;
     }
     public override void DoUpdate()
     {
-
+        
     }
 }
