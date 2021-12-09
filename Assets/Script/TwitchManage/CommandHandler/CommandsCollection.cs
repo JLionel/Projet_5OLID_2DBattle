@@ -14,30 +14,40 @@ public class CommandsCollection : ScriptableObject
         //remove "!"
         command = command.Substring(1);
         bool multiAction;
-        if (IsCommandValid(command,out multiAction))
+        if (AvailableCommand(command,out multiAction))
         {
-            if (multiAction)
+            TwitchCommandHandler commandExecuted = SearchCommand(command);
+            if (!multiAction)
             {
-                foreach (var letter in command)
-                {
-                    SearchCommand(letter.ToString())?.HandleCommand(data);
-                }
+                //invalid the command need or not parameters
+                if(commandExecuted.NeedParamas == data.Message.Length > 0)
+                    commandExecuted.HandleCommand(data);
             }
             else
-                SearchCommand(command)?.HandleCommand(data);
+            {
+                //invalid the command if there are parameters
+                if(data.Message.Length == 0)
+                {
+                    foreach (var letter in command)
+                    {
+                        commandExecuted = SearchCommand(letter.ToString());
+                        commandExecuted.HandleCommand(data);
+                    }
+                }
+            }
         }
     }
 
-    private bool IsCommandValid(string command, out bool multiAction)
+    private bool AvailableCommand(string commandName, out bool multiAction)
     {
         multiAction = false;
-        if (SearchCommand(command))
+        if (SearchCommand(commandName))
             return true;
 
-        if (command.Length > 3)
+        if (commandName.Length > 3)
             return false;
 
-        foreach (var letter in command)
+        foreach (var letter in commandName)
         {
             if (!SearchCommand(letter.ToString()))
                 return false;

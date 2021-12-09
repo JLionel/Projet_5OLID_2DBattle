@@ -5,8 +5,11 @@ using UnityEngine;
 public abstract class TwitchCommandHandler : ScriptableObject
 {
     public List<string> twitchCommandName;
-    public bool needParams;
-    
+    [SerializeField] private bool needParams;
+    public bool NeedParamas
+    {
+        get => needParams;
+    }
     
     [SerializeField]protected Command _commandExecuted;
 
