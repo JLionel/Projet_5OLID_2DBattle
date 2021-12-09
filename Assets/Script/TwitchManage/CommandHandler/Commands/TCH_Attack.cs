@@ -7,6 +7,6 @@ public class TCH_Attack : TwitchCommandHandler
 {
     public override void HandleCommand(MessageData data)
     {
-        throw new System.NotImplementedException();
+        RoundCommandHistory.Instance.AddCommand(data.Author, _commandExecuted);
     }
 }

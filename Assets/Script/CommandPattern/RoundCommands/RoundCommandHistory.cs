@@ -29,6 +29,7 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
         StartCoroutine(ExecuteRoundTimed());
     }
 
+    //TODO Check if in the right state
     public void AddCommand(string playerPseudo, Command command)
     {
         Debug.Log($"try adding command {_allTurns.Count}");
