@@ -83,7 +83,7 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
                     _commandsCollection.ExecuteCommands(command, new MessageData
                     {
                         Author = author,
-                        Message = chatMessage.Substring($"{CommandsPrefix.Prefix}{command}".Length)
+                        Message = chatMessage.Substring($"{CommandsPrefix.Prefix}{command}".Length - 1)
                     });
                 }
             }

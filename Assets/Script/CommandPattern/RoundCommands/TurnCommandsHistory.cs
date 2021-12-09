@@ -11,7 +11,7 @@ public class TurnCommandsHistory
     {
         foreach (var command in allCommand)
         {
-            command.Value.Execute();
+            command.Value.Execute(command.Key);
         }
     }
 

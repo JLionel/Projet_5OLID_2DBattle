@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40118df09b4cda4418a138c5264736e8, type: 3}
-  m_Name: DisplaySimpleMessage
+  m_Script: {fileID: 11500000, guid: 7a60e8ee7f0c1f64eb114be82d968b94, type: 3}
+  m_Name: JoinGame
   m_EditorClassIdentifier: 
-  twitchCommandName:
-  - message
-  - msg
-  - m
-  needParams: 1
-  _commandExecuted: {fileID: 11400000, guid: be2c9bfdf486bda468d6d53133f08736, type: 2}

@@ -2,21 +2,22 @@
 
 namespace Script.CommandPattern
 {
+    [CreateAssetMenu (menuName = "GameCommand/Move")]
     public class MoveCommand : Command
     {
-        private PlayerMove _player;
-        private Vector2 _direction;
+        public DirectionMove _direction;
         
-        public MoveCommand(PlayerMove player, Vector2 direction)
+        
+        public override void Execute(string playerName)
         {
-            _player = player;
-            _direction = direction;
+            PlayerMove player = CatchPlayer(playerName);
+            player.Move(VectorDirectionMove.FetchDirection(_direction));
         }
-        
-        
-        public override void Execute()
+
+        private PlayerMove CatchPlayer(string playerName)
         {
-            _player.Move(_direction);
+            //TODO catch playerMove with his name
+            return new PlayerMove();
         }
     }
 }

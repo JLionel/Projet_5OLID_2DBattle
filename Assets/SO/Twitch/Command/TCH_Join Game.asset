@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4de3c3ecaba4f54a9fe43380ab52c59, type: 3}
   m_Name: TCH_Join Game
   m_EditorClassIdentifier: 
-  commandName:
+  twitchCommandName:
   - join
   - j
   needParams: 0
+  _commandExecuted: {fileID: 11400000, guid: de49a47b5e745e04991d008e84964f49, type: 2}

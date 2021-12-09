@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Test class to delet
+ */
+
+[CreateAssetMenu (menuName = "GameCommand/Message")]
 public class MessageCommand : Command
 {
-    private MessageData _playerData;
+    public MessageData PlayerData;
 
-    public MessageCommand(MessageData data)
+    public override void Execute(string playerName)
     {
-        _playerData = data;
-    }
-    
-    public override void Execute()
-    {
-        TwitchChatConnected.Instance.WriteMessage($"{_playerData.Author} : {_playerData.Message}");
+        TwitchChatConnected.Instance.WriteMessage($"{playerName} : {PlayerData.Message}");
     }
 }

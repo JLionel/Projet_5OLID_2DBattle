@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6440495147e75244387ad9a4d9c20366, type: 3}
   m_Name: TCH_Move Left
   m_EditorClassIdentifier: 
-  commandName:
+  twitchCommandName:
+  - moveleft
+  - ml
   - q
-  - left
   needParams: 0
-  direction: 2
+  _commandExecuted: {fileID: 11400000, guid: 612b5cd3110e54d48b02b0edf3ed9ab2, type: 2}

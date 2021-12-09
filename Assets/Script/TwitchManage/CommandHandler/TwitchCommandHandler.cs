@@ -4,13 +4,17 @@ using UnityEngine;
 
 public abstract class TwitchCommandHandler : ScriptableObject
 {
-    public List<string> commandName;
+    public List<string> twitchCommandName;
     public bool needParams;
+    
+    
+    [SerializeField]protected Command _commandExecuted;
+
     public abstract void HandleCommand(MessageData data);
 
     public bool Find(string command)
     {
-        return commandName.Contains(command);
+        return twitchCommandName.Contains(command);
     }
 }
 

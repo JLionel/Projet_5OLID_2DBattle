@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6440495147e75244387ad9a4d9c20366, type: 3}
   m_Name: TCH_Move Up
   m_EditorClassIdentifier: 
-  commandName:
+  twitchCommandName:
+  - moveup
+  - mu
   - z
-  - up
   needParams: 0
-  direction: 0
+  _commandExecuted: {fileID: 11400000, guid: 21a40d5e632ea0d43919a1fc93987ef0, type: 2}
