@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerSOInitializer : OrdonedMonoBehaviour
 {
-    [SerializeField] private List<PlayerData> _playerDatas;
+    public List<PlayerData> _playerDatas;
+    public PlayerNames PlayerNames;
 
     public override void DoAwake()
     {
         foreach (var PlayerData in _playerDatas)
         {
-            PlayerData.AddNew();
+            PlayerData.Init();
         }
     }
     public override void DoUpdate()

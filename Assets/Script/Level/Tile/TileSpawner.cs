@@ -5,8 +5,9 @@ using UnityEngine;
 public class TileSpawner : OrdonedMonoBehaviour
 {
     public GameObject TilePrefab;
-    public Tiles Tiles;
     public MapConfiguration MapConfiguration;
+    public TileEvent AddedNewTile;
+
     public override void DoAwake()
     {
         if (MapConfiguration)
@@ -26,5 +27,6 @@ public class TileSpawner : OrdonedMonoBehaviour
     {
         if (!TilePrefab) return;
         GameObject Tile = Instantiate(TilePrefab, new Vector3(Position.x, Position.y, 0), Quaternion.identity);
+        AddedNewTile.Raise(Position);
     }
 }

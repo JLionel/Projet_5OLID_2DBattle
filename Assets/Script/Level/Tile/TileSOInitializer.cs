@@ -8,9 +8,9 @@ public class TileSOInitializer : OrdonedMonoBehaviour
 
     public override void DoAwake()
     {
-        foreach (var TilesData in _tileDatas)
+        foreach (var TileData in _tileDatas)
         {
-            TilesData.AddNew(new Vector2Int((int)transform.position.x, (int)transform.position.y));
+            TileData.Init();
         }
     }
     public override void DoUpdate()

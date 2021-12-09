@@ -5,20 +5,31 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/PlayerNames")]
 public class PlayerNames : PlayerData
 {
-    public List<string> NamesList = new List<string>();
+    public List<string> Names = new List<string>();
 
     public override void Init()
     {
-        NamesList = new List<string>();
+        Names = new List<string>();
+    }
+
+    public void SetSize(int Size)
+    {
+        Names = new List<string>(Size);
     }
 
     public override void AddNew()
     {
-        NamesList.Add("");
+        Names.Add("");
     }
-    public void SetLastPlayerName(string Name)
+
+    public void AddNew(string Name)
     {
-        NamesList[NamesList.Count - 1] = Name;
+        Names.Add(Name);
+    }
+
+    public int GetPlayerCount()
+    {
+        return Names.Count;
     }
 }
 

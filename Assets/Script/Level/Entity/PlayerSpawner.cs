@@ -10,12 +10,13 @@ public class PlayerSpawner : OrdonedMonoBehaviour
     public Vector2IntListVariable SpawnPositions;
     public PlayerPositions PlayerPositions;
     public PlayerNames PlayerNames;
+    public GameEvent AddedNewPlayer;
 
     public override void DoAwake()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < PlayerNames.Names.Count; i++)
         {
-            SpawnPlayer("Player" + i);
+            SpawnPlayer(i);
         }
     }
     public override void DoUpdate()
@@ -23,7 +24,7 @@ public class PlayerSpawner : OrdonedMonoBehaviour
         
     }
 
-    private void SpawnPlayer(string PlayerName)
+    private void SpawnPlayer(int Index)
     {
         if (!SpawnPositions) { return; }
         if (!Tiles) { return; }
@@ -34,7 +35,6 @@ public class PlayerSpawner : OrdonedMonoBehaviour
         for (int i = 0; i < SpawnPositions.Value.Count; i++)
         {
             SpawnPosition = SpawnPositions.Value[i];
-            //print(Tiles.Exists(SpawnPosition) + "    " + TileEntities.IsTileFree(SpawnPosition));
 
             if (Tiles.Exists(SpawnPosition) && TileEntities.IsTileFree(SpawnPosition))
             {
@@ -46,7 +46,7 @@ public class PlayerSpawner : OrdonedMonoBehaviour
         if (!CanSpawn) { return; }
         GameObject Player = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
 
-        PlayerNames.SetLastPlayerName(PlayerName);
+        AddedNewPlayer.Raise();
 
         PlayerMove PlayerMove = Player.GetComponent<PlayerMove>();
         if (!PlayerMove) { return; }

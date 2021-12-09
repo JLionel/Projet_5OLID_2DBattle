@@ -9,7 +9,7 @@ public class PlayerIndexManager : OrdonedMonoBehaviour
 
     public override void DoAwake()
     {
-        Index = PlayerNames.NamesList.Count;
+        Index = PlayerNames.Names.Count;
     }
     public override void DoUpdate()
     {

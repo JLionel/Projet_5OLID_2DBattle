@@ -92,7 +92,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5580302971787773095}
   - component: {fileID: -3745453579985365177}
-  - component: {fileID: -1446525134776121067}
   - component: {fileID: -1663018498700498767}
   m_Layer: 0
   m_Name: Tile
@@ -130,21 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Index: 0
   Tiles: {fileID: 11400000, guid: c4ca55658cb4f864989892f7676d3dae, type: 2}
---- !u!114 &-1446525134776121067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6952558043915225399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de54f5470ace1834b90600e869c27905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tileDatas:
-  - {fileID: 11400000, guid: c4ca55658cb4f864989892f7676d3dae, type: 2}
-  - {fileID: 11400000, guid: d39e3292b33294e47b6f76bcbdbd9c0d, type: 2}
 --- !u!114 &-1663018498700498767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,5 +143,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _awakeComponents:
   - {fileID: -3745453579985365177}
-  - {fileID: -1446525134776121067}
   _updateComponents: []
