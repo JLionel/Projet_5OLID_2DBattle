@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Twitch/Command/JoinGame")]
 public class TCH_JoinGame : TwitchCommandHandler
 {
-    //TODO implement the join command
+    //Todo check if in join state
     public override void HandleCommand(MessageData data)
     {
-        throw new System.NotImplementedException();
+        _commandExecuted.Execute(data.Author);
     }
 }
