@@ -18,8 +18,6 @@ public abstract class GameState
 
     protected GameStateManager GameStateManager;
 
-    [SerializeField] protected GameState NextDefaultState; 
-    
     public GameState(GameStateManager gameStateManager)
     {
         GameStateManager = gameStateManager;

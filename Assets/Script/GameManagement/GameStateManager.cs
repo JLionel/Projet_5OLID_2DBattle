@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameStateManager : MySingleton<GameStateManager>
 {
-    protected GameState _gameState;
+    private GameState _gameState;
     public GameState GameState => _gameState;
     
     
