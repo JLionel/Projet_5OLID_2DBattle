@@ -11,7 +11,7 @@ public abstract class TwitchCommandHandler : ScriptableObject
         get => needParams;
     }
     
-    [SerializeField]protected Command _commandExecuted;
+    [SerializeField]protected PlayerCommand playerCommandExecuted;
 
     public abstract void HandleCommand(MessageData data);
 

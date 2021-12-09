@@ -13,7 +13,7 @@ public class DebugLogTwitchMessage : TwitchCommandHandler
     public override void HandleCommand(MessageData data)
     {
         Debug.Log($"{data.Author} : {data.Message}");
-        var commandCast = (MessageCommand)_commandExecuted;
+        var commandCast = (MessagePlayerCommand)playerCommandExecuted;
         commandCast.PlayerData = data;
         commandCast.Execute(data.Author);
     }
