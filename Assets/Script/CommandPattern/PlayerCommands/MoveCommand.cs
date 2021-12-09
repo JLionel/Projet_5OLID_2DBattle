@@ -10,8 +10,10 @@ namespace Script.CommandPattern
         
         public override void Execute(string playerName)
         {
-            PlayerMove player = CatchPlayer(playerName);
-            player.Move(VectorDirectionMove.FetchDirection(_direction));
+            /*PlayerMove player = CatchPlayer(playerName);
+            player.Move(VectorDirectionMove.FetchDirection(_direction));*/
+            
+            TwitchChatConnected.Instance.WriteMessage($"Move {_direction.ToString()}");
         }
 
         private PlayerMove CatchPlayer(string playerName)
