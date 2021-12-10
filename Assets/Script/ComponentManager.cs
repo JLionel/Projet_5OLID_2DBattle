@@ -10,7 +10,6 @@ public class ComponentManager : MonoBehaviour
     {
         for (int i = 0; i < _awakeComponents.Count; i++)
         {
-            print(_awakeComponents[i].ToString());
             _awakeComponents[i].DoAwake();
         }
     }

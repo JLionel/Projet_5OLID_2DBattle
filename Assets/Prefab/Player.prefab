@@ -62,7 +62,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Index: 0
-  PlayerNames: {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
 --- !u!114 &24280859430499014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _awakeComponents:
-  - {fileID: 9206942148212492061}
+  - {fileID: 7325286290080102478}
   _updateComponents:
   - {fileID: 24280859430499014}
 --- !u!1 &24280859958508795

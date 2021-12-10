@@ -4,22 +4,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TileEventListener : MonoBehaviour
+public class TileEventListener : OrdonedMonoBehaviour
 {
     [SerializeField]
     private TileEvent _event;
 
     [SerializeField]
-    private UnityEvent _onEventRaised;
+    private UnityEvent<Vector2Int> _onEventRaised;
 
-    public void OnEventRaised()
+    public void OnEventRaised(Vector2Int Position)
     {
-        _onEventRaised.Invoke();
+        _onEventRaised.Invoke(Position);
     }
 
-    private void OnEnable()
+    public override void DoAwake()
     {
         _event.RegisterListener(this);
+    }
+
+    public override void DoUpdate()
+    {
+
     }
 
     private void OnDisable()

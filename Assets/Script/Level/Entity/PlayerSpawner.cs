@@ -45,6 +45,11 @@ public class PlayerSpawner : OrdonedMonoBehaviour
 
         if (!CanSpawn) { return; }
         GameObject Player = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
+        Player.name = PlayerNames.Names[Index];
+
+        PlayerIndexManager PlayerIndexManager = Player.GetComponent<PlayerIndexManager>();
+        if (!PlayerIndexManager) { return; }
+        PlayerIndexManager.Index = Index;
 
         AddedNewPlayer.Raise();
 

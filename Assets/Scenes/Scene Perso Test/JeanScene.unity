@@ -356,10 +356,10 @@ GameObject:
   - component: {fileID: 1664425455}
   - component: {fileID: 1664425448}
   - component: {fileID: 1664425451}
-  - component: {fileID: 1664425454}
   - component: {fileID: 1664425457}
-  - component: {fileID: 1664425456}
+  - component: {fileID: 1664425454}
   - component: {fileID: 1664425453}
+  - component: {fileID: 1664425456}
   - component: {fileID: 1664425449}
   m_Layer: 0
   m_Name: LevelManager
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TilePrefab: {fileID: 6952558043915225399, guid: 317dde243dea5844a8018bc48e2a266e, type: 3}
   MapConfiguration: {fileID: 11400000, guid: bd6e0fbef3315984ab4079e983859294, type: 2}
-  AddedNewTile: {fileID: 0}
+  AddedNewTile: {fileID: 11400000, guid: 2c1a45daf36450241a118f1a2c088c66, type: 2}
 --- !u!114 &1664425449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +396,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _awakeComponents:
+  - {fileID: 1664425453}
+  - {fileID: 1664425456}
+  - {fileID: 1664425452}
+  - {fileID: 1664425455}
   - {fileID: 1664425448}
   - {fileID: 1664425451}
   _updateComponents: []
@@ -431,7 +435,7 @@ MonoBehaviour:
   SpawnPositions: {fileID: 11400000, guid: c72849fe80ff3ac4686724cce9f232f0, type: 2}
   PlayerPositions: {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
   PlayerNames: {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
-  AddedNewPlayer: {fileID: 0}
+  AddedNewPlayer: {fileID: 11400000, guid: e4b4d7033c49379418cb740a07396f74, type: 2}
 --- !u!114 &1664425452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,7 +445,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1664425447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c8af08f2e89ac48b541a88d0e4162c, type: 3}
+  m_Script: {fileID: 11500000, guid: de54f5470ace1834b90600e869c27905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _tileDatas:
@@ -464,12 +468,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1664425457}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+        m_TargetAssemblyTypeName: NewTileSOUpdater, Assembly-CSharp
+        m_MethodName: OnNewTileAdded
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -521,12 +525,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1664425454}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: NewPlayerSOUpdater, Assembly-CSharp
+        m_MethodName: OnNewPlayerAdded
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

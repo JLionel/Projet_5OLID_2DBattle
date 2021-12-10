@@ -7,14 +7,11 @@ public class TileEvent : ScriptableObject
     [SerializeField]
     private List<TileEventListener> _listeners;
 
-    private Vector2Int _position;
-
     public void Raise(Vector2Int Position)
     {
-        _position = Position;
         for (int i = _listeners.Count - 1; i >= 0; i--)
         {
-            _listeners[i].OnEventRaised();
+            _listeners[i].OnEventRaised(Position);
         }
     }
 
