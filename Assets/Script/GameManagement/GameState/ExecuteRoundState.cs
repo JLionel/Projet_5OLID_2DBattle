@@ -3,20 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+[CreateAssetMenu (menuName = "GameManagement/GameState/ExecuteRoundState")]
 public class ExecuteRoundState : GameState
 {
     private bool _endRound => RoundCommandHistory.Instance.endRound;
     
-    public ExecuteRoundState(GameStateManager gameStateManager) : base(gameStateManager)
-    {
-        _statesName = StatesName.ExecuteRound;
-    }
-
     //Todo check when all turned have been executed -> waitaction if no winner / -> endgame if winner
     public override void Tick()
     {
         if(_endRound)
-            GameStateManager.ChangeState(new WaitActionState(GameStateManager, RoundCommandHistory.Instance.EnterActionTimer.Value));
+            DefaultNextState.Raise();
     }
  
     public override void OnStateEnter()

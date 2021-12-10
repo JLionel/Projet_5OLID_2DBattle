@@ -6,13 +6,19 @@ public class GameStateManager : MySingleton<GameStateManager>
 {
     private GameState _gameState;
     public GameState GameState => _gameState;
+    [SerializeField] private GameEvent FirstStateLoaded;
+    
+    //temporary
+    public GameEvent JoinState;
+    public GameEvent WaitActionState;
+    public GameEvent ExecuteRoundState;
     
     
     
     // Start is called before the first frame update
     void Start()
     {
-        ChangeState(new MenuNavigationState(this));
+        FirstStateLoaded.Raise();
     }
 
     // Update is called once per frame
@@ -22,15 +28,15 @@ public class GameStateManager : MySingleton<GameStateManager>
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            ChangeState(new JoinLobbyState(this));
+            JoinState.Raise();
         }
         else if (Input.GetKeyDown(KeyCode.Z))
         {
-            ChangeState(new WaitActionState(this, RoundCommandHistory.Instance.EnterActionTimer.Value));
+            WaitActionState.Raise();
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            ChangeState(new ExecuteRoundState(this));
+            ExecuteRoundState.Raise();
         }
 
         Debug.Log($"Current state : {GameState.StatesName.ToString()}");
@@ -47,5 +53,5 @@ public class GameStateManager : MySingleton<GameStateManager>
         _gameState.OnStateEnter();
     }
 
-    protected override bool DoDestroyOnLoad { get; }
+    protected override bool DoDestroyOnLoad { get => false; }
 }

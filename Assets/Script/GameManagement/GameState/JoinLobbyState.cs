@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+[CreateAssetMenu (menuName = "GameManagement/GameState/JoinLobbyState")]
 public class JoinLobbyState : GameState
 {
-    public JoinLobbyState(GameStateManager gameStateManager) : base(gameStateManager)
-    {
-        _statesName = StatesName.JoinLobby;
-    }
-
     public override void Tick()
     {
         

@@ -4,25 +4,27 @@ using UnityEngine;
 
 public enum StatesName
 {
-    Navigation,
+    Default,
     JoinLobby,
     WaitTurnActions,
     ExecuteRound,
     EndGame,
 }
 
-public abstract class GameState
+public abstract class GameState : ScriptableObject
 {
-    protected StatesName _statesName;
+    [SerializeField] protected StatesName _statesName;
     public StatesName StatesName => _statesName;
 
     protected GameStateManager GameStateManager;
 
-    public GameState(GameStateManager gameStateManager)
-    {
-        GameStateManager = gameStateManager;
-    }
+    public GameEvent DefaultNextState;
     
+    public GameStateManager SetGameStateManager
+    {
+        set => GameStateManager = value;
+    }
+
     public virtual void OnStateEnter(){}
     public virtual void OnStateExit(){}
     

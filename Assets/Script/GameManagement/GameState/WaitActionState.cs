@@ -3,31 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+[CreateAssetMenu (menuName = "GameManagement/GameState/WaitActionState")]
 public class WaitActionState : GameState
 {
-    private float _waitTimer;
+    [SerializeField] private FloatVariable _waitTimer;
 
-    private float counter;
+    private float _saveWaitTimer;
     
-    //Todo set a timer
-    public WaitActionState(GameStateManager gameStateManager, float waitTimer) : base(gameStateManager)
-    {
-        _statesName = StatesName.WaitTurnActions;
-        _waitTimer = waitTimer;
-        counter = 0;
-    }
-
     public override void Tick()
     {
-        counter += Time.deltaTime;
-        if (counter >= _waitTimer)
+        _waitTimer.Value -= Time.deltaTime;
+        if (_waitTimer.Value <= 0)
         {
-            GameStateManager.ChangeState(new ExecuteRoundState(GameStateManager));
+            DefaultNextState.Raise();
         }
     }
     
     public override void OnStateEnter()
     {
+        _saveWaitTimer = _waitTimer.Value;
         TwitchChatConnected.Instance.WriteMessage("Enter your three actions !!!! Move with !z, !q, !s, !d, or attack with !e. You can combine those command up to three like !zqd");
+    }
+
+    public override void OnStateExit()
+    {
+        _waitTimer.Value = _saveWaitTimer;
     }
 }
