@@ -5,17 +5,8 @@ using System.Net.Sockets;
 using System.IO;
 using UnityEngine;
 
-public class TwitchChatConnected : MonoBehaviour
+public class TwitchChatConnected : MySingleton<TwitchChatConnected>
 {
-    private static TwitchChatConnected _tccInstance;
-
-    public static TwitchChatConnected Instance()
-    {
-        if(!_tccInstance)
-            _tccInstance = new TwitchChatConnected();
-        return _tccInstance;
-    }
-
     [SerializeField] private CommandsCollection _commandsCollection;
 
     private TcpClient _twitchClient;
@@ -26,18 +17,13 @@ public class TwitchChatConnected : MonoBehaviour
     [SerializeField] private TwitchAcountCredentials twitchAcountCredentials;
 
 
-    private void Awake()
-    {
-        _tccInstance = this;
-        
-        _commandsCollection.Init();
-
-        //TODO put this on another script, here just for test
-        Application.runInBackground = true;
-    }
+    protected override bool DoDestroyOnLoad { get; }
+    
 
     private void Start()
     {
+        //TODO put this on another script, here just for test
+        Application.runInBackground = true;
         ConnectClient();
     }
 
@@ -97,7 +83,7 @@ public class TwitchChatConnected : MonoBehaviour
                     _commandsCollection.ExecuteCommands(command, new MessageData
                     {
                         Author = author,
-                        Message = chatMessage
+                        Message = chatMessage.Substring($"{CommandsPrefix.Prefix}{command}".Length - 1)
                     });
                 }
             }

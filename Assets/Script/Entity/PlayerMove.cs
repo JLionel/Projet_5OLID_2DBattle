@@ -31,7 +31,7 @@ public class PlayerMove : MyMonoBehaviour
         }
     }
 
-    private void Move(Vector2 Direction)
+    public void Move(Vector2 Direction)
     {
         if (Direction.magnitude != 1 || !(Direction.x == -1 || Direction.x == 0 || Direction.x == 1) || !(Direction.y == -1 || Direction.y == 0 || Direction.y == 1)) return;
         Vector2 Position = PlayerPosition.GetValue();
