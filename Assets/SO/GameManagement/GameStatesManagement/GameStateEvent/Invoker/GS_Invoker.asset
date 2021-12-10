@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40118df09b4cda4418a138c5264736e8, type: 3}
-  m_Name: DisplaySimpleMessage
+  m_Script: {fileID: 11500000, guid: 0b3777c3e41f6eb48ac154f8f67ee9ba, type: 3}
+  m_Name: GS_Invoker
   m_EditorClassIdentifier: 
-  twitchCommandName:
-  - message
-  - msg
-  - m
-  needParams: 1
-  playerCommandExecuted: {fileID: 11400000, guid: be2c9bfdf486bda468d6d53133f08736, type: 2}

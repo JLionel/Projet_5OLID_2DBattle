@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40118df09b4cda4418a138c5264736e8, type: 3}
-  m_Name: DisplaySimpleMessage
+  m_Script: {fileID: 11500000, guid: e3beea2ac1c30664ab29978645eaee8c, type: 3}
+  m_Name: End Game State
   m_EditorClassIdentifier: 
-  twitchCommandName:
-  - message
-  - msg
-  - m
-  needParams: 1
-  playerCommandExecuted: {fileID: 11400000, guid: be2c9bfdf486bda468d6d53133f08736, type: 2}
+  _statesName: 4
+  DefaultNextState: {fileID: 11400000, guid: 99637057fe33c3d4592fca6a927b3ac7, type: 2}

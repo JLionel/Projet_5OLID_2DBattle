@@ -16,4 +16,4 @@ MonoBehaviour:
   - join
   - j
   needParams: 0
-  _commandExecuted: {fileID: 11400000, guid: de49a47b5e745e04991d008e84964f49, type: 2}
+  playerCommandExecuted: {fileID: 11400000, guid: de49a47b5e745e04991d008e84964f49, type: 2}

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31352774dcd18b142919ab11765fec95, type: 3}
-  m_Name: TCH_Attack
+  m_Name: TCH_MoveUp
   m_EditorClassIdentifier: 
   twitchCommandName:
-  - attack
-  - atc
-  - e
+  - moveup
+  - mu
+  - z
   needParams: 0
-  playerCommandExecuted: {fileID: 11400000, guid: 3080acf45c619b547ae6a32d70882cfd, type: 2}
+  playerCommandExecuted: {fileID: 11400000, guid: 21a40d5e632ea0d43919a1fc93987ef0, type: 2}
   RoundCommand: {fileID: 11400000, guid: a2e167e8286d0d846809c46a3747c3f5, type: 2}

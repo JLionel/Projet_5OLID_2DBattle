@@ -8,6 +8,6 @@ public class TCH_JoinGame : TwitchCommandHandler
     //Todo check if in join state
     public override void HandleCommand(MessageData data)
     {
-        _commandExecuted.Execute(data.Author);
+        playerCommandExecuted.Execute(data.Author);
     }
 }

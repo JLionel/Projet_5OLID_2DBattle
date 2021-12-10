@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40118df09b4cda4418a138c5264736e8, type: 3}
-  m_Name: DisplaySimpleMessage
+  m_Script: {fileID: 11500000, guid: 7349631ce236f204ead142661ad50565, type: 3}
+  m_Name: Wait Actions State
   m_EditorClassIdentifier: 
-  twitchCommandName:
-  - message
-  - msg
-  - m
-  needParams: 1
-  playerCommandExecuted: {fileID: 11400000, guid: be2c9bfdf486bda468d6d53133f08736, type: 2}
+  _statesName: 2
+  DefaultNextState: {fileID: 11400000, guid: f17c6116b1bee9349bc862fc5a88206b, type: 2}
+  _waitTimer: {fileID: 11400000, guid: b371bf53aad79644f81731f6e2bc8fd0, type: 2}
