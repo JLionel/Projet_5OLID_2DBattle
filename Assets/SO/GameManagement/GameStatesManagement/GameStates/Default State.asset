@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Default State
   m_EditorClassIdentifier: 
   _statesName: 0
-  DefaultNextState: {fileID: 11400000, guid: 68a9f5d9f8dcfea449534249ec23b103, type: 2}
+  DefaultNextState: {fileID: 11400000, guid: af98b2afe4be1d343be902a3cafe82e1, type: 2}
