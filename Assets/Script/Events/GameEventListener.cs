@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameEventListener : MonoBehaviour
+public class GameEventListener : OrdonedMonoBehaviour
 {
     [SerializeField]
     private GameEvent _event;
@@ -17,9 +17,14 @@ public class GameEventListener : MonoBehaviour
         _onEventRaised.Invoke();
     }
 
-    private void OnEnable()
+    public override void DoAwake()
     {
         _event.RegisterListener(this);
+    }
+
+    public override void DoUpdate()
+    {
+
     }
 
     private void OnDisable()

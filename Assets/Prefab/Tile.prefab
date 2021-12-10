@@ -91,7 +91,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5580302971787773095}
-  - component: {fileID: 3971516605329411370}
+  - component: {fileID: -3745453579985365177}
+  - component: {fileID: -1663018498700498767}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -114,7 +115,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3971516605329411370
+--- !u!114 &-3745453579985365177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,7 +124,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 6952558043915225399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b642d04074dcfb44ebcb68a1e095b0b1, type: 3}
+  m_Script: {fileID: 11500000, guid: b7d571c5ef94edd4bae27f63e139ba27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Entity: {fileID: 0}
+  Index: 0
+  Tiles: {fileID: 11400000, guid: c4ca55658cb4f864989892f7676d3dae, type: 2}
+--- !u!114 &-1663018498700498767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952558043915225399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155ceb26dbeba9343bb1cdedf745e0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _awakeComponents:
+  - {fileID: -3745453579985365177}
+  _updateComponents: []
