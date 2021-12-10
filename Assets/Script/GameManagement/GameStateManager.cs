@@ -6,12 +6,12 @@ public class GameStateManager : MySingleton<GameStateManager>
 {
     private GameState _gameState;
     public GameState GameState => _gameState;
-    [SerializeField] private GameEvent FirstStateLoaded;
+    [SerializeField] private GameStateEvent FirstStateLoaded;
     
     //temporary
-    public GameEvent JoinState;
-    public GameEvent WaitActionState;
-    public GameEvent ExecuteRoundState;
+    public GameStateEvent JoinState;
+    public GameStateEvent WaitActionState;
+    public GameStateEvent ExecuteRoundState;
     
     
     

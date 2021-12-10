@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Join Lobby State
   m_EditorClassIdentifier: 
   _statesName: 1
-  DefaultNextState: {fileID: 11400000, guid: 863fe21d7d89407468524b5e5fc55f1b, type: 2}
+  DefaultNextState: {fileID: 11400000, guid: d245179ace972304e925d4fad5988967, type: 2}
