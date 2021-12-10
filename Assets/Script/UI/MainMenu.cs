@@ -1,24 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject playButton;
-    [SerializeField] private GameObject settingsButton;
-    [SerializeField] private GameObject quitButton;
-
-    private void OnClickPlayButton()
+    [SerializeField] private GameEvent enterLobby;
+    [SerializeField] private StringVariable lobbyScene;
+    [SerializeField] private StringVariable settingsScene;
+    public void OnClickPlayButton()
     {
-        
+        SceneManager.LoadScene(lobbyScene.Value);
+        enterLobby.Raise();
     }
 
-    private void OnClickSettingsButton()
+    public void OnClickSettingsButton()
     {
-        
+        SceneManager.LoadScene(settingsScene.Value);
     }
 
-    private void OnClickQuitButton()
+    public void OnClickQuitButton()
     {
         Application.Quit();
     }
