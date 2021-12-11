@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 24280859430499013}
+  - component: {fileID: -35052442067272799}
+  - component: {fileID: 9206942148212492061}
   - component: {fileID: 24280859430499014}
   - component: {fileID: -2776120674132748298}
   - component: {fileID: 7325286290080102478}
@@ -35,6 +37,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-35052442067272799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24280859430499016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3919d5c9649bc4242aa37215a20a7465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9206942148212492061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24280859430499016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50cd2d17c1829aa478fd12366eb9b227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Index: 0
 --- !u!114 &24280859430499014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,9 +74,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be8ea4b37513014f83004b4c0627628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPosition: {fileID: 11400000, guid: cabc856465b583e49835ef8d23795ca8, type: 2}
+  PlayerPositions: {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
   Tiles: {fileID: 11400000, guid: c4ca55658cb4f864989892f7676d3dae, type: 2}
-  TileEntities: {fileID: 11400000, guid: c7ab012b5d2fe014da5508e7f4265bc6, type: 2}
+  TileEntities: {fileID: 11400000, guid: d39e3292b33294e47b6f76bcbdbd9c0d, type: 2}
+  PlayerIndexManager: {fileID: 9206942148212492061}
+  Entity: {fileID: -35052442067272799}
 --- !u!114 &-2776120674132748298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ae34beaca03c846ab4fecfe0c855e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPosition: {fileID: 11400000, guid: cabc856465b583e49835ef8d23795ca8, type: 2}
+  PlayerPositions: {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
+  PlayerIndexManager: {fileID: 9206942148212492061}
 --- !u!114 &7325286290080102478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,7 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155ceb26dbeba9343bb1cdedf745e0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _components:
+  _awakeComponents:
+  - {fileID: 7325286290080102478}
+  _updateComponents:
   - {fileID: 24280859430499014}
 --- !u!1 &24280859958508795
 GameObject:

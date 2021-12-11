@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: End Game State
   m_EditorClassIdentifier: 
   _statesName: 4
-  DefaultNextState: {fileID: 11400000, guid: 99637057fe33c3d4592fca6a927b3ac7, type: 2}
+  DefaultNextState: {fileID: 11400000, guid: 8f7ab84c8806ec041a007dfff56dc72c, type: 2}

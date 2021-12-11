@@ -18,7 +18,7 @@ public abstract class GameState : ScriptableObject
 
     protected GameStateManager GameStateManager;
 
-    public GameEvent DefaultNextState;
+    public GameStateEvent DefaultNextState;
     
     public GameStateManager SetGameStateManager
     {
