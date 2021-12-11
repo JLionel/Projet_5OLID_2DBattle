@@ -206,20 +206,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664244119}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: f1641d8fc4a06b34a87e8c69e9da5aa0, type: 2}
-          m_ObjectArgumentAssemblyTypeName: StringVariable, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 041f4db52d78d1144b5e68fc191e8a19, type: 2}
-        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: 354be5cf7d6f3f943bdf50c5e6536b70, type: 2}
+        m_TargetAssemblyTypeName: GameStateEvent, Assembly-CSharp
         m_MethodName: Raise
         m_Mode: 1
         m_Arguments:
@@ -1245,20 +1233,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664244119}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 73d2fd7d5f168a24b916aa4400c53d42, type: 2}
-          m_ObjectArgumentAssemblyTypeName: StringVariable, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ade9a89cff1f19945820beb126f84422, type: 2}
-        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: c4070c3d02e83044095cdd920c7ecb3c, type: 2}
+        m_TargetAssemblyTypeName: GameStateEvent, Assembly-CSharp
         m_MethodName: Raise
         m_Mode: 1
         m_Arguments:

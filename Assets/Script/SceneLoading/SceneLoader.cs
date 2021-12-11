@@ -2,39 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] private List<StringVariable> scenesToLoad;
-    [SerializeField] private List<StringVariable> scenesToUnload;
-
-    private void Start()
+    public void Load(StringVariable scene)
     {
-        UnloadAll();
-        LoadAll();
-    }
-
-    private void LoadAll()
-    {
-        Debug.Log("Loading started");
-        foreach (var scene in scenesToLoad)
+        if (!SceneManager.GetSceneByName(scene.Value).isLoaded)
         {
             SceneManager.LoadScene(scene.Value, LoadSceneMode.Additive);
         }
-
-        Debug.Log("Loading done");
     }
 
-    private void UnloadAll()
+    public void Unload(StringVariable scene)
     {
-        Debug.Log("Unloading started");
-        
-        foreach (var scene in scenesToUnload)
+        if (SceneManager.GetSceneByName(scene.Value).isLoaded)
         {
             SceneManager.UnloadSceneAsync(scene.Value);
         }
-        
-        Debug.Log("Unloading done");
     }
 }
