@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e35baf13db4c6244cba10538afff7432, type: 3}
-  m_Name: PlayerPositions
+  m_Script: {fileID: 11500000, guid: 39e0a3412f9189d4da8923207807b7dd, type: 3}
+  m_Name: PlayerPositionChanged
   m_EditorClassIdentifier: 
-  PlayerPositionChanged: {fileID: 11400000, guid: 9b004ff71721cb044811d60abd4ef212, type: 2}
-  _positions:
-  - {x: 0, y: 1}
-  - {x: 0, y: 0}
-  - {x: 0, y: -1}
+  _listeners: []
