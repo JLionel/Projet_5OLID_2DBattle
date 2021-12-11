@@ -5,4 +5,7 @@ using UnityEngine;
 public abstract class PlayerCommand : ScriptableObject
 {
     public abstract void Execute(string playerName);
+    
+    
+    [SerializeField] protected GameStateEnumVariable gameStateName;
 }

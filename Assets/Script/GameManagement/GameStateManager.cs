@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameStateManager : MySingleton<GameStateManager>
+public class GameStateManager : MonoBehaviour
 {
     private GameState _gameState;
     public GameState GameState => _gameState;
+    
+    //default state
     [SerializeField] private GameStateEvent FirstStateLoaded;
+
+    [SerializeField] private GameStateEnumVariable currentStateName;
     
     //temporary
     public GameStateEvent JoinState;
@@ -50,8 +54,8 @@ public class GameStateManager : MySingleton<GameStateManager>
         }
 
         _gameState = newState;
+
+        currentStateName.Value = _gameState.StatesName;
         _gameState.OnStateEnter();
     }
-
-    protected override bool DoDestroyOnLoad { get => false; }
 }

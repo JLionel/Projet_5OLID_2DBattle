@@ -7,7 +7,7 @@ public class AddActionsCommand : RoundCommand
 {
     public override void Execute(string playerName, PlayerCommand playerCommand)
     {
-        if (GameStateManager.Instance.GameState.StatesName == StatesName.WaitTurnActions)
+        if (gameStateName.Value == StatesName.WaitTurnActions)
             RoundCommandHistory.Instance.AddCommand(playerName, playerCommand);
         
     }

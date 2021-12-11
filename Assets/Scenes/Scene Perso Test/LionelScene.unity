@@ -190,7 +190,6 @@ GameObject:
   m_Component:
   - component: {fileID: 645634246}
   - component: {fileID: 645634245}
-  - component: {fileID: 645634247}
   - component: {fileID: 645634252}
   - component: {fileID: 645634251}
   - component: {fileID: 645634250}
@@ -216,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirstStateLoaded: {fileID: 11400000, guid: 8f7ab84c8806ec041a007dfff56dc72c, type: 2}
+  currentStateName: {fileID: 11400000, guid: 1f14c43240e53634baa0291a2bec4bc8, type: 2}
   JoinState: {fileID: 11400000, guid: 4e34a28a6b38a784882973c1bf054f7e, type: 2}
   WaitActionState: {fileID: 11400000, guid: f69c98b10b0adea499633ae978ca5b0b, type: 2}
   ExecuteRoundState: {fileID: 11400000, guid: d245179ace972304e925d4fad5988967, type: 2}
@@ -233,24 +233,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &645634247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 645634244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15cae6a49a4924b49b0c338cb97b2fe5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameStatesLoaded:
-  - {fileID: 11400000, guid: 0082a11b8c7e4844396626d603440818, type: 2}
-  - {fileID: 11400000, guid: 99637057fe33c3d4592fca6a927b3ac7, type: 2}
-  - {fileID: 11400000, guid: 55cd51db2a7375d49843464086afa3ff, type: 2}
-  - {fileID: 11400000, guid: f17c6116b1bee9349bc862fc5a88206b, type: 2}
-  - {fileID: 11400000, guid: 68a9f5d9f8dcfea449534249ec23b103, type: 2}
 --- !u!114 &645634248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,8 +249,8 @@ MonoBehaviour:
   _onEventRaised:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 7993546e24906ee46bc62abf7c2a542f, type: 2}
-        m_TargetAssemblyTypeName: ChangeStateInvoker, Assembly-CSharp
+      - m_Target: {fileID: 645634245}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
         m_MethodName: ChangeState
         m_Mode: 2
         m_Arguments:
@@ -295,8 +277,8 @@ MonoBehaviour:
   _onEventRaised:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 7993546e24906ee46bc62abf7c2a542f, type: 2}
-        m_TargetAssemblyTypeName: ChangeStateInvoker, Assembly-CSharp
+      - m_Target: {fileID: 645634245}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
         m_MethodName: ChangeState
         m_Mode: 2
         m_Arguments:
@@ -323,8 +305,8 @@ MonoBehaviour:
   _onEventRaised:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 7993546e24906ee46bc62abf7c2a542f, type: 2}
-        m_TargetAssemblyTypeName: ChangeStateInvoker, Assembly-CSharp
+      - m_Target: {fileID: 645634245}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
         m_MethodName: ChangeState
         m_Mode: 2
         m_Arguments:
@@ -351,8 +333,8 @@ MonoBehaviour:
   _onEventRaised:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 7993546e24906ee46bc62abf7c2a542f, type: 2}
-        m_TargetAssemblyTypeName: ChangeStateInvoker, Assembly-CSharp
+      - m_Target: {fileID: 645634245}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
         m_MethodName: ChangeState
         m_Mode: 2
         m_Arguments:
@@ -379,8 +361,8 @@ MonoBehaviour:
   _onEventRaised:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 7993546e24906ee46bc62abf7c2a542f, type: 2}
-        m_TargetAssemblyTypeName: ChangeStateInvoker, Assembly-CSharp
+      - m_Target: {fileID: 645634245}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
         m_MethodName: ChangeState
         m_Mode: 2
         m_Arguments:
@@ -421,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnterActionTimer: {fileID: 11400000, guid: b371bf53aad79644f81731f6e2bc8fd0, type: 2}
-  endRound: 0
+  endRound: {fileID: 11400000, guid: 72dfb586f4b72824ea236dc1e5a7d074, type: 2}
 --- !u!4 &1588106607
 Transform:
   m_ObjectHideFlags: 0
