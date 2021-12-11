@@ -153,10 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenesToLoad:
-  - Managers
-  - MainMenu
-  - Audio
-  - Camera
+  - {fileID: 11400000, guid: 1f904cc7c2b56564fb0f7e3eb4874f02, type: 2}
+  - {fileID: 11400000, guid: 8293f235dfe3a914ebefc19f171d1692, type: 2}
+  - {fileID: 11400000, guid: 7d718cd905c310e47857d604f2bb107d, type: 2}
 --- !u!4 &222584657
 Transform:
   m_ObjectHideFlags: 0
