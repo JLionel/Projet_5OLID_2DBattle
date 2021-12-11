@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5b7d16561d4474f801e7f188045fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 3bd3ed658463da945b943072be461531, type: 2}
-  _onEventRaised:
+  _event: {fileID: 11400000, guid: 9b004ff71721cb044811d60abd4ef212, type: 2}
+  onEventRaised:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: -2776120674132748298}
