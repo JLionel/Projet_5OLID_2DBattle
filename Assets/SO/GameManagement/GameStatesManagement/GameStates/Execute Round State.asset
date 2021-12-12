@@ -15,5 +15,3 @@ MonoBehaviour:
   _statesName: 3
   DefaultNextState: {fileID: 11400000, guid: f69c98b10b0adea499633ae978ca5b0b, type: 2}
   _endRound: {fileID: 11400000, guid: 72dfb586f4b72824ea236dc1e5a7d074, type: 2}
-  playerList: {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
-  EndGameState: {fileID: 11400000, guid: 2ac268ae44ccb4d4691e45cb21364807, type: 2}
