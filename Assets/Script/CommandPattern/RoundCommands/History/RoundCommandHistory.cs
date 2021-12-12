@@ -12,7 +12,7 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
     [SerializeField] public FloatVariable EnterActionTimer;
     
     //temporary
-    public bool endRound;
+    public BoolVariable endRound;
 
     //TODO to delet
     private void Update()
@@ -31,7 +31,7 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
 
     public void ExecuteRound()
     {
-        endRound = false;
+        endRound.Value = false;
         StartCoroutine(ExecuteRoundTimed());
     }
 
@@ -55,7 +55,7 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
             yield return new WaitForSeconds(_timeBtwTurns);
         }
         ClearTurnsCommands();
-        endRound = true;
+        endRound.Value = true;
         yield return null;
     }
 

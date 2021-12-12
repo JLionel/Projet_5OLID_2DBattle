@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b3777c3e41f6eb48ac154f8f67ee9ba, type: 3}
-  m_Name: GS_Invoker
+  m_Script: {fileID: 11500000, guid: c146ddd05e3ef0e4fbd4b8cd700b6c43, type: 3}
+  m_Name: ConnectClient
   m_EditorClassIdentifier: 
+  _listeners: []

@@ -2,19 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameStateManager : MySingleton<GameStateManager>
+public class GameStateManager : MonoBehaviour
 {
     private GameState _gameState;
-    public GameState GameState => _gameState;
+    
+    //default state
     [SerializeField] private GameStateEvent FirstStateLoaded;
-    
-    //temporary
-    public GameStateEvent JoinState;
-    public GameStateEvent WaitActionState;
-    public GameStateEvent ExecuteRoundState;
-    
-    
-    
+
+    [SerializeField] private GameStateEnumVariable currentStateName;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,21 +23,6 @@ public class GameStateManager : MySingleton<GameStateManager>
     void Update()
     {
         _gameState.Tick();
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            JoinState.Raise();
-        }
-        else if (Input.GetKeyDown(KeyCode.Z))
-        {
-            WaitActionState.Raise();
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            ExecuteRoundState.Raise();
-        }
-
-        Debug.Log($"Current state : {GameState.StatesName.ToString()}");
     }
     
     public void ChangeState(GameState newState)
@@ -50,8 +33,8 @@ public class GameStateManager : MySingleton<GameStateManager>
         }
 
         _gameState = newState;
+
+        currentStateName.Value = _gameState.StatesName;
         _gameState.OnStateEnter();
     }
-
-    protected override bool DoDestroyOnLoad { get => false; }
 }

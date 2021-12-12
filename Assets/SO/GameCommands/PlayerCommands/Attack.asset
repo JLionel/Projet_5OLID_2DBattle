@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca739eb386802f44a4e3451f740a7f3, type: 3}
   m_Name: Attack
   m_EditorClassIdentifier: 
+  gameStateName: {fileID: 11400000, guid: 1f14c43240e53634baa0291a2bec4bc8, type: 2}

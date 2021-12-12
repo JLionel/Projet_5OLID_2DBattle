@@ -27,6 +27,16 @@ public class PlayerNames : PlayerData
         Names.Add(Name);
     }
 
+    public bool Contains(string name)
+    {
+        return Names.Contains(name);
+    }
+
+    public void ClearList()
+    {
+        Names.Clear();
+    }
+
     public int GetPlayerCount()
     {
         return Names.Count;
