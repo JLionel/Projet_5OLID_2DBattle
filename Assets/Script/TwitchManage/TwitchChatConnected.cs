@@ -102,7 +102,7 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
 
     public void WriteMessage(string Message)
     {
-        if (Instance._twitchClient.Connected)
+        if (_twitchClient.Connected)
         {
             _writer.WriteLine($"PRIVMSG #{twitchAcountCredentials.TwitchAcountName} :{Message}");
             _writer.Flush();
