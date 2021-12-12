@@ -24,7 +24,7 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
     {
         //TODO put this on another script, here just for test
         Application.runInBackground = true;
-        ConnectClient();
+        Debug.Log($"init TwitchConnection {Instance == null}");
     }
 
     private void Update()
@@ -39,15 +39,19 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
 
     public void ConnectClient()
     {
-        _twitchClient = new TcpClient("irc.chat.twitch.tv", 6667);
-        _reader = new StreamReader(_twitchClient.GetStream());
-        _writer = new StreamWriter(_twitchClient.GetStream());
-        
-        _writer.WriteLine($"PASS {twitchAcountCredentials.OauthPassword}");
-        _writer.WriteLine($"NICK {twitchAcountCredentials.Username}");
-        _writer.WriteLine($"USER {twitchAcountCredentials.Username} 8 * {twitchAcountCredentials.Username}");
-        _writer.WriteLine($"JOIN #{twitchAcountCredentials.TwitchAcountName}");
-        _writer.Flush();
+        Debug.Log("Connect client");
+        if(_twitchClient == null)
+        {
+            _twitchClient = new TcpClient("irc.chat.twitch.tv", 6667);
+            _reader = new StreamReader(_twitchClient.GetStream());
+            _writer = new StreamWriter(_twitchClient.GetStream());
+
+            _writer.WriteLine($"PASS {twitchAcountCredentials.OauthPassword}");
+            _writer.WriteLine($"NICK {twitchAcountCredentials.Username}");
+            _writer.WriteLine($"USER {twitchAcountCredentials.Username} 8 * {twitchAcountCredentials.Username}");
+            _writer.WriteLine($"JOIN #{twitchAcountCredentials.TwitchAcountName}");
+            _writer.Flush();
+        }
     }
     
     public void ReadChat()
@@ -98,7 +102,7 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
 
     public void WriteMessage(string Message)
     {
-        if (_twitchClient.Connected)
+        if (Instance._twitchClient.Connected)
         {
             _writer.WriteLine($"PRIVMSG #{twitchAcountCredentials.TwitchAcountName} :{Message}");
             _writer.Flush();

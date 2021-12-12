@@ -5,20 +5,14 @@ using UnityEngine;
 public class GameStateManager : MonoBehaviour
 {
     private GameState _gameState;
-    public GameState GameState => _gameState;
     
     //default state
     [SerializeField] private GameStateEvent FirstStateLoaded;
 
     [SerializeField] private GameStateEnumVariable currentStateName;
-    
-    //temporary
-    public GameStateEvent JoinState;
-    public GameStateEvent WaitActionState;
-    public GameStateEvent ExecuteRoundState;
-    
-    
-    
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,21 +23,6 @@ public class GameStateManager : MonoBehaviour
     void Update()
     {
         _gameState.Tick();
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            JoinState.Raise();
-        }
-        else if (Input.GetKeyDown(KeyCode.Z))
-        {
-            WaitActionState.Raise();
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            ExecuteRoundState.Raise();
-        }
-
-        Debug.Log($"Current state : {GameState.StatesName.ToString()}");
     }
     
     public void ChangeState(GameState newState)
