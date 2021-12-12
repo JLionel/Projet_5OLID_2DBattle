@@ -7,13 +7,22 @@ using UnityEngine;
 public class ExecuteRoundState : GameState
 {
     [SerializeField] private BoolVariable _endRound;
-    [SerializeField] private GameState EndGameState;
+    [SerializeField] private PlayerNames playerList;
+    [SerializeField] private GameStateEvent EndGameState;
     
     //Todo check when all turned have been executed -> waitaction if no winner / -> endgame if winner
     public override void Tick()
     {
         if(_endRound.Value)
-            DefaultNextState.Raise();
+        {
+            if (playerList.Names.Count == 1)
+            {
+                EndGameState.Raise();
+            }else
+            {
+                DefaultNextState.Raise();
+            }
+        }
     }
  
     public override void OnStateEnter()
