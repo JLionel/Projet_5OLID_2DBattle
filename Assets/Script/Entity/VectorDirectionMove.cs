@@ -4,19 +4,19 @@ using UnityEngine;
 
 public static class VectorDirectionMove
 {
-    public static Vector2 FetchDirection(DirectionMove directionMove)
+    public static Vector2Int FetchDirection(DirectionMove directionMove)
     {
         switch (directionMove)
         {
           case  DirectionMove.Up:
-              return Vector2.up;
+              return Vector2Int.up;
           case  DirectionMove.Down:
-              return Vector2.down;
+              return Vector2Int.down;
           case  DirectionMove.Left:
-              return Vector2.left;
+              return Vector2Int.left;
           case  DirectionMove.Right:
-              return Vector2.right;
-          default: return Vector2.zero;
+              return Vector2Int.right;
+          default: return Vector2Int.zero;
         }
     }
 }
