@@ -13,15 +13,12 @@ public class Lobby : MonoBehaviour
 
     private int _myInt = 0;
 
-    private void Update()
-    {
-        UpdateList();
-    }
-
     public void UpdateList()
     {
         listText.text += playerNames.Names.Last() + TextLayout();
-        subtitleText.text = playerNames.Names.Count + " players connected";
+        var connectedString = playerNames.Names.Count == 1 ? " player connected" : " players connected";
+        
+        subtitleText.text = playerNames.Names.Count + connectedString;
     }
 
     private string TextLayout()
