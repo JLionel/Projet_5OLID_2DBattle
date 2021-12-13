@@ -27,8 +27,13 @@ public class Settings : MonoBehaviour
         var value = slider.value;
         
         volumeText.text = value.ToString("N0");
+    }
+
+    public void SaveSettings()
+    {
+        var value = slider.value;
         
-        PlayerPrefs.SetFloat(VolumeKey, value);
+        PlayerPrefs.SetFloat(VolumeKey, slider.value);
 
         twitchCredentials.Username = twitchName.text;
         twitchCredentials.TwitchAcountName = twitchName.text;
