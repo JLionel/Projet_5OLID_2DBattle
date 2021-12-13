@@ -17,6 +17,11 @@ public class PlayerNames : PlayerData
         Names = new List<string>(Size);
     }
 
+    public override void Remove(int Index)
+    {
+        Names.RemoveAt(Index);
+    }
+
     public override void AddNew()
     {
         Names.Add("");

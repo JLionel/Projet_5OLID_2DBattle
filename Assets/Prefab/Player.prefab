@@ -93,6 +93,9 @@ MonoBehaviour:
   Tiles: {fileID: 11400000, guid: c4ca55658cb4f864989892f7676d3dae, type: 2}
   TileEntities: {fileID: 11400000, guid: d39e3292b33294e47b6f76bcbdbd9c0d, type: 2}
   PlayerIndexManager: {fileID: 9206942148212492061}
+  PlayerHealth: {fileID: 11400000, guid: 17ceaf7c508b3af489366c3516167f51, type: 2}
+  PlayerClasses: {fileID: 11400000, guid: e82b8c5b25876984cb8d6f45ce02f943, type: 2}
+  PlayerDirections: {fileID: 11400000, guid: 736dc2eabecd1f145a35c56a052e7216, type: 2}
   Entity: {fileID: -35052442067272799}
 --- !u!114 &-2776120674132748298
 MonoBehaviour:

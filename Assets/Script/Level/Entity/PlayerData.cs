@@ -5,4 +5,5 @@ using UnityEngine;
 public abstract class PlayerData : LevelData
 {
     public abstract void AddNew();
+    public abstract void Remove(int Index);
 }

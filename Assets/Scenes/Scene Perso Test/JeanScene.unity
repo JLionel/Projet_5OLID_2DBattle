@@ -299,49 +299,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &982047880
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 982047882}
-  - component: {fileID: 982047881}
-  m_Layer: 0
-  m_Name: HealthSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &982047881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982047880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92486e8f278d4f54ea1222baccde0d09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &982047882
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982047880}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1664425447
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,8 +314,10 @@ GameObject:
   - component: {fileID: 1664425451}
   - component: {fileID: 1664425457}
   - component: {fileID: 1664425454}
+  - component: {fileID: 1664425459}
   - component: {fileID: 1664425453}
   - component: {fileID: 1664425456}
+  - component: {fileID: 1664425458}
   - component: {fileID: 1664425449}
   m_Layer: 0
   m_Name: LevelManager
@@ -397,6 +356,7 @@ MonoBehaviour:
   _awakeComponents:
   - {fileID: 1664425453}
   - {fileID: 1664425456}
+  - {fileID: 1664425458}
   - {fileID: 1664425452}
   - {fileID: 1664425455}
   - {fileID: 1664425448}
@@ -492,7 +452,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerDataToUpdate:
   - {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
+  - {fileID: 11400000, guid: 736dc2eabecd1f145a35c56a052e7216, type: 2}
   - {fileID: 11400000, guid: 49744aee7c5ed204a81d83f72858b4f9, type: 2}
+  - {fileID: 11400000, guid: 17ceaf7c508b3af489366c3516167f51, type: 2}
 --- !u!114 &1664425455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,7 +469,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerDatas:
   - {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
+  - {fileID: 11400000, guid: 736dc2eabecd1f145a35c56a052e7216, type: 2}
   - {fileID: 11400000, guid: 49744aee7c5ed204a81d83f72858b4f9, type: 2}
+  - {fileID: 11400000, guid: 17ceaf7c508b3af489366c3516167f51, type: 2}
   PlayerNames: {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
 --- !u!114 &1664425456
 MonoBehaviour:
@@ -552,3 +516,50 @@ MonoBehaviour:
   TileDataToUpdate:
   - {fileID: 11400000, guid: c4ca55658cb4f864989892f7676d3dae, type: 2}
   - {fileID: 11400000, guid: d39e3292b33294e47b6f76bcbdbd9c0d, type: 2}
+--- !u!114 &1664425458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664425447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f701d4b71371b45939337f00ab1c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 30789c7d526247b44b28653aa8fefdda, type: 2}
+  _onEventRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1664425459}
+        m_TargetAssemblyTypeName: PlayerDeath, Assembly-CSharp
+        m_MethodName: OnPlayerDeath
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1664425459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664425447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61751579f783e02498960a0c6e10d57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerDataToUpdate:
+  - {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
+  - {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
+  - {fileID: 11400000, guid: 736dc2eabecd1f145a35c56a052e7216, type: 2}
+  - {fileID: 11400000, guid: 49744aee7c5ed204a81d83f72858b4f9, type: 2}
+  - {fileID: 11400000, guid: 17ceaf7c508b3af489366c3516167f51, type: 2}
+  - {fileID: 11400000, guid: e82b8c5b25876984cb8d6f45ce02f943, type: 2}

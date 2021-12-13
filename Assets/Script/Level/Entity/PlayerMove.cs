@@ -8,11 +8,14 @@ public class PlayerMove : OrdonedMonoBehaviour
     public Tiles Tiles;
     public TileEntities TileEntities;
     public PlayerIndexManager PlayerIndexManager;
+    public PlayerHealth PlayerHealth;
+    public PlayerClasses PlayerClasses;
+    public PlayerDirections PlayerDirections;
     public Entity Entity;
 
     public override void DoAwake()
     {
-        
+
     }
     public override void DoUpdate()
     {
@@ -43,6 +46,11 @@ public class PlayerMove : OrdonedMonoBehaviour
         Vector2Int NewPosition = Position + Direction;
 
         MoveFromTo(Position, NewPosition);
+        if (PlayerDirections)
+        {
+            PlayerDirections.Directions[PlayerIndexManager.Index] = Direction;
+        }
+        MoveAttack(PlayerIndexManager.Index, NewPosition, Direction);
     }
     public void MoveTo(Vector2Int NewPosition)
     {
@@ -55,7 +63,7 @@ public class PlayerMove : OrdonedMonoBehaviour
     private void MoveFromTo(Vector2Int Position, Vector2Int NewPosition)
     {
         if (!Tiles.Exists(NewPosition)) return;
-        if (!TileEntities.IsTileFree(NewPosition)) return;
+        if (TileEntities.TilePlayer(NewPosition) != -1) return;
 
         LeaveTile(Position);
         JoinTile(NewPosition);
@@ -68,5 +76,25 @@ public class PlayerMove : OrdonedMonoBehaviour
     private void JoinTile(Vector2Int Position)
     {
         TileEntities.SetEntity(Position, Entity);
+    }
+
+    private void MoveAttack(int Index, Vector2Int Position, Vector2Int Direction)
+    {
+        List<Vector2Int> MoveAttackPos = PlayerClasses.PlayerClassesList[Index].GetMoveAttackPos(Position, Direction);
+
+        Vector2Int AttackPos;
+        int TilePlayer;
+        for (int i = 0; i < MoveAttackPos.Count; i++)
+        {
+            AttackPos = MoveAttackPos[i];
+            if (Tiles.Exists(AttackPos))
+            {
+                TilePlayer = TileEntities.TilePlayer(AttackPos);
+                if (TilePlayer != -1)
+                {
+                    PlayerHealth.DecreaseHealth(TilePlayer);
+                }
+            }
+        }
     }
 }
