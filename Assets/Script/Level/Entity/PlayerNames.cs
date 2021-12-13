@@ -27,6 +27,15 @@ public class PlayerNames : PlayerData
         Names.Add(Name);
     }
 
+    public int GetPlayerIndex(string Name)
+    {
+        if (Contains(Name))
+        {
+            return Names.IndexOf(Name);
+        }
+        return -1;
+    }
+
     public bool Contains(string name)
     {
         return Names.Contains(name);
