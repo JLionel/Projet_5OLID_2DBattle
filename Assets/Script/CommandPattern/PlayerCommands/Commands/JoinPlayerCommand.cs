@@ -6,6 +6,7 @@ using UnityEngine;
 public class JoinPlayerCommand : PlayerCommand
 {
     [SerializeField] private PlayerNames playerList;
+    [SerializeField] private GameStateEvent playerJoinedEvent;
     
     //todo check if player not already in
     public override void Execute(string playerName)
@@ -15,6 +16,7 @@ public class JoinPlayerCommand : PlayerCommand
             if(!playerList.Contains(playerName))
             {
                 playerList.AddNew(playerName);
+                playerJoinedEvent.Raise();
                 TwitchChatConnected.Instance.WriteMessage($"{playerName} joined");
             }
         }
