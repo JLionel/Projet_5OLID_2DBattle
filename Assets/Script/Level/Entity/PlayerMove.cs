@@ -34,7 +34,7 @@ public class PlayerMove : OrdonedMonoBehaviour
         }
     }
 
-    private void MoveInDirection(Vector2Int Direction)
+    public void MoveInDirection(Vector2Int Direction)
     {
         if (!(Direction.magnitude == 1 && (Direction.x == 0 || Direction.y == 0))) return;
         if (!PlayerIndexManager) return;

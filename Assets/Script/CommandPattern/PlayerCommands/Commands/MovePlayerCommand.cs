@@ -7,19 +7,24 @@ namespace Script.CommandPattern
     {
         public DirectionMove _direction;
         
+        [SerializeField] private PlayerNames _playerNames;
+        [SerializeField] private PlayerGO _playerGO;
         
         public override void Execute(string playerName)
         {
-            /*PlayerMove player = CatchPlayer(playerName);
-            player.Move(VectorDirectionMove.FetchDirection(_direction));*/
-            
-            TwitchChatConnected.Instance.WriteMessage($"Move {_direction.ToString()}");
+            if(_playerNames.Contains(playerName))
+            {
+                PlayerMove player = CatchPlayer(playerName);
+                if(player)
+                    player.MoveInDirection(VectorDirectionMove.FetchDirection(_direction));
+            }
         }
 
         private PlayerMove CatchPlayer(string playerName)
         {
-            //TODO catch playerMove with his name
-            return new PlayerMove();
+            int index = _playerNames.GetPlayerIndex(playerName);
+            GameObject playerObject = _playerGO.GameObjects[index];
+            return playerObject?.GetComponent<PlayerMove>();
         }
     }
 }

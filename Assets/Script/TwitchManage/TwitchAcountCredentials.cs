@@ -5,9 +5,13 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "Twitch/Credentials")]
 public class TwitchAcountCredentials : ScriptableObject
 {
-    public string Username { get; set; }
-    public string TwitchAcountName{ get; set; }
-    public string OauthPassword{ get; set; }
+    [SerializeField] private string _username;
+    [SerializeField] private string _twitchAcountName;
+    [SerializeField] private string _oauthPassword;
+    
+    public string Username { get => _username; set => _username = value; }
+    public string TwitchAcountName{ get => _twitchAcountName; set => _twitchAcountName = value; }
+    public string OauthPassword{ get => _oauthPassword ; set => _oauthPassword = value; }
 
     public TwitchAcountCredentials()
     {
