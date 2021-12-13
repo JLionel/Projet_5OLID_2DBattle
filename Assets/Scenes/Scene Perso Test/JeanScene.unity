@@ -328,7 +328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92486e8f278d4f54ea1222baccde0d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHealth: {fileID: 11400000, guid: 217cc03c2574ba94d989415f70b52014, type: 2}
 --- !u!4 &982047882
 Transform:
   m_ObjectHideFlags: 0
@@ -493,6 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerDataToUpdate:
   - {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
+  - {fileID: 11400000, guid: 49744aee7c5ed204a81d83f72858b4f9, type: 2}
 --- !u!114 &1664425455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,6 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerDatas:
   - {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
+  - {fileID: 11400000, guid: 49744aee7c5ed204a81d83f72858b4f9, type: 2}
   PlayerNames: {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
 --- !u!114 &1664425456
 MonoBehaviour:
