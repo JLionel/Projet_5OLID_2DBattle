@@ -21,7 +21,7 @@ public class PlayerSpawner : OrdonedMonoBehaviour
     }
     public override void DoUpdate()
     {
-        
+
     }
 
     private void SpawnPlayer(int Index)
@@ -36,7 +36,7 @@ public class PlayerSpawner : OrdonedMonoBehaviour
         {
             SpawnPosition = SpawnPositions.Value[i];
 
-            if (Tiles.Exists(SpawnPosition) && TileEntities.IsTileFree(SpawnPosition))
+            if (Tiles.Exists(SpawnPosition) && TileEntities.TilePlayer(SpawnPosition) == -1)
             {
                 CanSpawn = true;
                 break;

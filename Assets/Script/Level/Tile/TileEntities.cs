@@ -11,7 +11,7 @@ public class TileEntities : TileData
     public List<Vector2Int> Pos = new List<Vector2Int>();
     public List<Entity> Ent = new List<Entity>();
     //////////////
-    
+
     public override void Init()
     {
         _tileEntitiesList = new Dictionary<Vector2Int, Entity>();
@@ -32,11 +32,15 @@ public class TileEntities : TileData
         //////////////
     }
 
-    public bool IsTileFree(Vector2Int Position)
+    public int TilePlayer(Vector2Int Position)
     {
-        if (!_tileEntitiesList.ContainsKey(Position)) return false;
-        if (!_tileEntitiesList[Position]) { return true; }
-        return false;
+        if (!_tileEntitiesList.ContainsKey(Position)) return -1;
+        Entity Entity = _tileEntitiesList[Position];
+        if (!(Entity is Player)) { return -1; }
+        Player Player = (Player)Entity;
+        PlayerIndexManager PlayerIndexManager = Player.gameObject.GetComponent<PlayerIndexManager>();
+        if (!PlayerIndexManager) { return -1; }
+        return PlayerIndexManager.Index;
     }
 
     public Entity GetEntity(Vector2Int Position)

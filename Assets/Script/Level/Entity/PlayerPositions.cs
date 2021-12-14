@@ -19,6 +19,11 @@ public class PlayerPositions : PlayerData
         _positions.Add(Vector2Int.zero);
     }
 
+    public override void Remove(int Index)
+    {
+        _positions.RemoveAt(Index);
+    }
+
     public void SetPosition(int PlayerIndex, Vector2Int Position)
     {
         if (!PlayerPositionChanged) { return; }

@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f50ed454450967240b08e253408fb189, type: 3}
-  m_Name: PlayerNames
+  m_Script: {fileID: 11500000, guid: e19abff3685bec44596b7c108d08e50a, type: 3}
+  m_Name: PlayerHealth
   m_EditorClassIdentifier: 
-  Names:
-  - Killian
+  MaxHealth: 3
+  PlayerHealthList: 02000000
+  PlayerDeath: {fileID: 11400000, guid: 30789c7d526247b44b28653aa8fefdda, type: 2}

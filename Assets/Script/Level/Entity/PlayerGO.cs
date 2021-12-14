@@ -25,7 +25,12 @@ public class PlayerGO : PlayerData
 
     public override void AddNew()
     {
-        
+
+    }
+
+    public override void Remove(int Index)
+    {
+        GameObjects.RemoveAt(Index);
     }
 
     public void AddNew(GameObject GameObject)
