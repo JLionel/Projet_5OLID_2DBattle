@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Bootstrap/PersistentScene.unity
     guid: 5d5a8d154b7992f45b37970b3d75b9b7
   - enabled: 1
+    path: Assets/Scenes/Scene Perso Test/JeanScene.unity
+    guid: 9922051669e4b03468ff703e2299e0a8
+  - enabled: 1
     path: Assets/Scenes/UI/EndScreen.unity
     guid: a28318668a62f1946a1b7f010826c402
   - enabled: 1
