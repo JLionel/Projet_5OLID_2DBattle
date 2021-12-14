@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: PlayerNames
   m_EditorClassIdentifier: 
   Names:
-  - meshendy
-  - bigrouille
-  - compotelive
+  - Paul

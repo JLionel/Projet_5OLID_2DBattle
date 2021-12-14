@@ -471,6 +471,8 @@ GameObject:
   - component: {fileID: 8623203692929104594}
   - component: {fileID: 8833993854251576993}
   - component: {fileID: 4005072472256637627}
+  - component: {fileID: 5490142893007803353}
+  - component: {fileID: 7253750097075799997}
   m_Layer: 0
   m_Name: PlayerName
   m_TagString: Untagged
@@ -630,3 +632,32 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+--- !u!114 &5490142893007803353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6701696683957513508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117dacecc350a4341ab0da2e4139bc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextMeshPro: {fileID: 4005072472256637627}
+  BaseLayer: 6
+--- !u!114 &7253750097075799997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6701696683957513508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155ceb26dbeba9343bb1cdedf745e0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _awakeComponents: []
+  _updateComponents:
+  - {fileID: 5490142893007803353}
