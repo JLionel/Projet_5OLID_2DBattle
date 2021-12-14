@@ -19,6 +19,11 @@ public class PlayerPositions : PlayerData
         _positions.Add(Vector2Int.zero);
     }
 
+    public override void Remove(int Index)
+    {
+        _positions.RemoveAt(Index);
+    }
+
     public void SetPosition(int PlayerIndex, Vector2Int Position)
     {
         if (!PlayerPositionChanged) { return; }
@@ -37,5 +42,10 @@ public class PlayerPositions : PlayerData
     {
         if (_positions.Count <= PlayerIndex) { return Vector2Int.zero; }
         return _positions[PlayerIndex];
+    }
+
+    public int GetPlayerCount()
+    {
+        return _positions.Count;
     }
 }

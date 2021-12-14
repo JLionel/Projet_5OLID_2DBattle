@@ -21,7 +21,7 @@ public class PlayerSpawner : OrdonedMonoBehaviour
     }
     public override void DoUpdate()
     {
-        
+
     }
 
     private void SpawnPlayer(int Index)
@@ -36,7 +36,7 @@ public class PlayerSpawner : OrdonedMonoBehaviour
         {
             SpawnPosition = SpawnPositions.Value[i];
 
-            if (Tiles.Exists(SpawnPosition) && TileEntities.IsTileFree(SpawnPosition))
+            if (Tiles.Exists(SpawnPosition) && TileEntities.TilePlayer(SpawnPosition) == -1)
             {
                 CanSpawn = true;
                 break;
@@ -46,10 +46,6 @@ public class PlayerSpawner : OrdonedMonoBehaviour
         if (!CanSpawn) { return; }
         GameObject Player = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
         Player.name = PlayerNames.Names[Index];
-
-        PlayerIndexManager PlayerIndexManager = Player.GetComponent<PlayerIndexManager>();
-        if (!PlayerIndexManager) { return; }
-        PlayerIndexManager.Index = Index;
 
         AddedNewPlayer.Raise();
 
