@@ -7,7 +7,7 @@ using UnityEngine.PlayerLoop;
 public class RoundCommandHistory : MySingleton<RoundCommandHistory>
 {
     private List<TurnCommandsHistory> _allTurns = new List<TurnCommandsHistory>(3);
-    [SerializeField] private FloatVariable _timeBtwTurns;
+    private float _timeBtwTurns = 1.5f;
 
     [SerializeField] public FloatVariable EnterActionTimer;
     
@@ -52,7 +52,7 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
         foreach (var turn in _allTurns)
         {
             turn.ExecuteCommands();
-            yield return new WaitForSeconds(_timeBtwTurns.Value);
+            yield return new WaitForSeconds(_timeBtwTurns);
         }
         ClearTurnsCommands();
         endRound.Value = true;
