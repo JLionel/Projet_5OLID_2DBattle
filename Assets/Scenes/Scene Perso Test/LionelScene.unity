@@ -324,6 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2025325298}
   - component: {fileID: 2025325297}
+  - component: {fileID: 2025325299}
   m_Layer: 0
   m_Name: GoogleSheet
   m_TagString: Untagged
@@ -357,6 +358,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2025325299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025325296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd610ab84f4f344680d035ce1760d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spreadSheetID: 16yNi5BqMcS1-dxvEcqpfvYAs-NGWg9OS6TCQbsL_mB8
+  rangeData: A2:B
+  sheetName: 
+  applicationName: Twitch Game Projet5
+  sheetData: {fileID: 11400000, guid: 61def28db5c87a34fa3bf25872763b62, type: 2}
+  userCredentials: {fileID: 2025325297}
 --- !u!1 &2145691773
 GameObject:
   m_ObjectHideFlags: 0

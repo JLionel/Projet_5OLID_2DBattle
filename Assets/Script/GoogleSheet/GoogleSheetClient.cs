@@ -8,11 +8,11 @@ using Google.Apis.Sheets.v4;
 using Google.Apis.Util.Store;
 using UnityEngine;
 
-public class GoogleSheetClient : ScriptableObject
+public class GoogleSheetClient : MonoBehaviour
 {
     
     private static string[] Scopes = { SheetsService.Scope.SpreadsheetsReadonly };
-    private UserCredential userCredential;
+    public UserCredential userCredential;
     private bool connected;
 
     [ContextMenu("Connect")]

@@ -2,16 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoogleSheetWriteValue : MonoBehaviour
+public class GoogleSheetWriteValue : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GoogleSheetClient userCredentials;
 
-    // Update is called once per frame
-    void Update()
+    public async void WriteValue()
     {
         
     }
