@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 171802012}
   - component: {fileID: 171802011}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: Pour toi Killian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -535,7 +535,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1664425459}
         m_TargetAssemblyTypeName: PlayerDeath, Assembly-CSharp
         m_MethodName: OnPlayerDeath
-        m_Mode: 3
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -563,3 +563,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 49744aee7c5ed204a81d83f72858b4f9, type: 2}
   - {fileID: 11400000, guid: 17ceaf7c508b3af489366c3516167f51, type: 2}
   - {fileID: 11400000, guid: e82b8c5b25876984cb8d6f45ce02f943, type: 2}
+  PlayerGO: {fileID: 11400000, guid: 49744aee7c5ed204a81d83f72858b4f9, type: 2}

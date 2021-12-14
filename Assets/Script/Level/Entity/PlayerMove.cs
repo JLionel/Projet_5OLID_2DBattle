@@ -45,12 +45,14 @@ public class PlayerMove : OrdonedMonoBehaviour
         Vector2Int Position = PlayerPositions.GetPosition(PlayerIndexManager.Index);
         Vector2Int NewPosition = Position + Direction;
 
-        MoveFromTo(Position, NewPosition);
         if (PlayerDirections)
         {
             PlayerDirections.Directions[PlayerIndexManager.Index] = Direction;
         }
-        MoveAttack(PlayerIndexManager.Index, NewPosition, Direction);
+
+        Vector2Int AttackPos = MoveFromTo(Position, NewPosition) ? NewPosition : Position;
+
+        MoveAttack(PlayerIndexManager.Index, AttackPos, Direction);
     }
     public void MoveTo(Vector2Int NewPosition)
     {
@@ -60,14 +62,15 @@ public class PlayerMove : OrdonedMonoBehaviour
 
         MoveFromTo(Position, NewPosition);
     }
-    private void MoveFromTo(Vector2Int Position, Vector2Int NewPosition)
+    private bool MoveFromTo(Vector2Int Position, Vector2Int NewPosition)
     {
-        if (!Tiles.Exists(NewPosition)) return;
-        if (TileEntities.TilePlayer(NewPosition) != -1) return;
+        if (!Tiles.Exists(NewPosition)) return false;
+        if (TileEntities.TilePlayer(NewPosition) != -1) return false;
 
         LeaveTile(Position);
         JoinTile(NewPosition);
         PlayerPositions.SetPosition(PlayerIndexManager.Index, NewPosition);
+        return true;
     }
     private void LeaveTile(Vector2Int Position)
     {
@@ -92,6 +95,7 @@ public class PlayerMove : OrdonedMonoBehaviour
                 TilePlayer = TileEntities.TilePlayer(AttackPos);
                 if (TilePlayer != -1)
                 {
+                    Debug.Log(Index + " attacked " + TilePlayer + " from " + Position + " to " + AttackPos);
                     PlayerHealth.DecreaseHealth(TilePlayer);
                 }
             }

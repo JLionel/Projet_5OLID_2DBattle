@@ -7,6 +7,7 @@ public class PlayerHealth : PlayerData
 {
     public int MaxHealth = 2;
     public List<int> PlayerHealthList = new List<int>();
+    public PlayerEvent PlayerDeath;
 
     public override void Init()
     {
@@ -18,7 +19,7 @@ public class PlayerHealth : PlayerData
         PlayerHealthList[Index]--;
         if (PlayerHealthList[Index] <= 0)
         {
-
+            PlayerDeath.Raise(Index);
         }
     }
 

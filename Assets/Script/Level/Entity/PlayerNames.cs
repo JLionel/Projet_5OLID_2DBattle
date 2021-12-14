@@ -19,6 +19,7 @@ public class PlayerNames : PlayerData
 
     public override void Remove(int Index)
     {
+        Debug.Log(Names [Index] + " died");
         Names.RemoveAt(Index);
     }
 

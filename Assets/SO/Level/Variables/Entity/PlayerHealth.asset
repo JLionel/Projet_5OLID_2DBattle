@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: PlayerHealth
   m_EditorClassIdentifier: 
   MaxHealth: 2
-  PlayerHealthList: 
+  PlayerHealthList: 020000000200000002000000
+  PlayerDeath: {fileID: 11400000, guid: 30789c7d526247b44b28653aa8fefdda, type: 2}
