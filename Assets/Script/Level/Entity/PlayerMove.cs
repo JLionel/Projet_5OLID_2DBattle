@@ -12,6 +12,7 @@ public class PlayerMove : OrdonedMonoBehaviour
     public PlayerClasses PlayerClasses;
     public PlayerDirections PlayerDirections;
     public Entity Entity;
+    public TileEvent AttackOnTile;
 
     public override void DoAwake()
     {
@@ -98,6 +99,8 @@ public class PlayerMove : OrdonedMonoBehaviour
                     Debug.Log(Index + " attacked " + TilePlayer + " from " + Position + " to " + AttackPos);
                     PlayerHealth.DecreaseHealth(TilePlayer);
                 }
+                if (!AttackOnTile) { return; }
+                AttackOnTile.Raise(AttackPos);
             }
         }
     }

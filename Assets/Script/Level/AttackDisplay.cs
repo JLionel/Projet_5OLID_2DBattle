@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class AttackDisplay : MonoBehaviour
 {
-    
-    /*public IEnumerator DisplayAttackCoroutine(Vector2Int Position)
+    public GameObject AttackDisplayPrefab;
+
+    public IEnumerator DisplayAttackCoroutine(Vector2Int Position)
     {
-        //afficher on verra plus tard
+        GameObject AttackDisplay = Instantiate(AttackDisplayPrefab, new Vector3(Position.x, Position.y, 0), Quaternion.identity);
         yield return new WaitForSeconds(0.5f);
-        //desafficher
+        Destroy(AttackDisplay);
     }
 
 
     public void OnAttack(Vector2Int Position)
     {
         StartCoroutine(DisplayAttackCoroutine(Position));
-    }*/
+    }
 }

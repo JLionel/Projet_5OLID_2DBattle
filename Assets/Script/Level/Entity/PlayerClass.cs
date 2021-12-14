@@ -18,7 +18,7 @@ public class PlayerClass : ScriptableObject
         return MoveAttackGlobalPos;
     }
 
-    public List<Vector2Int> GetAttackPos(Vector2Int Position, Vector2Int Direction)
+    public List<Vector2Int> GetSpecialAttackPos(Vector2Int Position, Vector2Int Direction)
     {
         List<Vector2Int> AttackGlobalPos = new List<Vector2Int>();
         for (int i = 0; i < AttackLocalPos.Count; i++)

@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: -1448693696461451685}
   - component: {fileID: -6509489386550398392}
   - component: {fileID: 5221270414307480621}
+  - component: {fileID: 4441566905411440159}
   - component: {fileID: 7279890719495066129}
   - component: {fileID: 8122935794348821770}
   - component: {fileID: -5932874207290198889}
@@ -104,6 +105,7 @@ MonoBehaviour:
   PlayerClasses: {fileID: 11400000, guid: e82b8c5b25876984cb8d6f45ce02f943, type: 2}
   PlayerDirections: {fileID: 11400000, guid: 736dc2eabecd1f145a35c56a052e7216, type: 2}
   Entity: {fileID: -35052442067272799}
+  AttackOnTile: {fileID: 11400000, guid: ed581b843b6f72f4c99ce536c1d520c9, type: 2}
 --- !u!114 &4744077034972713917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +283,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4441566905411440159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24280859430499016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24d7a2730fa9c54a99f08b2f3bcc370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerIndexManager: {fileID: 9206942148212492061}
+  PlayerClasses: {fileID: 11400000, guid: e82b8c5b25876984cb8d6f45ce02f943, type: 2}
+  Tiles: {fileID: 11400000, guid: c4ca55658cb4f864989892f7676d3dae, type: 2}
+  TileEntities: {fileID: 11400000, guid: d39e3292b33294e47b6f76bcbdbd9c0d, type: 2}
+  PlayerHealth: {fileID: 11400000, guid: 17ceaf7c508b3af489366c3516167f51, type: 2}
+  AttackOnTile: {fileID: 11400000, guid: ed581b843b6f72f4c99ce536c1d520c9, type: 2}
 --- !u!114 &7279890719495066129
 MonoBehaviour:
   m_ObjectHideFlags: 0
