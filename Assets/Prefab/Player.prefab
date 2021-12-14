@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 5221270414307480621}
   - component: {fileID: 7279890719495066129}
   - component: {fileID: 8122935794348821770}
+  - component: {fileID: -5932874207290198889}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -308,6 +309,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteRenderer: {fileID: 8833348216891993431}
   BaseLayer: 2
+--- !u!114 &-5932874207290198889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24280859430499016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07a3adba3e725147be06edf25947aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TileEntities: {fileID: 11400000, guid: d39e3292b33294e47b6f76bcbdbd9c0d, type: 2}
+  PlayerIndexManager: {fileID: 9206942148212492061}
+  PlayerPositions: {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
 --- !u!1 &1300956088524307822
 GameObject:
   m_ObjectHideFlags: 0
