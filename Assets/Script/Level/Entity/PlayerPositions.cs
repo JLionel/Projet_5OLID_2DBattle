@@ -43,4 +43,9 @@ public class PlayerPositions : PlayerData
         if (_positions.Count <= PlayerIndex) { return Vector2Int.zero; }
         return _positions[PlayerIndex];
     }
+
+    public int GetPlayerCount()
+    {
+        return _positions.Count;
+    }
 }

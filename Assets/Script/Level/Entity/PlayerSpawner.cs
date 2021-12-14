@@ -47,10 +47,6 @@ public class PlayerSpawner : OrdonedMonoBehaviour
         GameObject Player = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
         Player.name = PlayerNames.Names[Index];
 
-        PlayerIndexManager PlayerIndexManager = Player.GetComponent<PlayerIndexManager>();
-        if (!PlayerIndexManager) { return; }
-        PlayerIndexManager.Index = Index;
-
         AddedNewPlayer.Raise();
 
         PlayerMove PlayerMove = Player.GetComponent<PlayerMove>();
