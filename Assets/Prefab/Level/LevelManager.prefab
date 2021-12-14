@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4382306063443019497}
+  - component: {fileID: 4325335478901215050}
   - component: {fileID: 4382306063443019503}
   - component: {fileID: 4382306063443019500}
   - component: {fileID: 4382306063443019499}
@@ -43,6 +44,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4325335478901215050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382306063443019492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80a892d4534946458b20081ad75d06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MapConfiguration: {fileID: 11400000, guid: bd6e0fbef3315984ab4079e983859294, type: 2}
+  PlayerSpawnPositions: {fileID: 11400000, guid: c72849fe80ff3ac4686724cce9f232f0, type: 2}
+  MinTileCoverage: {fileID: 11400000, guid: ff6e8f74c0a31984280b3cee682b8671, type: 2}
+  MaxTileCreationAttemptFactor: {fileID: 11400000, guid: 90c28b08aa08daf4e867db4e10fcf81e, type: 2}
+  StartLandPer100Tiles: {fileID: 11400000, guid: 4b878f58477cb4a4597c417d89386f89, type: 2}
+  MapLength: {fileID: 11400000, guid: 154d5428c443b92428d5f2a6f4ffac54, type: 2}
+  MapHeight: {fileID: 11400000, guid: 56f00b02c3dfe9142936d82b217a5140, type: 2}
 --- !u!114 &4382306063443019503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _awakeComponents:
+  - {fileID: 4325335478901215050}
   - {fileID: 4382306063443019502}
   - {fileID: 4382306063443019510}
   - {fileID: 4382306063443019507}
