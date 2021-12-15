@@ -11,11 +11,14 @@ public class TCH_JoinGame : TwitchCommandHandler
     public override void HandleCommand(MessageData data)
     {
         int result = 0;
-        if(data.Message.Length == 1 && int.TryParse(data.Message, out result))
+        if(int.TryParse(data.Message, out result))
         {
-            var commandCast = (JoinPlayerCommand) playerCommandExecuted;
-            commandCast.PlayerClass = ClassExistent[result];
-            commandCast.Execute(data.Author);
+            if(result >= 0 && result < ClassExistent.Count)
+            {
+                var commandCast = (JoinPlayerCommand) playerCommandExecuted;
+                commandCast.PlayerClass = ClassExistent[result];
+                commandCast.Execute(data.Author);
+            }
         }
     }
 }
