@@ -484,18 +484,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1543591040}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: Load
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 113ef30fdf3e8e54db2793bce118be95, type: 2}
-          m_ObjectArgumentAssemblyTypeName: StringVariable, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1543591042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,18 +560,6 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: f1641d8fc4a06b34a87e8c69e9da5aa0, type: 2}
-          m_ObjectArgumentAssemblyTypeName: StringVariable, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1543591040}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: Unload
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: d3a6553c9cc19c344a89aa873467d766, type: 2}
           m_ObjectArgumentAssemblyTypeName: StringVariable, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -692,6 +668,18 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: d3a6553c9cc19c344a89aa873467d766, type: 2}
+          m_ObjectArgumentAssemblyTypeName: StringVariable, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1543591040}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: Load
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 113ef30fdf3e8e54db2793bce118be95, type: 2}
           m_ObjectArgumentAssemblyTypeName: StringVariable, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0

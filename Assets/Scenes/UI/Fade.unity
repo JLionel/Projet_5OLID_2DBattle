@@ -230,6 +230,7 @@ MonoBehaviour:
   fadeSpeed: 0.4
   fadeImage: {fileID: 232164494}
   fadeOutFinished: {fileID: 11400000, guid: 2d82767fe132ca748b24f9e5867862ee, type: 2}
+  fadeScene: {fileID: 11400000, guid: d3a6553c9cc19c344a89aa873467d766, type: 2}
 --- !u!4 &1801878184
 Transform:
   m_ObjectHideFlags: 0

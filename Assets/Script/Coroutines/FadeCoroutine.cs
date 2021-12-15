@@ -10,6 +10,7 @@ public class FadeCoroutine : MonoBehaviour
     [SerializeField] [Range(0, 1)]private float fadeSpeed;
     [SerializeField] private Image fadeImage;
     [SerializeField] private BoolVariable fadeOutFinished;
+    [SerializeField] private StringVariable fadeScene;
 
     private IEnumerator Start()
     {
@@ -17,6 +18,7 @@ public class FadeCoroutine : MonoBehaviour
         yield return StartCoroutine(FadeOut());
         fadeOutFinished.Value = true;
         yield return StartCoroutine(FadeIn());
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(fadeScene.Value));
     }
 
     private IEnumerator FadeIn()
