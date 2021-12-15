@@ -12,11 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231c3f2a0e944734c98b5f0dc031eba4, type: 3}
   m_Name: TileEntities
   m_EditorClassIdentifier: 
-  Pos:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  Ent:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Pos: []
+  Ent: []
