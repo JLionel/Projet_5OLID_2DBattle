@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraTransformManager : OrdonedMonoBehaviour
 {
-    public IntVariable MapLength;
-    public IntVariable MapHeight;
+    public FloatVariable MapLength;
+    public FloatVariable MapHeight;
 
     public FloatVariable LengthZoomFactor;
     public FloatVariable HeightZoomFactor;

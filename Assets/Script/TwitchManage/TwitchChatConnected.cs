@@ -64,7 +64,7 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
         
         if(_twitchClient.Connected)
         {
-            _twitchClient.EndConnect(null);
+            _twitchClient.Close();
             _twitchClient = null;
         }
     }

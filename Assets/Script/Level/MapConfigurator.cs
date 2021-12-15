@@ -10,8 +10,8 @@ public class MapConfigurator : OrdonedMonoBehaviour
     public FloatVariable MinTileCoverage;
     public FloatVariable MaxTileCreationAttemptFactor;
     public IntVariable StartLandPer100Tiles;
-    public IntVariable MapLength;
-    public IntVariable MapHeight;
+    public FloatVariable MapLength;
+    public FloatVariable MapHeight;
 
     public override void DoAwake()
     {
@@ -25,8 +25,8 @@ public class MapConfigurator : OrdonedMonoBehaviour
 
     private void CreateMap()
     {
-        int Length = MapLength.Value;
-        int Height = MapHeight.Value;
+        int Length = (int) MapLength.Value;
+        int Height = (int) MapHeight.Value;
         int Size = Length * Height;
         int MinTileCount = (int)(MinTileCoverage.Value * Size);
         int MaxTileCreationAttempts = (int)(MaxTileCreationAttemptFactor.Value * Size);
