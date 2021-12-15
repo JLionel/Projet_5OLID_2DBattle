@@ -14,27 +14,24 @@ public class Settings : MonoBehaviour
     [SerializeField] private TextMeshProUGUI twitchAuth;
     [SerializeField] private TwitchAcountCredentials twitchCredentials;
 
-    private string VolumeKey = "Volume value";
+    [SerializeField] private StringVariable VolumeKey;
 
     private void Start()
     {
-        float value = PlayerPrefs.GetFloat(VolumeKey);
+        float value = PlayerPrefs.GetFloat(VolumeKey.Value);
         slider.value = value;
     }
 
     private void Update()
     {
         var value = slider.value;
-        
+        PlayerPrefs.SetFloat(VolumeKey.Value, slider.value);
+
         volumeText.text = value.ToString("N0");
     }
 
     public void SaveSettings()
     {
-        var value = slider.value;
-        
-        PlayerPrefs.SetFloat(VolumeKey, slider.value);
-
         twitchCredentials.Username = twitchName.text.ToLower();
         twitchCredentials.TwitchAcountName = twitchName.text.ToLower();
 

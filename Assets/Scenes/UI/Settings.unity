@@ -2690,6 +2690,7 @@ MonoBehaviour:
   twitchName: {fileID: 2084092786}
   twitchAuth: {fileID: 122840}
   twitchCredentials: {fileID: 11400000, guid: 1630077ace48d784fb6edd7599402290, type: 2}
+  VolumeKey: {fileID: 11400000, guid: f14430a53edf24841bf7c64f30f02fe9, type: 2}
 --- !u!1 &1697589846
 GameObject:
   m_ObjectHideFlags: 0

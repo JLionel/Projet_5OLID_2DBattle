@@ -10,6 +10,7 @@ public class Lobby : MonoBehaviour
     [SerializeField] private PlayerNames playerNames;
     [SerializeField] private TextMeshProUGUI subtitleText;
     [SerializeField] private TextMeshProUGUI listText;
+    [SerializeField] private FloatVariable playerMaxCount;
 
     private int _myInt = 0;
 
@@ -18,7 +19,7 @@ public class Lobby : MonoBehaviour
         listText.text += playerNames.Names.Last() + TextLayout();
         var connectedString = playerNames.Names.Count == 1 ? " player connected" : " players connected";
         
-        subtitleText.text = playerNames.Names.Count + connectedString;
+        subtitleText.text = playerNames.Names.Count + "/" + playerMaxCount.Value + connectedString;
     }
 
     private string TextLayout()
