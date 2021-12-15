@@ -10,7 +10,6 @@ public class CreateLevel : MonoBehaviour
 
     public void OnStartGame()
     {
-        Debug.Log("event Raised!");
          _level = Instantiate(levelPrefab, Vector3.zero, Quaternion.identity);
     }
 

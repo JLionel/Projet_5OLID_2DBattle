@@ -9,6 +9,7 @@ public enum StatesName
     WaitTurnActions,
     ExecuteRound,
     EndGame,
+    Fade,
 }
 
 public abstract class GameState : ScriptableObject

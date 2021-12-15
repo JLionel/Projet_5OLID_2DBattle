@@ -73,7 +73,6 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
     {
         if (_twitchClient.Available > 0)
         {
-            Debug.Log("Available");
             string chatMessage = _reader.ReadLine();
             Debug.Log(chatMessage);
 
@@ -95,7 +94,6 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
 
                 if (chatMessage.StartsWith(CommandsPrefix.Prefix))
                 {
-                    Debug.Log("It's a command !");
                     int index = chatMessage.IndexOf(" ");
                     string command = index > -1 ? chatMessage.Substring(0, index) : chatMessage;
                     
@@ -107,10 +105,6 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
                 }
             }
             
-        }
-        else
-        {
-            Debug.Log("not Available");
         }
     }
 
