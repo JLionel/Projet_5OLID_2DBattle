@@ -9,6 +9,7 @@ public class WaitActionState : GameState
     [SerializeField] private FloatVariable _waitTimer;
     
     [SerializeField] private PlayerNames playerList;
+    [SerializeField] private PlayerClasses playerClasses;
     [SerializeField] private StringVariable winnerName;
     
     [SerializeField] private GameStateEvent EndGameState;
@@ -23,6 +24,7 @@ public class WaitActionState : GameState
         {
             winnerName.Value = playerList.GetPlayerCount() == 1? playerList.Names[0] : "";
             playerList.ClearList();
+            playerClasses.PlayerClassesList.Clear();
             EndGameState.Raise();
         }else
         {

@@ -16,3 +16,5 @@ MonoBehaviour:
   playerList: {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
   playerJoinedEvent: {fileID: 11400000, guid: 055c3c4abcdb0b143af42ad5e0211c5f, type: 2}
   playerMax: {fileID: 11400000, guid: 2a911ea611dce7d4bbbf8bef64f9890f, type: 2}
+  PlayerClasses: {fileID: 11400000, guid: e82b8c5b25876984cb8d6f45ce02f943, type: 2}
+  PlayerClass: {fileID: 11400000, guid: a4383139e846e264f85b73689fd0da7c, type: 2}

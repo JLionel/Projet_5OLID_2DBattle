@@ -8,8 +8,10 @@ public class JoinPlayerCommand : PlayerCommand
     [SerializeField] private PlayerNames playerList;
     [SerializeField] private GameStateEvent playerJoinedEvent;
     [SerializeField] private FloatVariable playerMax;
+
+    [SerializeField] private PlayerClasses PlayerClasses;
+    public PlayerClass PlayerClass;
     
-    //todo check if player not already in
     public override void Execute(string playerName)
     {
         if(gameStateName.Value == StatesName.JoinLobby)
@@ -19,6 +21,7 @@ public class JoinPlayerCommand : PlayerCommand
                 if (!playerList.Contains(playerName))
                 {
                     playerList.AddNew(playerName);
+                    PlayerClasses.PlayerClassesList.Add(PlayerClass);
                     playerJoinedEvent.Raise();
                 }
             }

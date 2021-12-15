@@ -13,6 +13,6 @@ public class JoinLobbyState : GameState
 
     public override void OnStateEnter()
     {
-        TwitchChatConnected.Instance.WriteMessage("Time to start PogChamp : to join the game tap !join in the chat");
+        TwitchChatConnected.Instance.WriteMessage("Time to start PogChamp : to join the game tap !join <class> in the chat. Archer = 0, Mage = 1, Warrior = 2");
     }
 }
