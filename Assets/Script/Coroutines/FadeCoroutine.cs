@@ -21,26 +21,18 @@ public class FadeCoroutine : MonoBehaviour
 
     private IEnumerator FadeIn()
     {
-        Debug.Log("FadeIn Start");
-
         while (fadeImage.color.a > 0)
         {
             fadeImage.color -= new Color(0, 0, 0, fadeSpeed * Time.deltaTime);
             yield return null;
         }
-        
-        Debug.Log("FadeIn End");
     }
     private IEnumerator FadeOut()
     {
-        Debug.Log("FadeOut Start");
-
         while (fadeImage.color.a < 1)
         {
             fadeImage.color += new Color(0, 0, 0, fadeSpeed * Time.deltaTime);
             yield return null;
         }
-        
-        Debug.Log("FadeOut End");
     }
 }
