@@ -10,4 +10,9 @@ public class DefaultState : GameState
     {
         
     }
+
+    public override void OnStateEnter()
+    {
+        TwitchChatConnected.Instance.DisconnectClient();
+    }
 }

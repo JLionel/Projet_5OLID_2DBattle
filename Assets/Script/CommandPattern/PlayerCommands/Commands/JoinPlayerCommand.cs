@@ -17,7 +17,6 @@ public class JoinPlayerCommand : PlayerCommand
             {
                 playerList.AddNew(playerName);
                 playerJoinedEvent.Raise();
-                TwitchChatConnected.Instance.WriteMessage($"{playerName} joined");
             }
         }
     }

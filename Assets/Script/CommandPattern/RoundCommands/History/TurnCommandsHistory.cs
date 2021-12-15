@@ -7,12 +7,15 @@ public class TurnCommandsHistory
 {
     private Dictionary<string, PlayerCommand> _allCommand = new Dictionary<string, PlayerCommand>();
 
-    public async void ExecuteCommands()
+    public IEnumerator ExecuteCommands(float delayTime)
     {
         foreach (var command in _allCommand)
         {
             command.Value.Execute(command.Key);
+            yield return new WaitForSeconds(delayTime);
         }
+
+        RoundCommandHistory.Instance.endTurn = true;
     }
 
     public bool AddCommand(string playerPseudo, PlayerCommand playerCommand)
@@ -29,6 +32,11 @@ public class TurnCommandsHistory
         Debug.Log("Have action ?");
         
         return _allCommand.ContainsKey(playerPseudo);
+    }
+
+    public int NumberOfActions()
+    {
+        return _allCommand.Count;
     }
 
     public void ClearCommands()
