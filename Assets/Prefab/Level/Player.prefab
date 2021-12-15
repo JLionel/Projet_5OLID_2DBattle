@@ -107,6 +107,7 @@ MonoBehaviour:
   PlayerDirections: {fileID: 11400000, guid: 736dc2eabecd1f145a35c56a052e7216, type: 2}
   Entity: {fileID: -35052442067272799}
   AttackOnTile: {fileID: 11400000, guid: ed581b843b6f72f4c99ce536c1d520c9, type: 2}
+  OnWait: {fileID: 11400000, guid: 7fce5fb5b398fd24d85879f906ae55ce, type: 2}
 --- !u!114 &4744077034972713917
 MonoBehaviour:
   m_ObjectHideFlags: 0

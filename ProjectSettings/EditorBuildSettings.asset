@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/Lobby.unity
     guid: 6a9b76f7ca49b9441bf2ebf5ae082cac
   - enabled: 1
+    path: Assets/Scenes/UI/HUD.unity
+    guid: 6285feb7346da59468c501fd63406ba5
+  - enabled: 1
     path: Assets/Scenes/UI/Settings.unity
     guid: c55ca676835761249a6e6c7cd105802a
   - enabled: 1

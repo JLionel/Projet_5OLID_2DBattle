@@ -18,3 +18,4 @@ MonoBehaviour:
   playerList: {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
   winnerName: {fileID: 11400000, guid: 7a6d43360f39f8f49a65cc4fc74bd766, type: 2}
   EndGameState: {fileID: 11400000, guid: 2ac268ae44ccb4d4691e45cb21364807, type: 2}
+  EnterWaitState: {fileID: 11400000, guid: 7fce5fb5b398fd24d85879f906ae55ce, type: 2}

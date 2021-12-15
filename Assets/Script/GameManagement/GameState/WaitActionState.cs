@@ -13,6 +13,8 @@ public class WaitActionState : GameState
     
     [SerializeField] private GameStateEvent EndGameState;
 
+    [SerializeField] private GameEvent EnterWaitState;
+
     private float _saveWaitTimer;
     
     public override void Tick()
@@ -34,6 +36,7 @@ public class WaitActionState : GameState
     
     public override void OnStateEnter()
     {
+        EnterWaitState.Raise();
         _saveWaitTimer = _waitTimer.Value;
         if (playerList.GetPlayerCount() > 1)
         {

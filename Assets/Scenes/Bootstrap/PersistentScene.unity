@@ -451,6 +451,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1247937742}
   - component: {fileID: 1247937741}
+  - component: {fileID: 1247937744}
+  - component: {fileID: 1247937745}
+  - component: {fileID: 1247937743}
+  - component: {fileID: 1247937740}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -458,6 +462,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1247937740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247937739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155ceb26dbeba9343bb1cdedf745e0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _awakeComponents:
+  - {fileID: 1247937745}
+  - {fileID: 1247937743}
+  _updateComponents:
+  - {fileID: 1247937744}
 --- !u!20 &1247937741
 Camera:
   m_ObjectHideFlags: 0
@@ -515,6 +536,82 @@ Transform:
   m_Father: {fileID: 1945816667}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1247937743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247937739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5b7d16561d4474f801e7f188045fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 7fce5fb5b398fd24d85879f906ae55ce, type: 2}
+  onEventRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1247937744}
+        m_TargetAssemblyTypeName: CameraTransformManager, Assembly-CSharp
+        m_MethodName: OnWaitActionState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1247937744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247937739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5237bc9098a39b428ef23d3b87e3f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MapLength: {fileID: 11400000, guid: 154d5428c443b92428d5f2a6f4ffac54, type: 2}
+  MapHeight: {fileID: 11400000, guid: 56f00b02c3dfe9142936d82b217a5140, type: 2}
+  LengthZoomFactor: {fileID: 11400000, guid: 42d09260ee925ce418fd33536420d9d3, type: 2}
+  HeightZoomFactor: {fileID: 11400000, guid: e1ac477841e87a040bcdb4583be31d29, type: 2}
+  MinZoom: {fileID: 11400000, guid: c6041ff640e426b43a09a630400fa217, type: 2}
+  ZoomMargin: {fileID: 11400000, guid: 62e1a49461c63d14b812b8781359b793, type: 2}
+  AdaptationTime: {fileID: 11400000, guid: 5a95cc74c1f104d4ea3aa6d77db9cf59, type: 2}
+  PlayerPositions: {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
+--- !u!114 &1247937745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247937739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5b7d16561d4474f801e7f188045fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 1e954a327d45e2c48932db679b37e5d4, type: 2}
+  onEventRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1247937744}
+        m_TargetAssemblyTypeName: CameraTransformManager, Assembly-CSharp
+        m_MethodName: OnMapConfigurated
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1477792178
 GameObject:
   m_ObjectHideFlags: 0
