@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 934063c51702670459a75bd98f853e47, type: 3}
-  m_Name: Twitch Credentials
+  m_Script: {fileID: 11500000, guid: 9dd610ab84f4f344680d035ce1760d46, type: 3}
+  m_Name: ReadParameter
   m_EditorClassIdentifier: 
-  _username: "testjeuchattwitch\u200B"
-  _twitchAcountName: "testjeuchattwitch\u200B"
-  _oauthPassword: oauth:t6g5wagmm9yk9r0zuyquh1q1mlysgp
+  spreadSheetID: 16yNi5BqMcS1-dxvEcqpfvYAs-NGWg9OS6TCQbsL_mB8
+  rangeData: A2:B
+  sheetName: 
+  sheetData: {fileID: 11400000, guid: 61def28db5c87a34fa3bf25872763b62, type: 2}

@@ -62,8 +62,8 @@ MonoBehaviour:
   MinTileCoverage: {fileID: 11400000, guid: ff6e8f74c0a31984280b3cee682b8671, type: 2}
   MaxTileCreationAttemptFactor: {fileID: 11400000, guid: 90c28b08aa08daf4e867db4e10fcf81e, type: 2}
   StartLandPer100Tiles: {fileID: 11400000, guid: 4b878f58477cb4a4597c417d89386f89, type: 2}
-  MapLength: {fileID: 11400000, guid: 154d5428c443b92428d5f2a6f4ffac54, type: 2}
-  MapHeight: {fileID: 11400000, guid: 56f00b02c3dfe9142936d82b217a5140, type: 2}
+  MapLength: {fileID: 11400000, guid: fb5899771e91af44c9c3e08f05585a17, type: 2}
+  MapHeight: {fileID: 11400000, guid: f35c1f7111fce4340835501ef7473af4, type: 2}
 --- !u!114 &4382306063443019503
 MonoBehaviour:
   m_ObjectHideFlags: 0

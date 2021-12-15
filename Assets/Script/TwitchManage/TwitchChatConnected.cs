@@ -17,7 +17,7 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
     [SerializeField] private TwitchAcountCredentials twitchAcountCredentials;
 
 
-    protected override bool DoDestroyOnLoad { get; }
+    protected override bool DoDestroyOnLoad => true;
     
 
     private void Start()
@@ -47,10 +47,25 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
             _writer = new StreamWriter(_twitchClient.GetStream());
 
             _writer.WriteLine($"PASS {twitchAcountCredentials.OauthPassword}");
+            Debug.Log(twitchAcountCredentials.OauthPassword);
             _writer.WriteLine($"NICK {twitchAcountCredentials.Username}");
+            Debug.Log(twitchAcountCredentials.Username);
             _writer.WriteLine($"USER {twitchAcountCredentials.Username} 8 * {twitchAcountCredentials.Username}");
             _writer.WriteLine($"JOIN #{twitchAcountCredentials.TwitchAcountName}");
+            Debug.Log(twitchAcountCredentials.TwitchAcountName);
             _writer.Flush();
+        }
+    }
+
+    public void DisconnectClient()
+    {
+        if (_twitchClient == null)
+            return;
+        
+        if(_twitchClient.Connected)
+        {
+            _twitchClient.Close();
+            _twitchClient = null;
         }
     }
     

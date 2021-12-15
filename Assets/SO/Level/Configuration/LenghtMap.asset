@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 934063c51702670459a75bd98f853e47, type: 3}
-  m_Name: Twitch Credentials
+  m_Script: {fileID: 11500000, guid: a8b999a0445409b4a92db488976731ce, type: 3}
+  m_Name: LenghtMap
   m_EditorClassIdentifier: 
-  _username: "testjeuchattwitch\u200B"
-  _twitchAcountName: "testjeuchattwitch\u200B"
-  _oauthPassword: oauth:t6g5wagmm9yk9r0zuyquh1q1mlysgp
+  Value: 0

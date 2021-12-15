@@ -5,14 +5,17 @@ using UnityEngine;
 
 public class TurnCommandsHistory
 {
-    public Dictionary<string, PlayerCommand> allCommand = new Dictionary<string, PlayerCommand>();
+    private Dictionary<string, PlayerCommand> _allCommand = new Dictionary<string, PlayerCommand>();
 
-    public void ExecuteCommands()
+    public IEnumerator ExecuteCommands(float delayTime)
     {
-        foreach (var command in allCommand)
+        foreach (var command in _allCommand)
         {
             command.Value.Execute(command.Key);
+            yield return new WaitForSeconds(delayTime);
         }
+
+        RoundCommandHistory.Instance.endTurn = true;
     }
 
     public bool AddCommand(string playerPseudo, PlayerCommand playerCommand)
@@ -20,7 +23,7 @@ public class TurnCommandsHistory
         if (HaveAnAction(playerPseudo))
             return false;
         Debug.Log("Add turn command");
-        allCommand.Add(playerPseudo, playerCommand);
+        _allCommand.Add(playerPseudo, playerCommand);
         return true;
     }
 
@@ -28,11 +31,16 @@ public class TurnCommandsHistory
     {
         Debug.Log("Have action ?");
         
-        return allCommand.ContainsKey(playerPseudo);
+        return _allCommand.ContainsKey(playerPseudo);
+    }
+
+    public int NumberOfActions()
+    {
+        return _allCommand.Count;
     }
 
     public void ClearCommands()
     {
-        allCommand.Clear();
+        _allCommand.Clear();
     }
 }

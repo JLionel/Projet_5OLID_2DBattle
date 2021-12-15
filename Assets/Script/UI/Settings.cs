@@ -35,8 +35,8 @@ public class Settings : MonoBehaviour
         
         PlayerPrefs.SetFloat(VolumeKey, slider.value);
 
-        twitchCredentials.Username = twitchName.text;
-        twitchCredentials.TwitchAcountName = twitchName.text;
+        twitchCredentials.Username = twitchName.text.ToLower();
+        twitchCredentials.TwitchAcountName = twitchName.text.ToLower();
 
         twitchCredentials.OauthPassword = twitchAuth.text;
     }

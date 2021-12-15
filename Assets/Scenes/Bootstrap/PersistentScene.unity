@@ -576,8 +576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5237bc9098a39b428ef23d3b87e3f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapLength: {fileID: 11400000, guid: 154d5428c443b92428d5f2a6f4ffac54, type: 2}
-  MapHeight: {fileID: 11400000, guid: 56f00b02c3dfe9142936d82b217a5140, type: 2}
+  MapLength: {fileID: 11400000, guid: fb5899771e91af44c9c3e08f05585a17, type: 2}
+  MapHeight: {fileID: 11400000, guid: f35c1f7111fce4340835501ef7473af4, type: 2}
   LengthZoomFactor: {fileID: 11400000, guid: 42d09260ee925ce418fd33536420d9d3, type: 2}
   HeightZoomFactor: {fileID: 11400000, guid: e1ac477841e87a040bcdb4583be31d29, type: 2}
   MinZoom: {fileID: 11400000, guid: c6041ff640e426b43a09a630400fa217, type: 2}

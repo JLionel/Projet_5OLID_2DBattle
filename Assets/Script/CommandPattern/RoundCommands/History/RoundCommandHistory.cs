@@ -9,10 +9,13 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
     private List<TurnCommandsHistory> _allTurns = new List<TurnCommandsHistory>(3);
     [SerializeField] private FloatVariable _timeBtwTurns;
 
-    [SerializeField] public FloatVariable EnterActionTimer;
-    
+    [SerializeField] public FloatVariable PlayerDelay;
+
+    protected override bool DoDestroyOnLoad => true;
     //temporary
     public BoolVariable endRound;
+    
+    public bool endTurn;
 
     //TODO to delet
     private void Update()
@@ -32,6 +35,7 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
     public void ExecuteRound()
     {
         endRound.Value = false;
+        UpdateRoundDelay();
         StartCoroutine(ExecuteRoundTimed());
     }
 
@@ -51,12 +55,22 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
     {
         foreach (var turn in _allTurns)
         {
-            turn.ExecuteCommands();
-            yield return new WaitForSeconds(_timeBtwTurns.Value);
+            endTurn = false;
+            StartCoroutine(turn.ExecuteCommands(PlayerDelay.Value));
+            yield return new WaitUntil(() => endTurn);
         }
         ClearTurnsCommands();
         endRound.Value = true;
         yield return null;
+    }
+
+    private void UpdateRoundDelay()
+    {
+        _timeBtwTurns.Value = 0;
+        foreach (var turn in _allTurns)
+        {
+            _timeBtwTurns.Value += turn.NumberOfActions() * PlayerDelay.Value;
+        }
     }
 
     private void ClearTurnsCommands()
@@ -74,5 +88,4 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
             _allTurns.Add(new TurnCommandsHistory());
         }
     }
-    protected override bool DoDestroyOnLoad { get; }
 }
