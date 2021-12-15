@@ -8,11 +8,14 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    [SerializeField] private FloatVariable timerValue;
-    [SerializeField] private FloatVariable cooldownValue;
     [SerializeField] private Slider slider;
-    [SerializeField] private TextMeshProUGUI cooldownText;
-
+    [SerializeField] private FloatVariable timerValue;
+    
+    [Header("Cooldown")]
+    [SerializeField] private Image cooldownImage;
+    [SerializeField] private FloatVariable cooldownValue;
+    private float _cooldownMaxValue;
+    
     [Header("Player Count")] 
     [SerializeField] private TextMeshProUGUI playerCountText;
     [SerializeField] [CanBeNull] private PlayerNames playerNames;
@@ -29,7 +32,8 @@ public class HUD : MonoBehaviour
         {
             playerCountText.gameObject.SetActive(false);
         }
-        
+
+        cooldownImage.fillAmount = 0;
         slider.maxValue = timerValue.Value;
     }
 
@@ -46,26 +50,22 @@ public class HUD : MonoBehaviour
 
         if (timerValue.Value <= 0.1f)
         {
+            _cooldownMaxValue = cooldownValue.Value;
             StartCoroutine(ShowCooldownCoroutine());
         }
     }
-
+    
     private IEnumerator ShowCooldownCoroutine()
     {
-        var cooldown = cooldownValue.Value;
-        var timer = cooldown;
+        var timer = cooldownValue.Value;
 
-        while (timer >= 0.1f)
+        while (timer >= 0)
         {
-            timer -= 0.1f;
+            timer -= Time.deltaTime;
             
-            if (timer >= 0)
-                cooldownText.text = null;
+            cooldownImage.fillAmount = timer / _cooldownMaxValue;
             
-            cooldownText.text = timer.ToString("N1");
-            yield return new WaitForSeconds(0.1f);
+            yield return null;
         }
-
-        cooldownText.text = null;
     }
 }
