@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8b999a0445409b4a92db488976731ce, type: 3}
-  m_Name: TimeBetweenAction
+  m_Script: {fileID: 11500000, guid: 9dd610ab84f4f344680d035ce1760d46, type: 3}
+  m_Name: ReadParameter
   m_EditorClassIdentifier: 
-  Value: 1
+  spreadSheetID: 16yNi5BqMcS1-dxvEcqpfvYAs-NGWg9OS6TCQbsL_mB8
+  rangeData: A2:B
+  sheetName: 
+  sheetData: {fileID: 11400000, guid: 61def28db5c87a34fa3bf25872763b62, type: 2}

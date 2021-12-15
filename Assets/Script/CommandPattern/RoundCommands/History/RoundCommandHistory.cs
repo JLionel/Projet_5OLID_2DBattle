@@ -10,7 +10,8 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
     [SerializeField] private FloatVariable _timeBtwTurns;
 
     [SerializeField] public FloatVariable EnterActionTimer;
-    
+
+    protected override bool DoDestroyOnLoad => true;
     //temporary
     public BoolVariable endRound;
 
@@ -74,5 +75,4 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
             _allTurns.Add(new TurnCommandsHistory());
         }
     }
-    protected override bool DoDestroyOnLoad { get; }
 }

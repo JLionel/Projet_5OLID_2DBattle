@@ -9,6 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ab42b8c14b64943b643631b021a5ee, type: 3}
-  m_Name: TupleSheetData
+  m_Script: {fileID: 11500000, guid: 85e6063146ae8a549a723c011528245d, type: 3}
+  m_Name: ParameterLink
   m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 61def28db5c87a34fa3bf25872763b62, type: 2}
+  keyName:
+  - Round Timer
+  value:
+  - {fileID: 11400000, guid: b371bf53aad79644f81731f6e2bc8fd0, type: 2}

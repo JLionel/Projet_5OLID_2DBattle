@@ -17,7 +17,7 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
     [SerializeField] private TwitchAcountCredentials twitchAcountCredentials;
 
 
-    protected override bool DoDestroyOnLoad { get; }
+    protected override bool DoDestroyOnLoad => true;
     
 
     private void Start()

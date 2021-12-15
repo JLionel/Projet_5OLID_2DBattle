@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2959794833571669128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2959794833571669130}
+  - component: {fileID: 2959794833571669129}
+  - component: {fileID: 2959794833571669131}
+  m_Layer: 0
+  m_Name: GoogleSheet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2959794833571669130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2959794833571669128}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 298.0837, y: 250.95631, z: -4.9553576}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2959794833571669129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2959794833571669128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eb3019c96ee0c04fa2202c650fcb6f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataToCatch:
+  - {fileID: 11400000, guid: 0e96082150fae36439497bb6154b8616, type: 2}
+  _linkData:
+  - {fileID: 11400000, guid: 84fd12eefecfd6c47b59fda2d06b8dbd, type: 2}
+--- !u!114 &2959794833571669131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2959794833571669128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae51f4be46f9a74088f171f972e7a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scopes:
+  - https://www.googleapis.com/auth/spreadsheets.readonly
+  _credentialsPath: GoogleSheetInfo
+  _fileName: credentials.json

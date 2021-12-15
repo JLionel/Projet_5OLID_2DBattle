@@ -1,58 +1,59 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Google.Apis.Services;
 using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
 using UnityEngine;
 
-public class GoogleSheetReadValue : MonoBehaviour
+
+[CreateAssetMenu (menuName = "GoogleSheet/Reader")]
+public class GoogleSheetReadValue : ScriptableObject
 {
     [SerializeField] private string spreadSheetID;
     [SerializeField] private string rangeData;
     [SerializeField] private string sheetName;
-    [SerializeField] private string applicationName;
 
     [SerializeField] private TupleSheetData sheetData;
-    [SerializeField] private GoogleSheetClient userCredentials;
+    private GoogleSheetClient userConnection;
 
-    [ContextMenu("ReadValue")]
-    public async void Execute()
+    public async Task<bool> ReadValueExe()
     {
-        ReadValue();
+        Debug.Log("Start Reading value");
+        userConnection = GoogleSheetClient.Instance;
+        if(userConnection.Connected)
+        {
+            return await ReadValue();
+        }
+        Debug.Log($"Value readed");
+        return false;
     }
     
     
-    public async void ReadValue()
-    {  
-        // Create Google Sheets API service.
-        var service = new SheetsService(new BaseClientService.Initializer()
+    private async Task<bool> ReadValue()
+    {
+        if (!await userConnection.AwaitForConnection(2000))
         {
-            HttpClientInitializer = userCredentials.userCredential,
-            ApplicationName = applicationName,
-        });
-
+            return false;
+        }
+        
         // Define request parameters.
-        SpreadsheetsResource.ValuesResource.GetRequest request =
-            service.Spreadsheets.Values.Get(spreadSheetID, $"{sheetName}{rangeData}");
-        // Prints the names and majors of students in a sample spreadsheet:
-        // https://docs.google.com/spreadsheets/d/16yNi5BqMcS1-dxvEcqpfvYAs-NGWg9OS6TCQbsL_mB8/edit#gid=0
+        var request = userConnection.Service.Spreadsheets.Values.Get(spreadSheetID, $"{sheetName}{rangeData}");
+        
+        // Prints the names and majors of students in a sample spreadsheet
         ValueRange response = await request.ExecuteAsync();
+        
         IList<IList<object>> values = response.Values;
         if (values != null && values.Count > 0)
         {
-            Debug.Log("SpreadSheet Data :");
-            Debug.Log("DataName, Value");
-            foreach (var row in values)
-            {
-                // Print columns A and E, which correspond to indices 0 and 4.
-                //sheetData.Value.Add(((string) row[0], (float) row[1]));
-                Debug.Log($"{row[0]}, {row[1]}");
-            }
+            GoogleSheetUtilities.StoreValue(values, sheetData);
         }
         else
         {
-            Debug.Log("No data found.");
+            Debug.Log("No Data found");
         }
+
+        return true;
     }
 }
