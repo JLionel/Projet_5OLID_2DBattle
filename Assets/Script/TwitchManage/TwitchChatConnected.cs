@@ -22,16 +22,13 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
 
     private void Start()
     {
-        //TODO put this on another script, here just for test
         Application.runInBackground = true;
-        Debug.Log($"init TwitchConnection {Instance == null}");
     }
 
     private void Update()
     {
         if (_twitchClient != null && _twitchClient.Connected)
         {
-            Debug.Log("Read Chat");
             ReadChat();
         }
     }
@@ -39,7 +36,6 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
 
     public void ConnectClient()
     {
-        Debug.Log("Connect client");
         if(_twitchClient == null)
         {
             _twitchClient = new TcpClient("irc.chat.twitch.tv", 6667);
@@ -47,12 +43,9 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
             _writer = new StreamWriter(_twitchClient.GetStream());
 
             _writer.WriteLine($"PASS {twitchAcountCredentials.OauthPassword}");
-            Debug.Log(twitchAcountCredentials.OauthPassword);
             _writer.WriteLine($"NICK {twitchAcountCredentials.Username}");
-            Debug.Log(twitchAcountCredentials.Username);
             _writer.WriteLine($"USER {twitchAcountCredentials.Username} 8 * {twitchAcountCredentials.Username}");
             _writer.WriteLine($"JOIN #{twitchAcountCredentials.TwitchAcountName}");
-            Debug.Log(twitchAcountCredentials.TwitchAcountName);
             _writer.Flush();
         }
     }

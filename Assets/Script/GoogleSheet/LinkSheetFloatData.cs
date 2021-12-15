@@ -26,10 +26,8 @@ public class LinkSheetFloatData : ScriptableObject
     {
         foreach (var tuple in _data.Value)
         {
-            Debug.Log($"Link {tuple.Name} : {tuple.Value} ");
             if (dataToLink.ContainsKey(tuple.Name))
             {
-                Debug.Log("Link !! ");
                 dataToLink[tuple.Name].Value = tuple.Value;
             }
         }

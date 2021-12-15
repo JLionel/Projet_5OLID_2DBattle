@@ -30,9 +30,7 @@ public class GoogleSheetClient : MySingleton<GoogleSheetClient>
     {
         if(!_connected)
         {
-            Debug.Log("Connect to sheet");
             _connected = await ConnectToSheet();
-            Debug.Log($"Connected to sheet {_connected}");
         }
         return _connected;
     }

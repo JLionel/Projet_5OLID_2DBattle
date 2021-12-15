@@ -20,13 +20,11 @@ public class GoogleSheetReadValue : ScriptableObject
 
     public async Task<bool> ReadValueExe()
     {
-        Debug.Log("Start Reading value");
         userConnection = GoogleSheetClient.Instance;
         if(userConnection.Connected)
         {
             return await ReadValue();
         }
-        Debug.Log($"Value readed");
         return false;
     }
     

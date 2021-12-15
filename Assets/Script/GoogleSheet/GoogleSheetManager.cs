@@ -12,9 +12,7 @@ public class GoogleSheetManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("start async");
         StartSheet();
-        Debug.Log("end async");
     }
 
 
@@ -22,7 +20,6 @@ public class GoogleSheetManager : MonoBehaviour
     {
         _clientToConnect = GoogleSheetClient.Instance;
         bool connected = await _clientToConnect.Connect();
-        Debug.Log($"{connected} ENORME");
         if (connected)
         {
             for ( int i = 0; i < _dataToCatch.Count; i++)
