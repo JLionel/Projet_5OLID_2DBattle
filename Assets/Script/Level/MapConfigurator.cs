@@ -5,6 +5,7 @@ using UnityEngine;
 public class MapConfigurator : OrdonedMonoBehaviour
 {
     public MapConfiguration MapConfiguration;
+    public GameEvent MapConfigurated;
     public Vector2IntListVariable PlayerSpawnPositions;
     public FloatVariable MinTileCoverage;
     public FloatVariable MaxTileCreationAttemptFactor;
@@ -57,7 +58,7 @@ public class MapConfigurator : OrdonedMonoBehaviour
         int j = 0;
         for (int i = 0; i < MaxTileCreationAttempts; i++)
         {
-            StartLandPos = new Vector2Int(Random.Range(0, Length - 1), Random.Range(0, Height - 1));
+            StartLandPos = new Vector2Int(Random.Range(0, Length), Random.Range(0, Height));
             bool IsValid = true;
             for (int k = j; k < StartLands.Count; k++)
             {
@@ -93,9 +94,10 @@ public class MapConfigurator : OrdonedMonoBehaviour
         Vector2Int NewTile;
         bool TestCluster = false;
         int TileCount = 0;
+
         for (int i = 0; i < MaxTileCreationAttempts; i++)
         {
-            NewTile = new Vector2Int(Random.Range(0, Length - 1), Random.Range(0, Height - 1));
+            NewTile = new Vector2Int(Random.Range(0, Length), Random.Range(0, Height));
             if (Map[NewTile.x, NewTile.y] == -1)
             {
                 if (NewTile.x > 0)
@@ -127,7 +129,6 @@ public class MapConfigurator : OrdonedMonoBehaviour
             if (!TestCluster) { TestCluster = TestClusters(Map, Length, Height); }
             if (TestCluster && TileCount >= MinTileCount) { break; }
         }
-
     }
 
     void CheckValue(ref int[,] Map, int MapValue, Vector2Int NewTile, ref int TileCount, int Length, int Height)
@@ -196,6 +197,7 @@ public class MapConfigurator : OrdonedMonoBehaviour
                 }
             }
         }
+        MapConfigurated.Raise();
     }
 
     void UpdatePlayerSpawns()
@@ -210,7 +212,7 @@ public class MapConfigurator : OrdonedMonoBehaviour
         int j;
         for (int i = List.Count - 1; i > 1; i--)
         {
-            j = Random.Range(0, i - 1);
+            j = Random.Range(0, i);
             Vector2Int k = List[j];
             List[j] = List[i];
             List[i] = k;

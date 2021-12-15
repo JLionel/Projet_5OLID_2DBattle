@@ -57,6 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MapConfiguration: {fileID: 11400000, guid: bd6e0fbef3315984ab4079e983859294, type: 2}
+  MapConfigurated: {fileID: 11400000, guid: 1e954a327d45e2c48932db679b37e5d4, type: 2}
   PlayerSpawnPositions: {fileID: 11400000, guid: c72849fe80ff3ac4686724cce9f232f0, type: 2}
   MinTileCoverage: {fileID: 11400000, guid: ff6e8f74c0a31984280b3cee682b8671, type: 2}
   MaxTileCreationAttemptFactor: {fileID: 11400000, guid: 90c28b08aa08daf4e867db4e10fcf81e, type: 2}
