@@ -8,6 +8,7 @@ using UnityEngine;
 public class Lobby : MonoBehaviour
 {
     [SerializeField] private PlayerNames playerNames;
+    [SerializeField] private PlayerClasses playerClasses;
     [SerializeField] private TextMeshProUGUI subtitleText;
     [SerializeField] private TextMeshProUGUI listText;
     [SerializeField] private FloatVariable playerMaxCount;
@@ -16,7 +17,7 @@ public class Lobby : MonoBehaviour
 
     public void UpdateList()
     {
-        listText.text += playerNames.Names.Last() + TextLayout();
+        listText.text += playerNames.Names.Last() + " [" + playerClasses.PlayerClassesList.Last().name + "]" + TextLayout();
         var connectedString = playerNames.Names.Count == 1 ? " player connected" : " players connected";
         
         subtitleText.text = playerNames.Names.Count + "/" + playerMaxCount.Value + connectedString;

@@ -1373,6 +1373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNames: {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
+  playerClasses: {fileID: 11400000, guid: e82b8c5b25876984cb8d6f45ce02f943, type: 2}
   subtitleText: {fileID: 1349032352}
   listText: {fileID: 844300398}
   playerMaxCount: {fileID: 11400000, guid: 2a911ea611dce7d4bbbf8bef64f9890f, type: 2}
