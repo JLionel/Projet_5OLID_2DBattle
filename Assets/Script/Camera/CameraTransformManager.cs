@@ -54,7 +54,6 @@ public class CameraTransformManager : OrdonedMonoBehaviour
         float CameraY = MapHeight.Value % 2 == 0 ? -0.5f : 0f;
         InitialCameraZTarget = Mathf.Min(-(MapLength.Value + 2) * LengthZoomFactor.Value, -(MapHeight.Value + 2) * HeightZoomFactor.Value);
         transform.position = new Vector3(CameraX, CameraY, InitialCameraZTarget);
-        print(transform.position);
         LastWaitTime = -1;
     }
 
