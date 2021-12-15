@@ -15,7 +15,7 @@ MonoBehaviour:
   twitchCommandName:
   - join
   - j
-  needParams: 0
+  needParams: 1
   playerCommandExecuted: {fileID: 11400000, guid: de49a47b5e745e04991d008e84964f49, type: 2}
   ClassExistent:
   - {fileID: 11400000, guid: 1bd0f614a8afcc842a07349a07243f90, type: 2}

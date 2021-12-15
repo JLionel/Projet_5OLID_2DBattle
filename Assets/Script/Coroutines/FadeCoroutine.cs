@@ -18,6 +18,7 @@ public class FadeCoroutine : MonoBehaviour
         yield return StartCoroutine(FadeOut());
         fadeOutFinished.Value = true;
         yield return StartCoroutine(FadeIn());
+        fadeOutFinished.Value = false;
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(fadeScene.Value));
     }
 
