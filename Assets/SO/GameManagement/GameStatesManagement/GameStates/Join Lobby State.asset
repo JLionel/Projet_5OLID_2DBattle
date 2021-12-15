@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _statesName: 1
   DefaultNextState: {fileID: 11400000, guid: 9bcfead8025d8694ab33cb693e18faaf, type: 2}
+  playerNames: {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
+  playerClasses: {fileID: 11400000, guid: e82b8c5b25876984cb8d6f45ce02f943, type: 2}

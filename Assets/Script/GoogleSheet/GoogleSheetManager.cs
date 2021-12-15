@@ -12,11 +12,11 @@ public class GoogleSheetManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartSheet();
+        StartReadingValue();
     }
 
 
-    private async void StartSheet()
+    public async void StartReadingValue()
     {
         _clientToConnect = GoogleSheetClient.Instance;
         bool connected = await _clientToConnect.Connect();
