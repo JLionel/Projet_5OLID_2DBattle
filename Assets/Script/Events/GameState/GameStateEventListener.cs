@@ -9,11 +9,14 @@ public class GameStateEventListener : MonoBehaviour
     private GameStateEvent _event;
 
     [SerializeField]
-    private UnityEvent _onEventRaised;
+    private List<UnityEvent> _onEventRaised;
 
     public void OnEventRaised()
     {
-        _onEventRaised.Invoke();
+        foreach (var eventRaised in _onEventRaised)
+        {
+            eventRaised.Invoke();   
+        }
     }
 
     public void Awake()

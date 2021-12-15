@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4547004007211597231}
   - component: {fileID: 6658259127815633240}
   - component: {fileID: 610771662232990428}
+  - component: {fileID: 7527881717950418075}
+  - component: {fileID: 6077565829430684262}
   m_Layer: 0
   m_Name: AttackDisplay
   m_TagString: Untagged
@@ -113,3 +115,43 @@ MonoBehaviour:
   _awakeComponents:
   - {fileID: 4547004007211597231}
   _updateComponents: []
+--- !u!114 &7527881717950418075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055416527339159047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3cc1e520fe964439e1ff5e22b54581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6077565829430684262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055416527339159047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7cea01de1d93449aace8979e4704eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: d0f6d2a86c1fc744abd65e669095d9f8, type: 2}
+  _onEventRaised:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7527881717950418075}
+        m_TargetAssemblyTypeName: DestroyThis, Assembly-CSharp
+        m_MethodName: DestroyItself
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

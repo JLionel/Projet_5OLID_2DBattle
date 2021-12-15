@@ -50,9 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstStateLoaded: {fileID: 11400000, guid: 8f7ab84c8806ec041a007dfff56dc72c, type: 2}
   currentStateName: {fileID: 11400000, guid: 1f14c43240e53634baa0291a2bec4bc8, type: 2}
-  JoinState: {fileID: 11400000, guid: 4e34a28a6b38a784882973c1bf054f7e, type: 2}
-  WaitActionState: {fileID: 11400000, guid: f69c98b10b0adea499633ae978ca5b0b, type: 2}
-  ExecuteRoundState: {fileID: 11400000, guid: d245179ace972304e925d4fad5988967, type: 2}
 --- !u!114 &3254387782756213403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _event: {fileID: 11400000, guid: 8f7ab84c8806ec041a007dfff56dc72c, type: 2}
   _onEventRaised:
-    m_PersistentCalls:
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3254387782756213394}
         m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
@@ -95,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _event: {fileID: 11400000, guid: 2ac268ae44ccb4d4691e45cb21364807, type: 2}
   _onEventRaised:
-    m_PersistentCalls:
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3254387782756213394}
         m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
@@ -123,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _event: {fileID: 11400000, guid: d245179ace972304e925d4fad5988967, type: 2}
   _onEventRaised:
-    m_PersistentCalls:
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3254387782756213394}
         m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
@@ -151,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _event: {fileID: 11400000, guid: 4e34a28a6b38a784882973c1bf054f7e, type: 2}
   _onEventRaised:
-    m_PersistentCalls:
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3254387782756213394}
         m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
@@ -179,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _event: {fileID: 11400000, guid: f69c98b10b0adea499633ae978ca5b0b, type: 2}
   _onEventRaised:
-    m_PersistentCalls:
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3254387782756213394}
         m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
