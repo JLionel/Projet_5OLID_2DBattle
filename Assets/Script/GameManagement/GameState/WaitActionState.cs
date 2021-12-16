@@ -43,7 +43,7 @@ public class WaitActionState : GameState
         if (playerList.GetPlayerCount() > 1)
         {
             TwitchChatConnected.Instance.WriteMessage(
-                "Enter your three actions !!!! Move with !z, !q, !s, !d, or attack with !e. You can combine those command up to three like !zqd");
+                "Enter your three actions !!!! Move with !z, !q, !s, !d. You can combine those command up to three like !zqd");
         }
     }
 

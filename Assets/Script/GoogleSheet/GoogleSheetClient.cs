@@ -14,7 +14,7 @@ public class GoogleSheetClient : MySingleton<GoogleSheetClient>
 {
     protected override bool DoDestroyOnLoad => true;
     
-    [SerializeField] private string[] _scopes = { SheetsService.Scope.SpreadsheetsReadonly };
+    [SerializeField] private string[] _scopes = { SheetsService.Scope.Spreadsheets };
     [SerializeField] private string _credentialsPath;
     [SerializeField] private string _fileName;
     

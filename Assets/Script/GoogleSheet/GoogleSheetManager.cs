@@ -6,31 +6,38 @@ using UnityEngine;
 public class GoogleSheetManager : MonoBehaviour
 {
     private GoogleSheetClient _clientToConnect;
-    [SerializeField] private List<GoogleSheetReadValue> _dataToCatch;
-    [SerializeField] private List<LinkSheetFloatData> _linkData;
+    [SerializeField] private List<GoogleSheetReadValue> dataToCatch;
+    [SerializeField] private List<LinkSheetFloatData> linkData;
+    [SerializeField] private GoogleSheetWriteValue writerSheet;
+    private bool connected;
     
     // Start is called before the first frame update
     void Start()
     {
-        StartReadingValue();
+        _clientToConnect = GoogleSheetClient.Instance;
+        ConnectClient();
+    }
+
+    private async void ConnectClient()
+    {
+        
+        connected = await _clientToConnect.Connect();
     }
 
 
     public async void StartReadingValue()
     {
-        _clientToConnect = GoogleSheetClient.Instance;
-        bool connected = await _clientToConnect.Connect();
         if (connected)
         {
-            for ( int i = 0; i < _dataToCatch.Count; i++)
+            for ( int i = 0; i < dataToCatch.Count; i++)
             {
-                var reader = _dataToCatch[i];
+                var reader = dataToCatch[i];
                 bool valueReaded = await reader.ReadValueExe();
 
                 if (valueReaded)
                 {
-                    _linkData[i].Init();
-                    _linkData[i].LinkData();
+                    linkData[i].Init();
+                    linkData[i].LinkData();
                 }
             }
         }
