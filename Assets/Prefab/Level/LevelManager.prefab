@@ -131,6 +131,14 @@ MonoBehaviour:
   PlayerPositions: {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
   PlayerNames: {fileID: 11400000, guid: 8495dd6432db6e44e858e6b2f031f57b, type: 2}
   AddedNewPlayer: {fileID: 11400000, guid: e4b4d7033c49379418cb740a07396f74, type: 2}
+  twitchAcountCredentials: {fileID: 11400000, guid: 1630077ace48d784fb6edd7599402290, type: 2}
+  addAction: {fileID: 11400000, guid: a2e167e8286d0d846809c46a3747c3f5, type: 2}
+  _keyPressed: 7a000000730000007100000064000000
+  _commands:
+  - {fileID: 11400000, guid: 21a40d5e632ea0d43919a1fc93987ef0, type: 2}
+  - {fileID: 11400000, guid: 6e148352e1b53a543ac4e8bd2afe30ff, type: 2}
+  - {fileID: 11400000, guid: 612b5cd3110e54d48b02b0edf3ed9ab2, type: 2}
+  - {fileID: 11400000, guid: f041d676edc9c6241a4062252e62c7eb, type: 2}
 --- !u!114 &4382306063443019506
 MonoBehaviour:
   m_ObjectHideFlags: 0

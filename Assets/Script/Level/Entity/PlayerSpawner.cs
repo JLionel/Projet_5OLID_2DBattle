@@ -12,6 +12,11 @@ public class PlayerSpawner : OrdonedMonoBehaviour
     public PlayerNames PlayerNames;
     public GameEvent AddedNewPlayer;
 
+    [SerializeField] private TwitchAcountCredentials twitchAcountCredentials;
+    [SerializeField] private RoundCommand addAction;
+    [SerializeField] private List<KeyCode> _keyPressed;
+    [SerializeField] private List<PlayerCommand> _commands;
+
     public override void DoAwake()
     {
         for (int i = 0; i < PlayerNames.Names.Count; i++)
@@ -46,6 +51,15 @@ public class PlayerSpawner : OrdonedMonoBehaviour
         if (!CanSpawn) { return; }
         GameObject Player = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
         Player.name = PlayerNames.Names[Index];
+
+        //add script to the local player who has the acount twitch name
+        if (Player.name == twitchAcountCredentials.TwitchAcountName)
+        {
+            var localPlayerMove = Player.AddComponent<LocalPlayerMove>();
+            localPlayerMove._roundCommand = addAction;
+            localPlayerMove._keyPressed = _keyPressed;
+            localPlayerMove._commands = _commands;
+        }
 
         AddedNewPlayer.Raise();
 

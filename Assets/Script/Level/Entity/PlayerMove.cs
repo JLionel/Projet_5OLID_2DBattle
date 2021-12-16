@@ -22,26 +22,6 @@ public class PlayerMove : OrdonedMonoBehaviour
     }
     public override void DoUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            MoveInDirection(new Vector2Int(1, 0));
-            OnWait.Raise();
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            MoveInDirection(new Vector2Int(-1, 0));
-            OnWait.Raise();
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            MoveInDirection(new Vector2Int(0, 1));
-            OnWait.Raise();
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            MoveInDirection(new Vector2Int(0, -1));
-            OnWait.Raise();
-        }
     }
 
     public void MoveInDirection(Vector2Int Direction)

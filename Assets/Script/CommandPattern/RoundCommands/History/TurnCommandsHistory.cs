@@ -22,15 +22,12 @@ public class TurnCommandsHistory
     {
         if (HaveAnAction(playerPseudo))
             return false;
-        Debug.Log("Add turn command");
         _allCommand.Add(playerPseudo, playerCommand);
         return true;
     }
 
     private bool HaveAnAction(string playerPseudo)
     {
-        Debug.Log("Have action ?");
-        
         return _allCommand.ContainsKey(playerPseudo);
     }
 

@@ -42,7 +42,6 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
     //TODO Check if in the right state
     public void AddCommand(string playerPseudo, PlayerCommand playerCommand)
     {
-        Debug.Log($"try adding command {_allTurns.Count}");
         foreach (var turn in _allTurns)
         {
             var response = turn.AddCommand(playerPseudo, playerCommand);
