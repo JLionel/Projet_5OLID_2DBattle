@@ -10,8 +10,8 @@ public class Settings : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private TextMeshProUGUI volumeText;
-    [SerializeField] private TextMeshProUGUI twitchName;
-    [SerializeField] private TextMeshProUGUI twitchAuth;
+    [SerializeField] private TMP_InputField twitchName;
+    [SerializeField] private TMP_InputField twitchAuth;
     [SerializeField] private TwitchAcountCredentials twitchCredentials;
 
     [SerializeField] private StringVariable VolumeKey;

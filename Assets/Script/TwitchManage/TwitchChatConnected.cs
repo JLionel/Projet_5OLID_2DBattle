@@ -36,18 +36,15 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
 
     public void ConnectClient()
     {
-        if(_twitchClient == null)
-        {
-            _twitchClient = new TcpClient("irc.chat.twitch.tv", 6667);
-            _reader = new StreamReader(_twitchClient.GetStream());
-            _writer = new StreamWriter(_twitchClient.GetStream());
+        DisconnectClient();
+        _twitchClient = new TcpClient("irc.chat.twitch.tv", 6667);
+        _reader = new StreamReader(_twitchClient.GetStream());
+        _writer = new StreamWriter(_twitchClient.GetStream());
 
-            _writer.WriteLine($"PASS {twitchAcountCredentials.OauthPassword}");
-            _writer.WriteLine($"NICK {twitchAcountCredentials.Username}");
-            _writer.WriteLine($"USER {twitchAcountCredentials.Username} 8 * {twitchAcountCredentials.Username}");
-            _writer.WriteLine($"JOIN #{twitchAcountCredentials.TwitchAcountName}");
-            _writer.Flush();
-        }
+        _writer.WriteLine($"PASS {twitchAcountCredentials.OauthPassword}");
+        _writer.WriteLine($"NICK {twitchAcountCredentials.Username}");
+        _writer.WriteLine($"JOIN #{twitchAcountCredentials.TwitchAcountName}");
+        _writer.Flush();
     }
 
     public void DisconnectClient()
@@ -58,7 +55,6 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
         if(_twitchClient.Connected)
         {
             _twitchClient.Close();
-            _twitchClient = null;
         }
     }
     

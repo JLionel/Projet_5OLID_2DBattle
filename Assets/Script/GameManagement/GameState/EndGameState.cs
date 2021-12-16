@@ -15,7 +15,6 @@ public class EndGameState : GameState
 
     public override void OnStateEnter()
     {
-        TwitchChatConnected.Instance.DisconnectClient();
         endScene.Raise();
     }
 }
