@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99a81087bb6ad094cb38ece93f64f3ce, type: 3}
-  m_Name: PlayerGO
+  m_Script: {fileID: 11500000, guid: 6ccf736b4a907eb47894375c25469cc5, type: 3}
+  m_Name: LoadingScene
   m_EditorClassIdentifier: 
-  GameObjects:
-  - {fileID: 0}
-  - {fileID: 0}
+  Value: Loading
