@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class TileData : LevelData
 {
-    public abstract void AddNew(Vector2Int Position);
+    public abstract void AddNew(Vector2Int position);
 }

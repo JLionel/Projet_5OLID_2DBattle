@@ -7,23 +7,23 @@ using UnityEngine.Events;
 public class GameEventWithSourceListener : MonoBehaviour
 {
     [SerializeField]
-    private GameEventWithSource _event;
+    private GameEventWithSource evnt;
 
     [SerializeField]
-    private UnityEvent<Object, Object> _onEventRaised;
+    private UnityEvent<Object, Object> onEventRaised;
 
     public void OnEventRaised(Object source)
     {
-        _onEventRaised.Invoke(_event, source);
+        onEventRaised.Invoke(evnt, source);
     }
 
     private void OnEnable()
     {
-        _event.RegisterListener(this);
+        evnt.RegisterListener(this);
     }
 
     private void OnDisable()
     {
-        _event.UnregisterListener(this);
+        evnt.UnregisterListener(this);
     }
 }

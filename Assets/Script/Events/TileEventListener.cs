@@ -7,19 +7,19 @@ using UnityEngine.Events;
 public class TileEventListener : OrdonedMonoBehaviour
 {
     [SerializeField]
-    private TileEvent _event;
+    private TileEvent evnt;
 
     [SerializeField]
-    private UnityEvent<Vector2Int> _onEventRaised;
+    private UnityEvent<Vector2Int> onEventRaised;
 
-    public void OnEventRaised(Vector2Int Position)
+    public void OnEventRaised(Vector2Int position)
     {
-        _onEventRaised.Invoke(Position);
+        onEventRaised.Invoke(position);
     }
 
     public override void DoAwake()
     {
-        _event.RegisterListener(this);
+        evnt.RegisterListener(this);
     }
 
     public override void DoUpdate()
@@ -29,6 +29,6 @@ public class TileEventListener : OrdonedMonoBehaviour
 
     private void OnDisable()
     {
-        _event.UnregisterListener(this);
+        evnt.UnregisterListener(this);
     }
 }

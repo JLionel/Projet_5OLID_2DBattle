@@ -22,43 +22,43 @@ public class TileEntities : TileData
         //////////////
     }
 
-    public override void AddNew(Vector2Int Position)
+    public override void AddNew(Vector2Int position)
     {
-        _tileEntitiesList.Add(Position, null);
+        _tileEntitiesList.Add(position, null);
 
         //////////////
-        Pos.Add(Position);
+        Pos.Add(position);
         Ent.Add(null);
         //////////////
     }
 
-    public int TilePlayer(Vector2Int Position)
+    public int TilePlayer(Vector2Int position)
     {
-        if (!_tileEntitiesList.ContainsKey(Position)) return -1;
-        Entity Entity = _tileEntitiesList[Position];
-        if (!(Entity is Player)) { return -1; }
-        Player Player = (Player)Entity;
-        PlayerIndexManager PlayerIndexManager = Player.gameObject.GetComponent<PlayerIndexManager>();
-        if (!PlayerIndexManager) { return -1; }
-        return PlayerIndexManager.Index;
+        if (!_tileEntitiesList.ContainsKey(position)) return -1;
+        Entity entity = _tileEntitiesList[position];
+        if (!(entity is Player)) { return -1; }
+        Player player = (Player)entity;
+        PlayerIndexManager playerIndexManager = player.gameObject.GetComponent<PlayerIndexManager>();
+        if (!playerIndexManager) { return -1; }
+        return playerIndexManager.Index;
     }
 
-    public Entity GetEntity(Vector2Int Position)
+    public Entity GetEntity(Vector2Int position)
     {
-        if (!_tileEntitiesList.ContainsKey(Position)) { return null; }
-        return _tileEntitiesList[Position];
+        if (!_tileEntitiesList.ContainsKey(position)) { return null; }
+        return _tileEntitiesList[position];
     }
 
-    public void SetEntity(Vector2Int Position, Entity Entity)
+    public void SetEntity(Vector2Int position, Entity entity)
     {
-        _tileEntitiesList[Position] = Entity;
+        _tileEntitiesList[position] = entity;
 
         //////////////
         for (int i = 0; i < Pos.Count; i++)
         {
-            if (Pos[i] == Position)
+            if (Pos[i] == position)
             {
-                Ent[i] = Entity;
+                Ent[i] = entity;
             }
         }
         //////////////

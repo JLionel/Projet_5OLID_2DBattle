@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class TwitchCommandHandler : ScriptableObject
 {
-    public List<string> twitchCommandName;
+    public List<string> TwitchCommandName;
     [SerializeField] private bool needParams;
     public bool NeedParamas
     {
@@ -17,7 +17,7 @@ public abstract class TwitchCommandHandler : ScriptableObject
 
     public bool Find(string command)
     {
-        return twitchCommandName.Contains(command);
+        return TwitchCommandName.Contains(command);
     }
 }
 

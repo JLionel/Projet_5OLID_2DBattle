@@ -14,8 +14,8 @@ public enum StatesName
 
 public abstract class GameState : ScriptableObject
 {
-    [SerializeField] protected StatesName _statesName;
-    public StatesName StatesName => _statesName;
+    [SerializeField] protected StatesName statesName;
+    public StatesName StatesName => statesName;
 
     public GameStateEvent DefaultNextState;
     

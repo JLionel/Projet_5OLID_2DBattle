@@ -18,9 +18,9 @@ public class PlayerIndexManager : OrdonedMonoBehaviour
     {
         
     }
-    public void OnPlayerDeath(int DeadPlayerIndex)
+    public void OnPlayerDeath(int deadPlayerIndex)
     {
-        if (DeadPlayerIndex < Index)
+        if (deadPlayerIndex < Index)
         {
             Index--;
         }

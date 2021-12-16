@@ -12,15 +12,15 @@ public class PlayerGO : PlayerData
         GameObjects = new List<GameObject>();
     }
 
-    public void SetSize(int Size)
+    public void SetSize(int size)
     {
-        GameObjects = new List<GameObject>(Size);
+        GameObjects = new List<GameObject>(size);
     }
 
-    public void Set(int Index, GameObject GameObject)
+    public void Set(int index, GameObject gameObject)
     {
-        Debug.Log(GameObjects.Count + "   " + Index);
-        GameObjects[Index] = GameObject;
+        Debug.Log(GameObjects.Count + "   " + index);
+        GameObjects[index] = gameObject;
     }
 
     public override void AddNew()
@@ -28,19 +28,19 @@ public class PlayerGO : PlayerData
 
     }
 
-    public override void Remove(int Index)
+    public override void Remove(int index)
     {
-        GameObjects.RemoveAt(Index);
+        GameObjects.RemoveAt(index);
     }
 
-    public void AddNew(GameObject GameObject)
+    public void AddNew(GameObject gameObject)
     {
-        GameObjects.Add(GameObject);
+        GameObjects.Add(gameObject);
     }
 
-    public bool Contains(GameObject GameObject)
+    public bool Contains(GameObject gameObject)
     {
-        return GameObjects.Contains(GameObject);
+        return GameObjects.Contains(gameObject);
     }
 
     public void ClearList()
