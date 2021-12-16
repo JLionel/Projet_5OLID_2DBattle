@@ -17,12 +17,12 @@ public class GoogleSheetReadValue : ScriptableObject
 
 
     [SerializeField] private TupleSheetData sheetData;
-    private GoogleSheetClient _userConnection;
+    private GoogleSheetClient userConnection;
     
     public async Task<bool> ReadValueExe()
     {
-        _userConnection = GoogleSheetClient.Instance;
-        if(_userConnection.Connected)
+        userConnection = GoogleSheetClient.Instance;
+        if(userConnection.Connected)
         {
             return await ReadValue(sheetName, rangeData);
         }
@@ -32,13 +32,13 @@ public class GoogleSheetReadValue : ScriptableObject
     
     private async Task<bool> ReadValue(string sheetNameSheet, string rangeDataSheet)
     {
-        if (!await _userConnection.AwaitForConnection(2000))
+        if (!await userConnection.AwaitForConnection(2000))
         {
             return false;
         }
         
         // Define request parameters.
-        var request = _userConnection.Service.Spreadsheets.Values.Get(spreadSheetID, $"{sheetNameSheet}!{rangeDataSheet}");
+        var request = userConnection.Service.Spreadsheets.Values.Get(spreadSheetID, $"{sheetNameSheet}!{rangeDataSheet}");
         
         // Prints the names and majors of students in a sample spreadsheet
         ValueRange response = await request.ExecuteAsync();

@@ -5,27 +5,27 @@ using UnityEngine;
 
 public class LocalPlayerMove : MonoBehaviour
 {
-    private string _playerName;
+    private string playerName;
 
-    public RoundCommand RoundCommand;
+    public RoundCommand _roundCommand;
 
-    public List<KeyCode> KeyPressed;
-    public List<PlayerCommand> Commands;
+    public List<KeyCode> _keyPressed;
+    public List<PlayerCommand> _commands;
 
     private void Start()
     {
-        _playerName = name;
+        playerName = name;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < Math.Min(KeyPressed.Count, Commands.Count); i++)
+        for (int i = 0; i < Math.Min(_keyPressed.Count, _commands.Count); i++)
         {
-            if(Input.GetKeyDown(KeyPressed[i]))
+            if(Input.GetKeyDown(_keyPressed[i]))
             {
-                RoundCommand.Execute(_playerName, Commands[i]);
+                _roundCommand.Execute(playerName, _commands[i]);
             }
         }
     }

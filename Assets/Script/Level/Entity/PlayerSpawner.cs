@@ -12,10 +12,10 @@ public class PlayerSpawner : OrdonedMonoBehaviour
     public PlayerNames PlayerNames;
     public GameEvent AddedNewPlayer;
 
-    [SerializeField] private TwitchAcountCredentials twitchAccountCredentials;
+    [SerializeField] private TwitchAcountCredentials twitchAcountCredentials;
     [SerializeField] private RoundCommand addAction;
-    [SerializeField] private List<KeyCode> keyPressed;
-    [SerializeField] private List<PlayerCommand> commands;
+    [SerializeField] private List<KeyCode> _keyPressed;
+    [SerializeField] private List<PlayerCommand> _commands;
 
     public override void DoAwake()
     {
@@ -29,42 +29,42 @@ public class PlayerSpawner : OrdonedMonoBehaviour
 
     }
 
-    private void SpawnPlayer(int index)
+    private void SpawnPlayer(int Index)
     {
         if (!SpawnPositions) { return; }
         if (!Tiles) { return; }
         if (!TileEntities) { return; }
         if (!PlayerPrefab) { return; }
-        bool canSpawn = false;
-        Vector2Int spawnPosition = Vector2Int.zero;
+        bool CanSpawn = false;
+        Vector2Int SpawnPosition = Vector2Int.zero;
         for (int i = 0; i < SpawnPositions.Value.Count; i++)
         {
-            spawnPosition = SpawnPositions.Value[i];
+            SpawnPosition = SpawnPositions.Value[i];
 
-            if (Tiles.Exists(spawnPosition) && TileEntities.TilePlayer(spawnPosition) == -1)
+            if (Tiles.Exists(SpawnPosition) && TileEntities.TilePlayer(SpawnPosition) == -1)
             {
-                canSpawn = true;
+                CanSpawn = true;
                 break;
             }
         }
 
-        if (!canSpawn) { return; }
-        GameObject player = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
-        player.name = PlayerNames.Names[index];
+        if (!CanSpawn) { return; }
+        GameObject Player = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
+        Player.name = PlayerNames.Names[Index];
 
         //add script to the local player who has the acount twitch name
-        if (player.name == twitchAccountCredentials.TwitchAccountName)
+        if (Player.name == twitchAcountCredentials.TwitchAcountName)
         {
-            var localPlayerMove = player.AddComponent<LocalPlayerMove>();
-            localPlayerMove.RoundCommand = addAction;
-            localPlayerMove.KeyPressed = keyPressed;
-            localPlayerMove.Commands = commands;
+            var localPlayerMove = Player.AddComponent<LocalPlayerMove>();
+            localPlayerMove._roundCommand = addAction;
+            localPlayerMove._keyPressed = _keyPressed;
+            localPlayerMove._commands = _commands;
         }
 
         AddedNewPlayer.Raise();
 
-        PlayerMove playerMove = player.GetComponent<PlayerMove>();
-        if (!playerMove) { return; }
-        playerMove.MoveTo(spawnPosition);
+        PlayerMove PlayerMove = Player.GetComponent<PlayerMove>();
+        if (!PlayerMove) { return; }
+        PlayerMove.MoveTo(SpawnPosition);
     }
 }

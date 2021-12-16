@@ -7,14 +7,14 @@ using UnityEngine;
 
 public class TwitchChatConnected : MySingleton<TwitchChatConnected>
 {
-    [SerializeField] private CommandsCollection commandsCollection;
+    [SerializeField] private CommandsCollection _commandsCollection;
 
     private TcpClient _twitchClient;
     
     private StreamReader _reader;
     private StreamWriter _writer;
 
-    [SerializeField] private TwitchAcountCredentials twitchAccountCredentials;
+    [SerializeField] private TwitchAcountCredentials twitchAcountCredentials;
 
 
     protected override bool DoDestroyOnLoad => true;
@@ -41,9 +41,9 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
         _reader = new StreamReader(_twitchClient.GetStream());
         _writer = new StreamWriter(_twitchClient.GetStream());
 
-        _writer.WriteLine($"PASS {twitchAccountCredentials.OauthPassword}");
-        _writer.WriteLine($"NICK {twitchAccountCredentials.Username}");
-        _writer.WriteLine($"JOIN #{twitchAccountCredentials.TwitchAccountName}");
+        _writer.WriteLine($"PASS {twitchAcountCredentials.OauthPassword}");
+        _writer.WriteLine($"NICK {twitchAcountCredentials.Username}");
+        _writer.WriteLine($"JOIN #{twitchAcountCredentials.TwitchAcountName}");
         _writer.Flush();
     }
 
@@ -86,7 +86,7 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
                     int index = chatMessage.IndexOf(" ");
                     string command = index > -1 ? chatMessage.Substring(0, index) : chatMessage;
                     
-                    commandsCollection.ExecuteCommands(command, new MessageData
+                    _commandsCollection.ExecuteCommands(command, new MessageData
                     {
                         Author = author,
                         Message = chatMessage.Substring($"{CommandsPrefix.Prefix}{command}".Length - 1)
@@ -98,11 +98,11 @@ public class TwitchChatConnected : MySingleton<TwitchChatConnected>
     }
 
 
-    public void WriteMessage(string message)
+    public void WriteMessage(string Message)
     {
         if (_twitchClient.Connected)
         {
-            _writer.WriteLine($"PRIVMSG #{twitchAccountCredentials.TwitchAccountName} :{message}");
+            _writer.WriteLine($"PRIVMSG #{twitchAcountCredentials.TwitchAcountName} :{Message}");
             _writer.Flush();
         }
     }

@@ -18,8 +18,8 @@ public class PlayerDirections : PlayerData
         Directions.Add(new Vector2Int(0, 1));
     }
 
-    public override void Remove(int index)
+    public override void Remove(int Index)
     {
-        Directions.RemoveAt(index);
+        Directions.RemoveAt(Index);
     }
 }

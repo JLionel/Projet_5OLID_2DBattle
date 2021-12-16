@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EventLogger : MonoBehaviour
 {
-    void Logger(Object evnt, Object source)
+    void Logger(Object _event, Object source)
     {
-        Debug.Log($"{source.name} sent an event {evnt.name}");
+        Debug.Log($"{source.name} sent an event {_event.name}");
     }
 
 }

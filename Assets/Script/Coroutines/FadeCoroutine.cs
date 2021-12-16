@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class FadeCoroutine : MonoBehaviour
 {
-    [SerializeField] [Range(0, 1)] private float fadeSpeed;
+    [SerializeField] [Range(0, 1)]private float fadeSpeed;
     [SerializeField] private Image fadeImage;
     [SerializeField] private BoolVariable fadeOutFinished;
     [SerializeField] private StringVariable fadeScene;

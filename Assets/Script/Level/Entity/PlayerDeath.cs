@@ -7,14 +7,14 @@ public class PlayerDeath : MonoBehaviour
     public List<PlayerData> PlayerDataToUpdate;
     public PlayerGO PlayerGO;
 
-    public void OnPlayerDeath(int index)
+    public void OnPlayerDeath(int Index)
     {
         if (!PlayerGO) { return; }
-        Destroy(PlayerGO.GameObjects[index]);
-        foreach (var playerData in PlayerDataToUpdate)
+        Destroy(PlayerGO.GameObjects[Index]);
+        foreach (var PlayerData in PlayerDataToUpdate)
         {
-            playerData.Remove(index);
+            PlayerData.Remove(Index);
         }
-        print(index + " ded");
+        print(Index + " ded");
     }
 }

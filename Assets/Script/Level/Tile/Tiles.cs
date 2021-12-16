@@ -12,13 +12,13 @@ public class Tiles : TileData
         TileList = new List<Vector2Int>();
     }
 
-    public override void AddNew(Vector2Int position)
+    public override void AddNew(Vector2Int Position)
     {
-        TileList.Add(position);
+        TileList.Add(Position);
     }
 
-    public bool Exists(Vector2Int position)
+    public bool Exists(Vector2Int Position)
     {
-        return TileList.Contains(position);
+        return TileList.Contains(Position);
     }
 }

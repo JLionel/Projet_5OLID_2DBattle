@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Twitch/Command/JoinGame")]
 public class TCH_JoinGame : TwitchCommandHandler
 {
-    [SerializeField] private List<PlayerClass> classExistent;
+    [SerializeField] private List<PlayerClass> ClassExistent;
     
     
     public override void HandleCommand(MessageData data)
@@ -13,10 +13,10 @@ public class TCH_JoinGame : TwitchCommandHandler
         int result = 0;
         if(int.TryParse(data.Message, out result))
         {
-            if(result >= 0 && result < classExistent.Count)
+            if(result >= 0 && result < ClassExistent.Count)
             {
                 var commandCast = (JoinPlayerCommand) playerCommandExecuted;
-                commandCast.PlayerClass = classExistent[result];
+                commandCast.PlayerClass = ClassExistent[result];
                 commandCast.Execute(data.Author);
             }
         }

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class GameEventListener : OrdonedMonoBehaviour
 {
-    [SerializeField] private GameEvent evnt;
+    [SerializeField] private GameEvent _event;
     [SerializeField] private UnityEvent onEventRaised;
 
     public void OnEventRaised()
@@ -16,7 +16,7 @@ public class GameEventListener : OrdonedMonoBehaviour
 
     public override void DoAwake()
     {
-        evnt.RegisterListener(this);
+        _event.RegisterListener(this);
     }
 
     public override void DoUpdate()
@@ -26,6 +26,6 @@ public class GameEventListener : OrdonedMonoBehaviour
 
     private void OnDisable()
     {
-        evnt.UnregisterListener(this);
+        _event.UnregisterListener(this);
     }
 }

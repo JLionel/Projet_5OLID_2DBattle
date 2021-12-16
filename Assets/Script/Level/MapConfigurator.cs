@@ -25,153 +25,153 @@ public class MapConfigurator : OrdonedMonoBehaviour
 
     private void CreateMap()
     {
-        int length = (int) MapLength.Value;
-        int height = (int) MapHeight.Value;
-        int size = length * height;
-        int minTileCount = (int)(MinTileCoverage.Value * size);
-        int maxTileCreationAttempts = (int)(MaxTileCreationAttemptFactor.Value * size);
-        int startLandsCount = StartLandPer100Tiles.Value * size / 100;
-        List<Vector2Int> startLands = new List<Vector2Int>();
-        int[,] map = new int[length, height];
-        MapInit(ref map, length, height);
-        CalcStartLands(ref startLands, startLandsCount, maxTileCreationAttempts, length, height);
-        AddStartLands(ref map, startLands);
-        AddTiles(ref map, maxTileCreationAttempts, minTileCount, length, height);
-        UpdateMapConfiguration(map, length, height);
+        int Length = (int) MapLength.Value;
+        int Height = (int) MapHeight.Value;
+        int Size = Length * Height;
+        int MinTileCount = (int)(MinTileCoverage.Value * Size);
+        int MaxTileCreationAttempts = (int)(MaxTileCreationAttemptFactor.Value * Size);
+        int StartLandsCount = StartLandPer100Tiles.Value * Size / 100;
+        List<Vector2Int> StartLands = new List<Vector2Int>();
+        int[,] Map = new int[Length, Height];
+        MapInit(ref Map, Length, Height);
+        CalcStartLands(ref StartLands, StartLandsCount, MaxTileCreationAttempts, Length, Height);
+        AddStartLands(ref Map, StartLands);
+        AddTiles(ref Map, MaxTileCreationAttempts, MinTileCount, Length, Height);
+        UpdateMapConfiguration(Map, Length, Height);
         UpdatePlayerSpawns();
     }
 
-    void MapInit(ref int[,] map, int length, int height)
+    void MapInit(ref int[,] Map, int Length, int Height)
     {
-        for (int i = 0; i < length; i++)
+        for (int i = 0; i < Length; i++)
         {
-            for (int j = 0; j < height; j++)
+            for (int j = 0; j < Height; j++)
             {
-                map[i, j] = -1;
+                Map[i, j] = -1;
             }
         }
     }
 
-    void CalcStartLands(ref List<Vector2Int> startLands, int startLandsCount, int maxTileCreationAttempts, int length, int height)
+    void CalcStartLands(ref List<Vector2Int> StartLands, int StartLandsCount, int MaxTileCreationAttempts, int Length, int Height)
     {
-        Vector2Int startLandPos;
+        Vector2Int StartLandPos;
         int j = 0;
-        for (int i = 0; i < maxTileCreationAttempts; i++)
+        for (int i = 0; i < MaxTileCreationAttempts; i++)
         {
-            startLandPos = new Vector2Int(Random.Range(0, length), Random.Range(0, height));
-            bool isValid = true;
-            for (int k = j; k < startLands.Count; k++)
+            StartLandPos = new Vector2Int(Random.Range(0, Length), Random.Range(0, Height));
+            bool IsValid = true;
+            for (int k = j; k < StartLands.Count; k++)
             {
-                if ((startLandPos - startLands[k]).magnitude <= 1)
+                if ((StartLandPos - StartLands[k]).magnitude <= 1)
                 {
-                    isValid = false;
+                    IsValid = false;
                     break;
                 }
             }
-            if (isValid)
+            if (IsValid)
             {
-                startLands.Add(startLandPos);
+                StartLands.Add(StartLandPos);
                 j++;
             }
-            if (j >= startLandsCount)
+            if (j >= StartLandsCount)
             {
                 break;
             }
         }
     }
 
-    void AddStartLands(ref int[,] map, List<Vector2Int> startLands)
+    void AddStartLands(ref int[,] Map, List<Vector2Int> StartLands)
     {
-        int startLandsCount = startLands.Count;
-        for (int i = 0; i < startLandsCount; i++)
+        int StartLandsCount = StartLands.Count;
+        for (int i = 0; i < StartLandsCount; i++)
         {
-            map[startLands[i].x, startLands[i].y] = i;
+            Map[StartLands[i].x, StartLands[i].y] = i;
         }
     }
 
-    void AddTiles(ref int[,] map, int maxTileCreationAttempts, int minTileCount, int length, int height)
+    void AddTiles(ref int[,] Map, int MaxTileCreationAttempts, int MinTileCount, int Length, int Height)
     {
         Vector2Int NewTile;
-        bool testCluster = false;
-        int tileCount = 0;
+        bool TestCluster = false;
+        int TileCount = 0;
 
-        for (int i = 0; i < maxTileCreationAttempts; i++)
+        for (int i = 0; i < MaxTileCreationAttempts; i++)
         {
-            NewTile = new Vector2Int(Random.Range(0, length), Random.Range(0, height));
-            if (map[NewTile.x, NewTile.y] == -1)
+            NewTile = new Vector2Int(Random.Range(0, Length), Random.Range(0, Height));
+            if (Map[NewTile.x, NewTile.y] == -1)
             {
                 if (NewTile.x > 0)
                 {
-                    int leftMapValue = map[NewTile.x - 1, NewTile.y];
-                    if (leftMapValue != -1)
+                    int LeftMapValue = Map[NewTile.x - 1, NewTile.y];
+                    if (LeftMapValue != -1)
                     {
-                        map[NewTile.x, NewTile.y] = leftMapValue;
-                        tileCount++;
+                        Map[NewTile.x, NewTile.y] = LeftMapValue;
+                        TileCount++;
                     }
                 }
-                if (NewTile.x < length - 1)
+                if (NewTile.x < Length - 1)
                 {
-                    int rightMapValue = map[NewTile.x + 1, NewTile.y];
-                    CheckValue(ref map, rightMapValue, NewTile, ref tileCount, length, height);
+                    int RightMapValue = Map[NewTile.x + 1, NewTile.y];
+                    CheckValue(ref Map, RightMapValue, NewTile, ref TileCount, Length, Height);
                 }
                 if (NewTile.y > 0)
                 {
-                    int downMapValue = map[NewTile.x, NewTile.y - 1];
-                    CheckValue(ref map, downMapValue, NewTile, ref tileCount, length, height);
+                    int DownMapValue = Map[NewTile.x, NewTile.y - 1];
+                    CheckValue(ref Map, DownMapValue, NewTile, ref TileCount, Length, Height);
                 }
-                if (NewTile.y < height - 1)
+                if (NewTile.y < Height - 1)
                 {
-                    int upMapValue = map[NewTile.x, NewTile.y + 1];
-                    CheckValue(ref map, upMapValue, NewTile, ref tileCount, length, height);
+                    int UpMapValue = Map[NewTile.x, NewTile.y + 1];
+                    CheckValue(ref Map, UpMapValue, NewTile, ref TileCount, Length, Height);
                 }
             }
 
-            if (!testCluster) { testCluster = TestClusters(map, length, height); }
-            if (testCluster && tileCount >= minTileCount) { break; }
+            if (!TestCluster) { TestCluster = TestClusters(Map, Length, Height); }
+            if (TestCluster && TileCount >= MinTileCount) { break; }
         }
     }
 
-    void CheckValue(ref int[,] map, int mapValue, Vector2Int newTile, ref int tileCount, int length, int height)
+    void CheckValue(ref int[,] Map, int MapValue, Vector2Int NewTile, ref int TileCount, int Length, int Height)
     {
-        if (mapValue != -1)
+        if (MapValue != -1)
         {
-            if (map[newTile.x, newTile.y] == -1)
+            if (Map[NewTile.x, NewTile.y] == -1)
             {
-                map[newTile.x, newTile.y] = mapValue;
-                tileCount++;
+                Map[NewTile.x, NewTile.y] = MapValue;
+                TileCount++;
             }
-            if (mapValue != map[newTile.x, newTile.y])
+            if (MapValue != Map[NewTile.x, NewTile.y])
             {
-                MergeClusters(new Vector2Int(map[newTile.x, newTile.y], mapValue), ref map, length, height);
-            }
-        }
-    }
-
-    void MergeClusters(Vector2Int clustersToMerge, ref int[,] map, int length, int height)
-    {
-        for (int i = 0; i < length; i++)
-        {
-            for (int j = 0; j < height; j++)
-            {
-                if (map[i,j] == clustersToMerge.y) { map[i,j] = clustersToMerge.x; }
+                MergeClusters(new Vector2Int(Map[NewTile.x, NewTile.y], MapValue), ref Map, Length, Height);
             }
         }
     }
 
-    bool TestClusters(int[,] map, int length, int height)
+    void MergeClusters(Vector2Int ClustersToMerge, ref int[,] Map, int Length, int Height)
     {
-        int cluster = -1;
-        for (int i = 0; i < length; i++)
+        for (int i = 0; i < Length; i++)
         {
-            for (int j = 0; j < height; j++)
+            for (int j = 0; j < Height; j++)
             {
-                if (map[i,j] != -1)
+                if (Map[i,j] == ClustersToMerge.y) { Map[i,j] = ClustersToMerge.x; }
+            }
+        }
+    }
+
+    bool TestClusters(int[,] Map, int Length, int Height)
+    {
+        int Cluster = -1;
+        for (int i = 0; i < Length; i++)
+        {
+            for (int j = 0; j < Height; j++)
+            {
+                if (Map[i,j] != -1)
                 {
-                    if (cluster == -1)
+                    if (Cluster == -1)
                     {
-                        cluster = map[i,j];
+                        Cluster = Map[i,j];
                     }
-                    else if (cluster != map[i,j])
+                    else if (Cluster != Map[i,j])
                     {
                         return false;
                     }
@@ -181,19 +181,19 @@ public class MapConfigurator : OrdonedMonoBehaviour
         return true;
     }
 
-    void UpdateMapConfiguration(int[,] map, int length, int height)
+    void UpdateMapConfiguration(int[,] Map, int Length, int Height)
     {
         if (!MapConfiguration) return;
         MapConfiguration.TilePositions = new List<Vector2Int>();
-        int halfLength = length / 2;
-        int halfHeight = height / 2;
-        for (int i = 0; i < length; i++)
+        int HalfLength = Length / 2;
+        int HalfHeight = Height / 2;
+        for (int i = 0; i < Length; i++)
         {
-            for (int j = 0; j < height; j++)
+            for (int j = 0; j < Height; j++)
             {
-                if (map[i, j] != -1)
+                if (Map[i, j] != -1)
                 {
-                    MapConfiguration.TilePositions.Add(new Vector2Int(i - halfLength, j - halfHeight));
+                    MapConfiguration.TilePositions.Add(new Vector2Int(i - HalfLength, j - HalfHeight));
                 }
             }
         }
@@ -207,16 +207,16 @@ public class MapConfigurator : OrdonedMonoBehaviour
         PlayerSpawnPositions.Value = ShuffleList(MapConfiguration.TilePositions);
     }
 
-    List<Vector2Int> ShuffleList(List<Vector2Int> list)
+    List<Vector2Int> ShuffleList(List<Vector2Int> List)
     {
         int j;
-        for (int i = list.Count - 1; i > 1; i--)
+        for (int i = List.Count - 1; i > 1; i--)
         {
             j = Random.Range(0, i);
-            Vector2Int k = list[j];
-            list[j] = list[i];
-            list[i] = k;
+            Vector2Int k = List[j];
+            List[j] = List[i];
+            List[i] = k;
         }
-        return list;
+        return List;
     }
 }

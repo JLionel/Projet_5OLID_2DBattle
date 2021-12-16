@@ -9,7 +9,7 @@ public class JoinPlayerCommand : PlayerCommand
     [SerializeField] private GameStateEvent playerJoinedEvent;
     [SerializeField] private FloatVariable playerMax;
 
-    [SerializeField] private PlayerClasses playerClasses;
+    [SerializeField] private PlayerClasses PlayerClasses;
     public PlayerClass PlayerClass;
     
     public override void Execute(string playerName)
@@ -21,7 +21,7 @@ public class JoinPlayerCommand : PlayerCommand
                 if (!playerList.Contains(playerName))
                 {
                     playerList.AddNew(playerName);
-                    playerClasses.PlayerClassesList.Add(PlayerClass);
+                    PlayerClasses.PlayerClassesList.Add(PlayerClass);
                     playerJoinedEvent.Raise();
                 }
             }

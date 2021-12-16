@@ -7,19 +7,19 @@ using UnityEngine.Events;
 public class PlayerEventListener : OrdonedMonoBehaviour
 {
     [SerializeField]
-    private PlayerEvent evnt;
+    private PlayerEvent _event;
 
     [SerializeField]
-    private UnityEvent<int> onEventRaised;
+    private UnityEvent<int> _onEventRaised;
 
-    public void OnEventRaised(int index)
+    public void OnEventRaised(int Index)
     {
-        onEventRaised.Invoke(index);
+        _onEventRaised.Invoke(Index);
     }
 
     public override void DoAwake()
     {
-        evnt.RegisterListener(this);
+        _event.RegisterListener(this);
     }
 
     public override void DoUpdate()
@@ -29,6 +29,6 @@ public class PlayerEventListener : OrdonedMonoBehaviour
 
     private void OnDisable()
     {
-        evnt.UnregisterListener(this);
+        _event.UnregisterListener(this);
     }
 }

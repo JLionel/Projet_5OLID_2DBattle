@@ -9,7 +9,7 @@ public class GoogleSheetManager : MonoBehaviour
     [SerializeField] private List<GoogleSheetReadValue> dataToCatch;
     [SerializeField] private List<LinkSheetFloatData> linkData;
     [SerializeField] private GoogleSheetWriteValue writerSheet;
-    private bool _connected;
+    private bool connected;
     
     // Start is called before the first frame update
     void Start()
@@ -21,13 +21,13 @@ public class GoogleSheetManager : MonoBehaviour
     private async void ConnectClient()
     {
         
-        _connected = await _clientToConnect.Connect();
+        connected = await _clientToConnect.Connect();
     }
 
 
     public async void StartReadingValue()
     {
-        if (_connected)
+        if (connected)
         {
             for ( int i = 0; i < dataToCatch.Count; i++)
             {

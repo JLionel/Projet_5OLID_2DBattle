@@ -6,14 +6,14 @@ using UnityEngine.Events;
 public class GameStateEventListener : MonoBehaviour
 {
     [SerializeField]
-    private GameStateEvent eventState;
+    private GameStateEvent _event;
 
     [SerializeField]
-    private List<UnityEvent> onEventRaised;
+    private List<UnityEvent> _onEventRaised;
 
     public void OnEventRaised()
     {
-        foreach (var eventRaised in onEventRaised)
+        foreach (var eventRaised in _onEventRaised)
         {
             eventRaised.Invoke();   
         }
@@ -21,11 +21,11 @@ public class GameStateEventListener : MonoBehaviour
 
     public void Awake()
     {
-        eventState.RegisterListener(this);
+        _event.RegisterListener(this);
     }
 
     private void OnDisable()
     {
-        eventState.UnregisterListener(this);
+        _event.UnregisterListener(this);
     }
 }

@@ -11,27 +11,27 @@ public class PlayerSpecialAttack : MonoBehaviour
     public PlayerHealth PlayerHealth;
     public TileEvent AttackOnTile;
 
-    private void SpecialAttack(Vector2Int position, Vector2Int direction)
+    private void SpecialAttack(Vector2Int Position, Vector2Int Direction)
     {
         if (!PlayerIndexManager) { return; }
 
-        List<Vector2Int> specialAttackPos = PlayerClasses.PlayerClassesList[PlayerIndexManager.Index].GetSpecialAttackPos(position, direction);
+        List<Vector2Int> SpecialAttackPos = PlayerClasses.PlayerClassesList[PlayerIndexManager.Index].GetSpecialAttackPos(Position, Direction);
 
-        Vector2Int attackPos;
-        int tilePlayer;
-        for (int i = 0; i < specialAttackPos.Count; i++)
+        Vector2Int AttackPos;
+        int TilePlayer;
+        for (int i = 0; i < SpecialAttackPos.Count; i++)
         {
-            attackPos = specialAttackPos[i];
-            if (Tiles.Exists(attackPos))
+            AttackPos = SpecialAttackPos[i];
+            if (Tiles.Exists(AttackPos))
             {
-                tilePlayer = TileEntities.TilePlayer(attackPos);
-                if (tilePlayer != -1)
+                TilePlayer = TileEntities.TilePlayer(AttackPos);
+                if (TilePlayer != -1)
                 {
-                    Debug.Log(PlayerIndexManager.Index + " special attacked " + tilePlayer + " from " + position + " to " + attackPos);
-                    PlayerHealth.DecreaseHealth(tilePlayer);
+                    Debug.Log(PlayerIndexManager.Index + " special attacked " + TilePlayer + " from " + Position + " to " + AttackPos);
+                    PlayerHealth.DecreaseHealth(TilePlayer);
                 }
                 if (!AttackOnTile) { return; }
-                AttackOnTile.Raise(attackPos);
+                AttackOnTile.Raise(AttackPos);
             }
         }
     }

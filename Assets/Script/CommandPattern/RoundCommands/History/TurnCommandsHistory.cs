@@ -15,7 +15,7 @@ public class TurnCommandsHistory
             yield return new WaitForSeconds(delayTime);
         }
 
-        RoundCommandHistory.Instance.EndTurn = true;
+        RoundCommandHistory.Instance.endTurn = true;
     }
 
     public bool AddCommand(string playerPseudo, PlayerCommand playerCommand)

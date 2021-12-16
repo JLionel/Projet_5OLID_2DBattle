@@ -6,16 +6,16 @@ public class AttackDisplay : MonoBehaviour
 {
     public GameObject AttackDisplayPrefab;
 
-    public IEnumerator DisplayAttackCoroutine(Vector2Int position)
+    public IEnumerator DisplayAttackCoroutine(Vector2Int Position)
     {
-        GameObject attackDisplay = Instantiate(AttackDisplayPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity);
+        GameObject AttackDisplay = Instantiate(AttackDisplayPrefab, new Vector3(Position.x, Position.y, 0), Quaternion.identity);
         yield return new WaitForSeconds(0.5f);
-        Destroy(attackDisplay);
+        Destroy(AttackDisplay);
     }
 
 
-    public void OnAttack(Vector2Int position)
+    public void OnAttack(Vector2Int Position)
     {
-        StartCoroutine(DisplayAttackCoroutine(position));
+        StartCoroutine(DisplayAttackCoroutine(Position));
     }
 }

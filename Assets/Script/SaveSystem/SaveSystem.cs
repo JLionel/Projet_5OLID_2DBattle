@@ -13,6 +13,7 @@ using Debug = UnityEngine.Debug;
 
 public class SaveSystem : MonoBehaviour
 {
+    private static Stopwatch _stopWatch = new Stopwatch();
     [SerializeField] private GameObject levelPrefab;
     
     [Header("Events to raise")]
