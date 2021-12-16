@@ -14,23 +14,23 @@ public class PlayerHealth : PlayerData
         PlayerHealthList = new List<int>();
     }
 
-    public void DecreaseHealth(int Index)
+    public void DecreaseHealth(int index)
     {
-        PlayerHealthList[Index]--;
-        if (PlayerHealthList[Index] <= 0)
+        PlayerHealthList[index]--;
+        if (PlayerHealthList[index] <= 0)
         {
-            PlayerDeath.Raise(Index);
+            PlayerDeath.Raise(index);
         }
     }
 
-    public override void Remove(int Index)
+    public override void Remove(int index)
     {
-        PlayerHealthList.RemoveAt(Index);
+        PlayerHealthList.RemoveAt(index);
     }
 
-    public void SetSize(int Size)
+    public void SetSize(int size)
     {
-        PlayerHealthList = new List<int>(Size);
+        PlayerHealthList = new List<int>(size);
     }
 
     public override void AddNew()

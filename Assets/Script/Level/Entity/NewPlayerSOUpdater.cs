@@ -8,9 +8,9 @@ public class NewPlayerSOUpdater : MonoBehaviour
 
     public void OnNewPlayerAdded()
     {
-        foreach(var PlayerData in PlayerDataToUpdate)
+        foreach(var playerData in PlayerDataToUpdate)
         {
-            PlayerData.AddNew();
+            playerData.AddNew();
         }
     }
 }

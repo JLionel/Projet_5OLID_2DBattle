@@ -7,7 +7,7 @@ using UnityEngine;
 [Serializable]
 public class CommandsCollection : ScriptableObject
 {
-    public List<TwitchCommandHandler> _availableCommands = new List<TwitchCommandHandler>();
+    public List<TwitchCommandHandler> AvailableCommands = new List<TwitchCommandHandler>();
     
     public void ExecuteCommands(string command, MessageData data)
     {
@@ -60,7 +60,7 @@ public class CommandsCollection : ScriptableObject
 
     private TwitchCommandHandler SearchCommand(string commandName)
     {
-        foreach (var command in _availableCommands)
+        foreach (var command in AvailableCommands)
         {
             if (command.Find(commandName))
                 return command;

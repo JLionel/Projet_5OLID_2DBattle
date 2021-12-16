@@ -7,23 +7,23 @@ using UnityEngine;
 public class GameStateEvent : ScriptableObject
 {
     [SerializeField]
-    private List<GameStateEventListener> _listeners;
+    private List<GameStateEventListener> listeners;
 
     public void Raise()
     {
-        for (int i = _listeners.Count - 1; i >= 0; i--)
+        for (int i = listeners.Count - 1; i >= 0; i--)
         {
-            _listeners[i].OnEventRaised();
+            listeners[i].OnEventRaised();
         }
     }
 
     public void RegisterListener(GameStateEventListener listener)
     {
-        _listeners.Add(listener);
+        listeners.Add(listener);
     }
 
     public void UnregisterListener(GameStateEventListener listener)
     {
-        _listeners.Remove(listener);
+        listeners.Remove(listener);
     }
 }

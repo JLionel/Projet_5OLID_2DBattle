@@ -13,9 +13,9 @@ public class PlayerClasses : PlayerData
         PlayerClassesList = new List<PlayerClass>();
     }
 
-    public void SetSize(int Size)
+    public void SetSize(int size)
     {
-        PlayerClassesList = new List<PlayerClass>(Size);
+        PlayerClassesList = new List<PlayerClass>(size);
     }
 
     public override void AddNew()
@@ -23,14 +23,14 @@ public class PlayerClasses : PlayerData
         PlayerClassesList.Add(AvailableClasses[0]);
     }
 
-    public override void Remove(int Index)
+    public override void Remove(int index)
     {
-        PlayerClassesList.RemoveAt(Index);
+        PlayerClassesList.RemoveAt(index);
     }
 
-    public void AddNew(string ClassName)
+    public void AddNew(string className)
     {
-        PlayerClassesList.Add(AvailableClasses[ClassIndex(ClassName)]);
+        PlayerClassesList.Add(AvailableClasses[ClassIndex(className)]);
     }
 
     public void ClearList()
@@ -38,16 +38,16 @@ public class PlayerClasses : PlayerData
         PlayerClassesList.Clear();
     }
 
-    public void SetPlayerClass(int Index, string ClassName)
+    public void SetPlayerClass(int index, string className)
     {
-        PlayerClassesList[Index] = AvailableClasses[ClassIndex(ClassName)];
+        PlayerClassesList[index] = AvailableClasses[ClassIndex(className)];
     }
 
-    public int ClassIndex(string ClassName)
+    public int ClassIndex(string className)
     {
         for (int i = 0; i < AvailableClasses.Count; i++)
         {
-            if (AvailableClasses[i].name == ClassName)
+            if (AvailableClasses[i].name == className)
             {
                 return i;
             }

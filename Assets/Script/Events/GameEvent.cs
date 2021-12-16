@@ -5,24 +5,24 @@ using UnityEngine;
 public class GameEvent : ScriptableObject
 {
     [SerializeField]
-    private List<GameEventListener> _listeners;
+    private List<GameEventListener> listeners;
 
     public void Raise()
     {
-        for (int i = _listeners.Count - 1; i >= 0; i--)
+        for (int i = listeners.Count - 1; i >= 0; i--)
         {
-            _listeners[i].OnEventRaised();
+            listeners[i].OnEventRaised();
         }
     }
 
     public void RegisterListener(GameEventListener listener)
     {
-        _listeners.Add(listener);
+        listeners.Add(listener);
     }
 
     public void UnregisterListener(GameEventListener listener)
     {
-        _listeners.Remove(listener);
+        listeners.Remove(listener);
     }
 
 }

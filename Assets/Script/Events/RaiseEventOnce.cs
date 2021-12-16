@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class RaiseEventOnce : MonoBehaviour
 {
-    [SerializeField] private GameStateEvent _gameStateEvent;
+    [SerializeField] private GameStateEvent gameStateEvent;
 
     private void Start()
     {
-        _gameStateEvent.Raise();
+        gameStateEvent.Raise();
     }
 }

@@ -6,15 +6,15 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "GameManagement/GameState/WaitActionState")]
 public class WaitActionState : GameState
 {
-    [SerializeField] private FloatVariable _waitTimer;
+    [SerializeField] private FloatVariable waitTimer;
     
     [SerializeField] private PlayerNames playerList;
     [SerializeField] private PlayerClasses playerClasses;
     [SerializeField] private StringVariable winnerName;
     
-    [SerializeField] private GameStateEvent EndGameState;
+    [SerializeField] private GameStateEvent endGameState;
 
-    [SerializeField] private GameEvent EnterWaitState;
+    [SerializeField] private GameEvent enterWaitState;
 
     private float _saveWaitTimer;
     
@@ -25,11 +25,11 @@ public class WaitActionState : GameState
             winnerName.Value = playerList.GetPlayerCount() == 1? playerList.Names[0] : "";
             playerList.ClearList();
             playerClasses.PlayerClassesList.Clear();
-            EndGameState.Raise();
+            endGameState.Raise();
         }else
         {
-            _waitTimer.Value -= Time.deltaTime;
-            if (_waitTimer.Value <= 0)
+            waitTimer.Value -= Time.deltaTime;
+            if (waitTimer.Value <= 0)
             {
                 DefaultNextState.Raise();
             }
@@ -38,8 +38,8 @@ public class WaitActionState : GameState
     
     public override void OnStateEnter()
     {
-        EnterWaitState.Raise();
-        _saveWaitTimer = _waitTimer.Value;
+        enterWaitState.Raise();
+        _saveWaitTimer = waitTimer.Value;
         if (playerList.GetPlayerCount() > 1)
         {
             TwitchChatConnected.Instance.WriteMessage(
@@ -49,7 +49,7 @@ public class WaitActionState : GameState
 
     public override void OnStateExit()
     {
-        _waitTimer.Value = _saveWaitTimer;
+        waitTimer.Value = _saveWaitTimer;
 
         if (playerList.GetPlayerCount() <= 1)
         {

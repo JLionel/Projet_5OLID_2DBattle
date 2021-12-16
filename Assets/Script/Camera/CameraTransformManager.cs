@@ -15,19 +15,19 @@ public class CameraTransformManager : OrdonedMonoBehaviour
 
     public PlayerPositions PlayerPositions;
 
-    private int MaxX;
-    private int MinX;
-    private int MaxY;
-    private int MinY;
+    private int _maxX;
+    private int _minX;
+    private int _maxY;
+    private int _minY;
 
-    private Vector2 CenterPos;
-    private Vector2 CenterPosAtLastWait;
+    private Vector2 _centerPos;
+    private Vector2 _centerPosAtLastWait;
 
-    private float CameraZTarget;
-    private float CameraZTargetAtLastWait;
-    private float InitialCameraZTarget;
+    private float _cameraZTarget;
+    private float _cameraZTargetAtLastWait;
+    private float _initialCameraZTarget;
 
-    private float LastWaitTime;
+    private float _lastWaitTime;
 
     public override void DoAwake()
     {
@@ -37,53 +37,53 @@ public class CameraTransformManager : OrdonedMonoBehaviour
     public override void DoUpdate()
     {
         if (!AdaptationTime) return;
-        float TimeSinceLastWait = Time.time - LastWaitTime;
-        if (TimeSinceLastWait < AdaptationTime.Value)
+        float timeSinceLastWait = Time.time - _lastWaitTime;
+        if (timeSinceLastWait < AdaptationTime.Value)
         {
-            float TimeFactor = (1 - TimeSinceLastWait / AdaptationTime.Value);
-            Vector2 CameraXY = CenterPos + TimeFactor * (CenterPosAtLastWait - CenterPos);
-            float CameraZ = CameraZTarget + TimeFactor * (CameraZTargetAtLastWait - CameraZTarget);
-            transform.position = new Vector3(CameraXY.x, CameraXY.y, CameraZ);
+            float timeFactor = (1 - timeSinceLastWait / AdaptationTime.Value);
+            Vector2 cameraXY = _centerPos + timeFactor * (_centerPosAtLastWait - _centerPos);
+            float cameraZ = _cameraZTarget + timeFactor * (_cameraZTargetAtLastWait - _cameraZTarget);
+            transform.position = new Vector3(cameraXY.x, cameraXY.y, cameraZ);
         }
     }
 
     public void OnMapConfigurated()
     {
         if (!MapLength || !MapHeight || !LengthZoomFactor || !HeightZoomFactor) return;
-        float CameraX = MapLength.Value % 2 == 0 ? -0.5f : 0f;
-        float CameraY = MapHeight.Value % 2 == 0 ? -0.5f : 0f;
-        InitialCameraZTarget = Mathf.Min(-(MapLength.Value + 2) * LengthZoomFactor.Value, -(MapHeight.Value + 2) * HeightZoomFactor.Value);
-        transform.position = new Vector3(CameraX, CameraY, InitialCameraZTarget);
-        LastWaitTime = -1;
+        float cameraX = MapLength.Value % 2 == 0 ? -0.5f : 0f;
+        float cameraY = MapHeight.Value % 2 == 0 ? -0.5f : 0f;
+        _initialCameraZTarget = Mathf.Min(-(MapLength.Value + 2) * LengthZoomFactor.Value, -(MapHeight.Value + 2) * HeightZoomFactor.Value);
+        transform.position = new Vector3(cameraX, cameraY, _initialCameraZTarget);
+        _lastWaitTime = -1;
     }
 
     public void OnWaitActionState()
     {
-        CenterPosAtLastWait = CenterPos;
-        CameraZTargetAtLastWait = CameraZTarget;
+        _centerPosAtLastWait = _centerPos;
+        _cameraZTargetAtLastWait = _cameraZTarget;
         CalcCoordonates();
         CalcZTarget();
-        LastWaitTime = Time.time;
+        _lastWaitTime = Time.time;
     }
 
     public void CalcCoordonates()
     {
-        MaxX = PlayerPositions.GetPosition(0).x;
-        MinX = PlayerPositions.GetPosition(0).x;
-        MaxY = PlayerPositions.GetPosition(0).y;
-        MinY = PlayerPositions.GetPosition(0).y;
+        _maxX = PlayerPositions.GetPosition(0).x;
+        _minX = PlayerPositions.GetPosition(0).x;
+        _maxY = PlayerPositions.GetPosition(0).y;
+        _minY = PlayerPositions.GetPosition(0).y;
         for (int i = 0; i < PlayerPositions.GetPlayerCount(); i++)
         {
-            if (PlayerPositions.GetPosition(i).x < MinX) { MinX = PlayerPositions.GetPosition(i).x; }
-            if (PlayerPositions.GetPosition(i).x > MaxX) { MaxX = PlayerPositions.GetPosition(i).x; }
-            if (PlayerPositions.GetPosition(i).y < MinY) { MinY = PlayerPositions.GetPosition(i).y; }
-            if (PlayerPositions.GetPosition(i).y > MaxY) { MaxY = PlayerPositions.GetPosition(i).y; }
+            if (PlayerPositions.GetPosition(i).x < _minX) { _minX = PlayerPositions.GetPosition(i).x; }
+            if (PlayerPositions.GetPosition(i).x > _maxX) { _maxX = PlayerPositions.GetPosition(i).x; }
+            if (PlayerPositions.GetPosition(i).y < _minY) { _minY = PlayerPositions.GetPosition(i).y; }
+            if (PlayerPositions.GetPosition(i).y > _maxY) { _maxY = PlayerPositions.GetPosition(i).y; }
         }
-        CenterPos = new Vector2(((float)(MinX + MaxX))/2, ((float)(MinY + MaxY))/2);
+        _centerPos = new Vector2(((float)(_minX + _maxX))/2, ((float)(_minY + _maxY))/2);
     }
 
     public void CalcZTarget()
     {
-        CameraZTarget = Mathf.Max(InitialCameraZTarget, Mathf.Min(-((float)(MaxX - MinX + 1) + ZoomMargin.Value) * LengthZoomFactor.Value, -((float)(MaxY - MinY + 1) + ZoomMargin.Value) * HeightZoomFactor.Value, -MinZoom.Value * HeightZoomFactor.Value));
+        _cameraZTarget = Mathf.Max(_initialCameraZTarget, Mathf.Min(-((float)(_maxX - _minX + 1) + ZoomMargin.Value) * LengthZoomFactor.Value, -((float)(_maxY - _minY + 1) + ZoomMargin.Value) * HeightZoomFactor.Value, -MinZoom.Value * HeightZoomFactor.Value));
     }
 }

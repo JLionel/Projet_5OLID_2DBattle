@@ -8,7 +8,7 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "GoogleSheet/Writer")]
 public class GoogleSheetWriteValue : ScriptableObject
 {
-    private GoogleSheetClient userConnection;
+    private GoogleSheetClient _userConnection;
     
     [SerializeField] private string spreadSheetID;
     [SerializeField] private string sheetName;
@@ -22,8 +22,8 @@ public class GoogleSheetWriteValue : ScriptableObject
     
     public async void WriteValueExe()
     {
-        userConnection = GoogleSheetClient.Instance;
-        if(userConnection.Connected)
+        _userConnection = GoogleSheetClient.Instance;
+        if(_userConnection.Connected)
         {
             var result = CreateTab();
             await WriteValue(result);
@@ -45,7 +45,7 @@ public class GoogleSheetWriteValue : ScriptableObject
     
     private async Task<bool> WriteValue(params object[][] data)
     {
-        if (!await userConnection.AwaitForConnection(2000))
+        if (!await _userConnection.AwaitForConnection(2000))
         {
             return false;
         }
@@ -65,7 +65,7 @@ public class GoogleSheetWriteValue : ScriptableObject
 
             var valueInputOption = SpreadsheetsResource.ValuesResource.UpdateRequest.ValueInputOptionEnum.RAW;
             var request =
-                userConnection.Service.Spreadsheets.Values.Update(valueRange, spreadSheetID, $"{sheetName}!{rangeData}");
+                _userConnection.Service.Spreadsheets.Values.Update(valueRange, spreadSheetID, $"{sheetName}!{rangeData}");
 
             request.ValueInputOption = valueInputOption;
 
@@ -79,7 +79,7 @@ public class GoogleSheetWriteValue : ScriptableObject
 
     private async Task<bool> ClearSheet()
     {
-        if (!await userConnection.AwaitForConnection(2000))
+        if (!await _userConnection.AwaitForConnection(2000))
         {
             return false;
         }
@@ -87,7 +87,7 @@ public class GoogleSheetWriteValue : ScriptableObject
         ClearValuesRequest clearValuesRequest = new ClearValuesRequest();
 
         var request =
-            userConnection.Service.Spreadsheets.Values.Clear(clearValuesRequest, spreadSheetID, $"{sheetName}!{rangeData}");
+            _userConnection.Service.Spreadsheets.Values.Clear(clearValuesRequest, spreadSheetID, $"{sheetName}!{rangeData}");
 
 
         var result = await request.ExecuteAsync();

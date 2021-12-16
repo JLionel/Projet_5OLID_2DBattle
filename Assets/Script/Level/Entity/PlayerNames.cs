@@ -17,10 +17,10 @@ public class PlayerNames : PlayerData
         Names = new List<string>(Size);
     }
 
-    public override void Remove(int Index)
+    public override void Remove(int index)
     {
-        Debug.Log(Names [Index] + " died");
-        Names.RemoveAt(Index);
+        Debug.Log(Names [index] + " died");
+        Names.RemoveAt(index);
     }
 
     public override void AddNew()
@@ -28,16 +28,16 @@ public class PlayerNames : PlayerData
         Names.Add("");
     }
 
-    public void AddNew(string Name)
+    public void AddNew(string name)
     {
-        Names.Add(Name);
+        Names.Add(name);
     }
 
-    public int GetPlayerIndex(string Name)
+    public int GetPlayerIndex(string name)
     {
-        if (Contains(Name))
+        if (Contains(name))
         {
-            return Names.IndexOf(Name);
+            return Names.IndexOf(name);
         }
         return -1;
     }

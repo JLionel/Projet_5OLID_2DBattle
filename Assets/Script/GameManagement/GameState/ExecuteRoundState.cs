@@ -6,12 +6,12 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "GameManagement/GameState/ExecuteRoundState")]
 public class ExecuteRoundState : GameState
 {
-    [SerializeField] private BoolVariable _endRound;
+    [SerializeField] private BoolVariable endRound;
     
     //Todo check when all turned have been executed -> waitaction if no winner / -> endgame if winner
     public override void Tick()
     {
-        if(_endRound.Value)
+        if(endRound.Value)
         {
             DefaultNextState.Raise();
         }

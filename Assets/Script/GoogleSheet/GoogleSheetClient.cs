@@ -14,9 +14,9 @@ public class GoogleSheetClient : MySingleton<GoogleSheetClient>
 {
     protected override bool DoDestroyOnLoad => true;
     
-    [SerializeField] private string[] _scopes = { SheetsService.Scope.Spreadsheets };
-    [SerializeField] private string _credentialsPath;
-    [SerializeField] private string _fileName;
+    [SerializeField] private string[] scopes = { SheetsService.Scope.Spreadsheets };
+    [SerializeField] private string credentialsPath;
+    [SerializeField] private string fileName;
     
     public SheetsService Service;
     private bool _connected;
@@ -26,7 +26,7 @@ public class GoogleSheetClient : MySingleton<GoogleSheetClient>
         get => _connected;
     }
 
-    public async  Task<bool> Connect()
+    public async Task<bool> Connect()
     {
         if(!_connected)
         {
@@ -37,8 +37,8 @@ public class GoogleSheetClient : MySingleton<GoogleSheetClient>
     
     private async Task<bool> ConnectToSheet()
     {
-        string directoryPath = Path.Combine(Application.streamingAssetsPath, _credentialsPath);
-        string credentialsPath = Path.Combine(directoryPath, _fileName);
+        string directoryPath = Path.Combine(Application.streamingAssetsPath, this.credentialsPath);
+        string credentialsPath = Path.Combine(directoryPath, fileName);
         if (!Directory.Exists(directoryPath))
         {
             Directory.CreateDirectory(directoryPath);
@@ -54,10 +54,10 @@ public class GoogleSheetClient : MySingleton<GoogleSheetClient>
         
         // The file token.json stores the user's access and refresh tokens, and is created
         // automatically when the authorization flow completes for the first time.
-        string credPath = Path.Combine(Application.persistentDataPath, _credentialsPath);
+        string credPath = Path.Combine(Application.persistentDataPath, this.credentialsPath);
         userCredential = GoogleWebAuthorizationBroker.AuthorizeAsync(
             clientSecrets.Secrets,
-            _scopes,
+            scopes,
             "user",
             CancellationToken.None,
             new FileDataStore(credPath, true)).Result;

@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class AudioVolume : MonoBehaviour
 {
-    [SerializeField] private StringVariable VolumeKey;
-    private AudioSource[] audioSources;
+    [SerializeField] private StringVariable volumeKey;
+    private AudioSource[] _audioSources;
     void Start()
     {
-        audioSources = FindObjectsOfType<AudioSource>();
+        _audioSources = FindObjectsOfType<AudioSource>();
     }
 
     private void Update()
     {
-        foreach (var audioSource in audioSources)
+        foreach (var audioSource in _audioSources)
         {
-            audioSource.volume = PlayerPrefs.GetFloat(VolumeKey.Value) / 100;
+            audioSource.volume = PlayerPrefs.GetFloat(volumeKey.Value) / 100;
         }
     }
 }
