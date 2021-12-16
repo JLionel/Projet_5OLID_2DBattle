@@ -32,9 +32,12 @@ public class Settings : MonoBehaviour
 
     public void SaveSettings()
     {
-        twitchCredentials.Username = twitchName.text.ToLower();
-        twitchCredentials.TwitchAcountName = twitchName.text.ToLower();
+        if(twitchName.text != "" && twitchAuth.text != "")
+        {
+            twitchCredentials.Username = twitchName.text.ToLower();
+            twitchCredentials.TwitchAcountName = twitchName.text.ToLower();
 
-        twitchCredentials.OauthPassword = twitchAuth.text;
+            twitchCredentials.OauthPassword = twitchAuth.text;
+        }
     }
 }
