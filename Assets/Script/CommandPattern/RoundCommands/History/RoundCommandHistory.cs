@@ -17,16 +17,6 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
     
     public bool endTurn;
 
-    //TODO to delet
-    private void Update()
-    {
-        if (Input.GetButtonDown("Jump"))
-        {
-            Debug.Log("Execute round !!");
-            ExecuteRound();
-        }
-    }
-
     private void Start()
     {
         Init();
