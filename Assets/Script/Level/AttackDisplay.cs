@@ -5,11 +5,15 @@ using UnityEngine;
 public class AttackDisplay : MonoBehaviour
 {
     public GameObject AttackDisplayPrefab;
+    public FloatVariable AttackDisplayDuration;
 
     public IEnumerator DisplayAttackCoroutine(Vector2Int Position)
     {
         GameObject AttackDisplay = Instantiate(AttackDisplayPrefab, new Vector3(Position.x, Position.y, 0), Quaternion.identity);
-        yield return new WaitForSeconds(0.5f);
+        if (AttackDisplayDuration)
+        {
+            yield return new WaitForSeconds(AttackDisplayDuration.Value);
+        }
         Destroy(AttackDisplay);
     }
 

@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDisplayPrefab: {fileID: 7055416527339159047, guid: 9e7588719c31b31449efb52087e6a796, type: 3}
+  AttackDisplayDuration: {fileID: 11400000, guid: a87f044a6086cb94fbb96516a665af89, type: 2}
 --- !u!114 &7270999757011492152
 MonoBehaviour:
   m_ObjectHideFlags: 0
