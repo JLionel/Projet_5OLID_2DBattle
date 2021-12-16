@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Index: 0
-  PlayerPosition: {fileID: 11400000, guid: b624617746db3ec48aaab9ad3cd05cb4, type: 2}
+  PlayerGo: {fileID: 11400000, guid: 49744aee7c5ed204a81d83f72858b4f9, type: 2}
 --- !u!114 &-5711853418095516181
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerIndexManager : OrdonedMonoBehaviour
 {
     public int Index;
-    public PlayerPositions PlayerPosition;
+    public PlayerGO PlayerGo;
 
     public override void DoAwake()
     {
-        if (!PlayerPosition) { return; }
+        if (!PlayerGo) { return; }
 
-        Index = PlayerPosition.GetPlayerCount();
+        Index = PlayerGo.GetPlayerCount();
     }
     
     public override void DoUpdate()

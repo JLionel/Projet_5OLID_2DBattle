@@ -11,6 +11,7 @@ public class PlayerSpawner : OrdonedMonoBehaviour
     public PlayerPositions PlayerPositions;
     public PlayerNames PlayerNames;
     public GameEvent AddedNewPlayer;
+    public bool Loaded = false;
 
     [SerializeField] private TwitchAcountCredentials twitchAcountCredentials;
     [SerializeField] private RoundCommand addAction;
@@ -39,7 +40,7 @@ public class PlayerSpawner : OrdonedMonoBehaviour
         Vector2Int SpawnPosition = Vector2Int.zero;
         for (int i = 0; i < SpawnPositions.Value.Count; i++)
         {
-            SpawnPosition = SpawnPositions.Value[i];
+            SpawnPosition = Loaded ? PlayerPositions.GetPosition(i) : SpawnPositions.Value[i];
 
             if (Tiles.Exists(SpawnPosition) && TileEntities.TilePlayer(SpawnPosition) == -1)
             {
