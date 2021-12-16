@@ -36,11 +36,9 @@ public class SaveSystem : MonoBehaviour
     
     public async void SaveData()
     {  
-        Debug.Log($"[{_stopWatch.ElapsedMilliseconds} SaveData: start");
         SaveData data = GetData();
         
         await WriteData(data);
-        Debug.Log($"[{_stopWatch.ElapsedMilliseconds} SaveData: stop");
 
         StartCoroutine(TestCoroutine(finishSaveEvent));
     }
@@ -58,6 +56,7 @@ public class SaveSystem : MonoBehaviour
     private void ReloadGame()
     {
         DestroyGame();
+        //TODO Replace this Instantiate with a RecreateMapAtGivenPos and RecreatePlayerAtGivenPos scripts
         Instantiate(levelPrefab, Vector3.zero, Quaternion.identity);
     }
 
@@ -144,7 +143,6 @@ public class SaveSystem : MonoBehaviour
 
     private SaveData GetData()
     {
-        Debug.Log($"[{_stopWatch.ElapsedMilliseconds} GetData: start");
 
         SaveData data = new SaveData
         {
@@ -166,14 +164,12 @@ public class SaveSystem : MonoBehaviour
             data.ListPlayerClasses.Add(myString);
         }
         
-        Debug.Log($"[{_stopWatch.ElapsedMilliseconds} GetData: stop");
         
         return data;
     }
     
     private async Task WriteData(SaveData data)
     {
-        Debug.Log($"[{_stopWatch.ElapsedMilliseconds} WriteData: start");
         
         var directoryPath = Path.Combine(Application.persistentDataPath, saveFilePath);
         if (!Directory.Exists(directoryPath))
@@ -194,6 +190,5 @@ public class SaveSystem : MonoBehaviour
            await filestream.WriteAsync(bytes, 0, bytes.Length);
         }
         
-        Debug.Log($"[{_stopWatch.ElapsedMilliseconds} WriteData: stop");
     }
 }
