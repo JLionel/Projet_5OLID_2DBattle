@@ -56,7 +56,6 @@ public class GoogleSheetWriteValue : ScriptableObject
         {
             ValueRange valueRange = new ValueRange();
             IList<IList<object>> values = new List<IList<object>>();
-            int i = 0;
             foreach (var row in data)
             {
                 values.Add(row.ToArray());
