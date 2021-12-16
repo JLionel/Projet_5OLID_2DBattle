@@ -51,7 +51,6 @@ public class SaveSystem : MonoBehaviour
         EmptyData();
         RecreateData(data);
         ReloadGame();
-        RecreateData(data);
         
         StartCoroutine(TestCoroutine(finishLoadEvent));
     }
