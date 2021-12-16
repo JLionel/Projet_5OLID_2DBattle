@@ -19,29 +19,29 @@ public class PlayerPositions : PlayerData
         positions.Add(Vector2Int.zero);
     }
 
-    public override void Remove(int index)
+    public override void Remove(int Index)
     {
-        positions.RemoveAt(index);
+        positions.RemoveAt(Index);
     }
 
-    public void SetPosition(int playerIndex, Vector2Int position)
+    public void SetPosition(int PlayerIndex, Vector2Int Position)
     {
         if (!PlayerPositionChanged) { return; }
-        positions[playerIndex] = position;
+        positions[PlayerIndex] = Position;
         PlayerPositionChanged.Raise();
     }
 
-    public void AddPosition(int playerIndex, Vector2Int position)
+    public void AddPosition(int PlayerIndex, Vector2Int Position)
     {
         if (!PlayerPositionChanged) { return; }
-        positions[playerIndex] += position;
+        positions[PlayerIndex] += Position;
         PlayerPositionChanged.Raise();
     }
 
-    public Vector2Int GetPosition(int playerIndex)
+    public Vector2Int GetPosition(int PlayerIndex)
     {
-        if (positions.Count <= playerIndex) { return Vector2Int.zero; }
-        return positions[playerIndex];
+        if (positions.Count <= PlayerIndex) { return Vector2Int.zero; }
+        return positions[PlayerIndex];
     }
 
     public int GetPlayerCount()

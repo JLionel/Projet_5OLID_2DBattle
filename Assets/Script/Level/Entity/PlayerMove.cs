@@ -24,69 +24,69 @@ public class PlayerMove : OrdonedMonoBehaviour
     {
     }
 
-    public void MoveInDirection(Vector2Int direction)
+    public void MoveInDirection(Vector2Int Direction)
     {
-        if (!(direction.magnitude == 1 && (direction.x == 0 || direction.y == 0))) return;
+        if (!(Direction.magnitude == 1 && (Direction.x == 0 || Direction.y == 0))) return;
         if (!PlayerIndexManager) return;
 
-        Vector2Int position = PlayerPositions.GetPosition(PlayerIndexManager.Index);
-        Vector2Int newPosition = position + direction;
+        Vector2Int Position = PlayerPositions.GetPosition(PlayerIndexManager.Index);
+        Vector2Int NewPosition = Position + Direction;
 
         if (PlayerDirections)
         {
-            PlayerDirections.Directions[PlayerIndexManager.Index] = direction;
+            PlayerDirections.Directions[PlayerIndexManager.Index] = Direction;
         }
 
-        Vector2Int AttackPos = MoveFromTo(position, newPosition) ? newPosition : position;
+        Vector2Int AttackPos = MoveFromTo(Position, NewPosition) ? NewPosition : Position;
 
-        MoveAttack(PlayerIndexManager.Index, AttackPos, direction);
+        MoveAttack(PlayerIndexManager.Index, AttackPos, Direction);
     }
-    public void MoveTo(Vector2Int newPosition)
+    public void MoveTo(Vector2Int NewPosition)
     {
         if (!PlayerIndexManager) return;
 
-        Vector2Int position = PlayerPositions.GetPosition(PlayerIndexManager.Index);
+        Vector2Int Position = PlayerPositions.GetPosition(PlayerIndexManager.Index);
 
-        MoveFromTo(position, newPosition);
+        MoveFromTo(Position, NewPosition);
     }
-    private bool MoveFromTo(Vector2Int position, Vector2Int newPosition)
+    private bool MoveFromTo(Vector2Int Position, Vector2Int NewPosition)
     {
-        if (!Tiles.Exists(newPosition)) return false;
-        if (TileEntities.TilePlayer(newPosition) != -1) return false;
+        if (!Tiles.Exists(NewPosition)) return false;
+        if (TileEntities.TilePlayer(NewPosition) != -1) return false;
 
-        LeaveTile(position);
-        JoinTile(newPosition);
-        PlayerPositions.SetPosition(PlayerIndexManager.Index, newPosition);
+        LeaveTile(Position);
+        JoinTile(NewPosition);
+        PlayerPositions.SetPosition(PlayerIndexManager.Index, NewPosition);
         return true;
     }
-    private void LeaveTile(Vector2Int position)
+    private void LeaveTile(Vector2Int Position)
     {
-        if (TileEntities.GetEntity(position) == Entity) { TileEntities.SetEntity(position, null); }
+        if (TileEntities.GetEntity(Position) == Entity) { TileEntities.SetEntity(Position, null); }
     }
-    private void JoinTile(Vector2Int position)
+    private void JoinTile(Vector2Int Position)
     {
-        TileEntities.SetEntity(position, Entity);
+        TileEntities.SetEntity(Position, Entity);
     }
 
-    private void MoveAttack(int index, Vector2Int position, Vector2Int direction)
+    private void MoveAttack(int Index, Vector2Int Position, Vector2Int Direction)
     {
-        List<Vector2Int> moveAttackPos = PlayerClasses.PlayerClassesList[index].GetMoveAttackPos(position, direction);
+        List<Vector2Int> MoveAttackPos = PlayerClasses.PlayerClassesList[Index].GetMoveAttackPos(Position, Direction);
 
-        Vector2Int moveAttackPo;
-        int tilePlayer;
-        for (int i = 0; i < moveAttackPos.Count; i++)
+        Vector2Int AttackPos;
+        int TilePlayer;
+        for (int i = 0; i < MoveAttackPos.Count; i++)
         {
-            moveAttackPo = moveAttackPos[i];
-            if (Tiles.Exists(moveAttackPo))
+            AttackPos = MoveAttackPos[i];
+            if (Tiles.Exists(AttackPos))
             {
-                tilePlayer = TileEntities.TilePlayer(moveAttackPo);
-                if (tilePlayer != -1)
+                TilePlayer = TileEntities.TilePlayer(AttackPos);
+                if (TilePlayer != -1)
                 {
-                    Debug.Log(index + " attacked " + tilePlayer + " from " + position + " to " + moveAttackPo);
-                    PlayerHealth.DecreaseHealth(tilePlayer);
+                    Debug.Log(Index + " attacked " + TilePlayer + " from " + Position + " to " + AttackPos);
+                    PlayerHealth.DecreaseHealth(TilePlayer);
                 }
                 if (!AttackOnTile) { return; }
-                AttackOnTile.Raise(moveAttackPo);
+                AttackOnTile.Raise(AttackPos);
             }
         }
     }

@@ -7,15 +7,15 @@ using UnityEngine.PlayerLoop;
 public class RoundCommandHistory : MySingleton<RoundCommandHistory>
 {
     private List<TurnCommandsHistory> _allTurns = new List<TurnCommandsHistory>(3);
-    [SerializeField] private FloatVariable timeBtwTurns;
+    [SerializeField] private FloatVariable _timeBtwTurns;
 
     [SerializeField] public FloatVariable PlayerDelay;
 
     protected override bool DoDestroyOnLoad => true;
+    //temporary
+    public BoolVariable endRound;
     
-    public BoolVariable EndRound;
-    
-    public bool EndTurn;
+    public bool endTurn;
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
 
     public void ExecuteRound()
     {
-        EndRound.Value = false;
+        endRound.Value = false;
         UpdateRoundDelay();
         StartCoroutine(ExecuteRoundTimed());
     }
@@ -44,21 +44,21 @@ public class RoundCommandHistory : MySingleton<RoundCommandHistory>
     {
         foreach (var turn in _allTurns)
         {
-            EndTurn = false;
+            endTurn = false;
             StartCoroutine(turn.ExecuteCommands(PlayerDelay.Value));
-            yield return new WaitUntil(() => EndTurn);
+            yield return new WaitUntil(() => endTurn);
         }
         ClearTurnsCommands();
-        EndRound.Value = true;
+        endRound.Value = true;
         yield return null;
     }
 
     private void UpdateRoundDelay()
     {
-        timeBtwTurns.Value = 0;
+        _timeBtwTurns.Value = 0;
         foreach (var turn in _allTurns)
         {
-            timeBtwTurns.Value += turn.NumberOfActions() * PlayerDelay.Value;
+            _timeBtwTurns.Value += turn.NumberOfActions() * PlayerDelay.Value;
         }
     }
 

@@ -23,10 +23,10 @@ public class TileSpawner : OrdonedMonoBehaviour
 
     }
 
-    public void SpawnTile(Vector2Int position)
+    public void SpawnTile(Vector2Int Position)
     {
         if (!TilePrefab) return;
-        GameObject tile = Instantiate(TilePrefab, new Vector3(position.x, position.y, 0), Quaternion.identity);
-        AddedNewTile.Raise(position);
+        GameObject Tile = Instantiate(TilePrefab, new Vector3(Position.x, Position.y, 0), Quaternion.identity);
+        AddedNewTile.Raise(Position);
     }
 }

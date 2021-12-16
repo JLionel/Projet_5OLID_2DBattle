@@ -8,29 +8,29 @@ public class PlayerClass : ScriptableObject
     public List<Vector2Int> MoveAttackLocalPos;
     public List<Vector2Int> AttackLocalPos;
 
-    public List<Vector2Int> GetMoveAttackPos(Vector2Int position, Vector2Int direction)
+    public List<Vector2Int> GetMoveAttackPos(Vector2Int Position, Vector2Int Direction)
     {
-        List<Vector2Int> moveAttackGlobalPos = new List<Vector2Int>();
+        List<Vector2Int> MoveAttackGlobalPos = new List<Vector2Int>();
         for (int i = 0; i < MoveAttackLocalPos.Count; i++)
         {
-            moveAttackGlobalPos.Add(position + RotateVector(MoveAttackLocalPos[i], direction));
+            MoveAttackGlobalPos.Add(Position + RotateVector(MoveAttackLocalPos[i], Direction));
         }
-        return moveAttackGlobalPos;
+        return MoveAttackGlobalPos;
     }
 
-    public List<Vector2Int> GetSpecialAttackPos(Vector2Int position, Vector2Int direction)
+    public List<Vector2Int> GetSpecialAttackPos(Vector2Int Position, Vector2Int Direction)
     {
-        List<Vector2Int> attackGlobalPos = new List<Vector2Int>();
+        List<Vector2Int> AttackGlobalPos = new List<Vector2Int>();
         for (int i = 0; i < AttackLocalPos.Count; i++)
         {
-            attackGlobalPos.Add(position + RotateVector(AttackLocalPos[i], direction));
+            AttackGlobalPos.Add(Position + RotateVector(AttackLocalPos[i], Direction));
         }
-        return attackGlobalPos;
+        return AttackGlobalPos;
     }
 
-    private Vector2Int RotateVector(Vector2Int vector, Vector2Int direction)
+    private Vector2Int RotateVector(Vector2Int Vector, Vector2Int Direction)
     {
-        return new Vector2Int(direction.x * vector.x - direction.y * vector.y, direction.y * vector.x + direction.x * vector.y);
+        return new Vector2Int(Direction.x * Vector.x - Direction.y * Vector.y, Direction.y * Vector.x + Direction.x * Vector.y);
     }
 
 }

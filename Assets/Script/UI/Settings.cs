@@ -14,18 +14,18 @@ public class Settings : MonoBehaviour
     [SerializeField] private TMP_InputField twitchAuth;
     [SerializeField] private TwitchAcountCredentials twitchCredentials;
 
-    [SerializeField] private StringVariable volumeKey;
+    [SerializeField] private StringVariable VolumeKey;
 
     private void Start()
     {
-        float value = PlayerPrefs.GetFloat(volumeKey.Value);
+        float value = PlayerPrefs.GetFloat(VolumeKey.Value);
         slider.value = value;
     }
 
     private void Update()
     {
         var value = slider.value;
-        PlayerPrefs.SetFloat(volumeKey.Value, slider.value);
+        PlayerPrefs.SetFloat(VolumeKey.Value, slider.value);
 
         volumeText.text = value.ToString("N0");
     }
@@ -33,7 +33,7 @@ public class Settings : MonoBehaviour
     public void SaveSettings()
     {
         twitchCredentials.Username = twitchName.text.ToLower();
-        twitchCredentials.TwitchAccountName = twitchName.text.ToLower();
+        twitchCredentials.TwitchAcountName = twitchName.text.ToLower();
 
         twitchCredentials.OauthPassword = twitchAuth.text;
     }

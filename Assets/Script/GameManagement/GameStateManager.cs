@@ -7,7 +7,7 @@ public class GameStateManager : MonoBehaviour
     private GameState _gameState;
     
     //default state
-    [SerializeField] private GameStateEvent firstStateLoaded;
+    [SerializeField] private GameStateEvent FirstStateLoaded;
 
     [SerializeField] private GameStateEnumVariable currentStateName;
 
@@ -16,7 +16,7 @@ public class GameStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        firstStateLoaded.Raise();
+        FirstStateLoaded.Raise();
     }
 
     // Update is called once per frame

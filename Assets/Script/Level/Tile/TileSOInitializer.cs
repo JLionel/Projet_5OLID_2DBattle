@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TileSOInitializer : OrdonedMonoBehaviour
 {
-    [SerializeField] private List<TileData> tileDatas;
+    [SerializeField] private List<TileData> _tileDatas;
 
     public override void DoAwake()
     {
-        foreach (var tileData in tileDatas)
+        foreach (var TileData in _tileDatas)
         {
-            tileData.Init();
+            TileData.Init();
         }
     }
     public override void DoUpdate()

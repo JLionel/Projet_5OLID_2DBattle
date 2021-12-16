@@ -16,6 +16,6 @@ public class JoinLocaly : ScriptableObject
         PlayerClass playerClass = playerClasses.AvailableClasses[playerClasses.ClassIndex(dropdownValue.text)];
         var joinCopy = (JoinPlayerCommand) joinCommand;
         joinCopy.PlayerClass = playerClass;
-        joinCopy.Execute(credentials.TwitchAccountName);
+        joinCopy.Execute(credentials.TwitchAcountName);
     }
 }

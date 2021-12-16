@@ -6,11 +6,11 @@ public class NewTileSOUpdater : MonoBehaviour
 {
     public List<TileData> TileDataToUpdate;
 
-    public void OnNewTileAdded(Vector2Int position)
+    public void OnNewTileAdded(Vector2Int Position)
     {
-        foreach (var tileData in TileDataToUpdate)
+        foreach (var TileData in TileDataToUpdate)
         {
-            tileData.AddNew(position);
+            TileData.AddNew(Position);
         }
     }
 }

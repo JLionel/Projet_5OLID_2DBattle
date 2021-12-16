@@ -5,24 +5,24 @@ using UnityEngine;
 public class TileEvent : ScriptableObject
 {
     [SerializeField]
-    private List<TileEventListener> listeners;
+    private List<TileEventListener> _listeners;
 
-    public void Raise(Vector2Int position)
+    public void Raise(Vector2Int Position)
     {
-        for (int i = listeners.Count - 1; i >= 0; i--)
+        for (int i = _listeners.Count - 1; i >= 0; i--)
         {
-            listeners[i].OnEventRaised(position);
+            _listeners[i].OnEventRaised(Position);
         }
     }
 
     public void RegisterListener(TileEventListener listener)
     {
-        listeners.Add(listener);
+        _listeners.Add(listener);
     }
 
     public void UnregisterListener(TileEventListener listener)
     {
-        listeners.Remove(listener);
+        _listeners.Remove(listener);
     }
 
 }
