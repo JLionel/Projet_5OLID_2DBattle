@@ -20,7 +20,7 @@
   1 month
 	
 ## My Part
-  * Implement the connection with twitch
+  * Implement the connection with twitch and the chat's commands
   * Implement the Google Sheet usage to change our game settings
   * Create a global GameState to manage the game
   * Implement the Input Patern to play in multiplayer on a round base game
