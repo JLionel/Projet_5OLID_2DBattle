@@ -13,7 +13,7 @@
 
 ### Group
 [Jean DUCAMP](https://github.com/JeanDucamp)  
-[Lionel JANIN](https://github.com/JLionel) (me)  
+[Lionel JANIN](https://github.com/JLionel)  
 [Killian PEREZ](https://github.com/Meshanda)  
 
 ### Time to realize it
