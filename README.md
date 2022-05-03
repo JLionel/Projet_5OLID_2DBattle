@@ -12,9 +12,9 @@
   C#
 
 ### Group
-  Jean DUCAMP
-  Lionel JANIN (myself)
-  Killian PEREZ
+[Jean DUCAMP](https://github.com/JeanDucamp)  
+[Lionel JANIN](https://github.com/JLionel) (me)  
+[Killian PEREZ](https://github.com/Meshanda)  
 
 ### Time to realize it
   1 month
