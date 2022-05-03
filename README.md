@@ -19,7 +19,7 @@
 ### Time to realize it
   1 month
 	
-## My Part
+## Worked On
   * Implement the connection with twitch and the chat's commands
   * Implement the Google Sheet usage to change our game settings
   * Create a global GameState to manage the game
